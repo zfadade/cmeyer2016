@@ -1,0 +1,101 @@
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:51
+msgid "Bienvenue"
+msgstr "Bienvenue"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:57
+msgid "Ateliers"
+msgstr "Ateliers"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:59
+msgid "Consultations"
+msgstr "Consultations"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:68
+msgid "ListeDesOrganisations"
+msgstr "Liste des organisations"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:70
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:118
+msgid "Temoignages"
+msgstr "Temoignages"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:75
+msgid "Media"
+msgstr "M&eacute;dia"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:77
+msgid "Videos"
+msgstr "Vid&eacute;os"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:79
+msgid "Infolettres"
+msgstr "Infolettres"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:81
+msgid "LiensUtiles"
+msgstr "Liens utiles"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:84
+msgid "AproposDeNous"
+msgstr "&Agrave; propos de nous"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:91
+msgid "Anglais"
+msgstr "Anglais"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:110
+msgid "Slogan"
+msgstr "LEADERS, PRENEZ UNE LONGUEUR D'AVANCE SUR VOS CONCURRENTS !"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:111
+msgid "SubSlogan"
+msgstr "Communication performante. Dialogue émotionnellement intelligent. Leadership inspirant."
+
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:120
+msgid "TemoignageService"
+msgstr ""
+"Madame Meyer, avec vos ateliers, j’ai vu toute une diff&eacute;rence ! "
+"Vous nous avez donn&eacute; une certaine confiance. Merci ! "
+"Vous savez bien r&eacute;pondre et  surtout vous vous ajustez aux besoins du client … et c’est tr&egrave;s tr&egrave;s rare!"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tool /services.php:125
+msgid "ContactezNous"
+msgstr "Contactez-nous"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:127
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:128
+msgid "Nom"
+msgstr "Nom"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:131
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:132
+msgid "Prenom"
+msgstr "Pr&eacute;nom"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:135
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:136
+msgid "Courriel"
+msgstr "Courriel"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:139
+msgid "Envoyez"
+msgstr "Envoyez"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:147
+msgid "NosServices"
+msgstr "Nos Services"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:153
+msgid "ServicePage"
+msgstr ""
+"L’image d’excellence de votre compagnie se ternit ? Vous souhaitez gagner en productivit&eacute; "
+"et r&eacute;duire les co&ucirc;ts op&eacute;rationnels ? Nous offrons des formations sous forme d’ateliers innovants "
+"fond&eacute;s sur une communication performante, un dialogue &eacute;motionnellement intelligent "
+"et un leadership inspirant répondant à vos besoins de comp&eacute;titivit&eacute. "
+"Une communication organisationnelle efficiente g&eacute;n&egrave;re des b&eacute;n&eacute;fices qualitatifs et quantitatifs. "
+"Faciles &agrave; ins&eacute;rer dans vos activit&eacute;s quotidiennes, nos ateliers sur mesure pr&eacute;sentent "
+"un juste &eacute;quilibre entre strat&eacute;gie et tactique, "
+"explications des principes et mises en pratiques imm&eacute;diatement transf&eacute;rables vous permettant "
+"de relever les d&eacute;fis d’affaires de votre organisation. "
+"Chefs d’entreprise, la valeur de votre compagnie fera un bond en avant."

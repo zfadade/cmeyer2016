@@ -1,0 +1,15 @@
+/*
+  ==========================================
+              CONSENTEMENT 
+  ==========================================
+*/
+
+body{background-color:#aaa;}
+.container{margin-top:5px;border-radius:10px;}
+.slogan{text-align:center;font-size:16px;font-weight: bold;}
+
+.loi{height:500px;background-color:#F3FBFD;}
+.loipourriel{background-color:#F3FBFD;text-align:center;margin-top:10px;padding:5px 0; border:1px solid red;}
+.ouinon{padding-right:50px;}
+.pascadre{border:none;}
+#logoC{padding:5px;}

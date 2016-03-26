@@ -1,0 +1,9 @@
+photos/
+js/
+images/
+logo/
+vendor/
+*.mo
+bootstrap.css
+cmeyer.sublime-*
+tags

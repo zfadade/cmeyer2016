@@ -1,0 +1,166 @@
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:51
+msgid "Bienvenue"
+msgstr "Welcome"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:57
+msgid "Ateliers"
+msgstr "Workshops"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:59
+msgid "Consultations"
+msgstr "Consultations"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:68
+msgid "ListeDesOrganisations"
+msgstr "List of Organizations"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:70
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:118
+msgid "Temoignages"
+msgstr "Testimonials"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:75
+msgid "Media"
+msgstr "Media"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:77
+msgid "Videos"
+msgstr "Videos"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:79
+msgid "Infolettres"
+msgstr "Infoletters"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:81
+msgid "LiensUtiles"
+msgstr "Useful Links"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:84
+msgid "AproposDeNous"
+msgstr "About Us"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:110
+msgid "Slogan"
+msgstr "LEADERS, GET A HEADSTART ON YOUR COMPETITION!"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:111
+msgid "SubSlogan"
+msgstr ""
+"Effective communication. Emotionally smart conversation. Inspiring "
+"leadership."
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:120
+msgid "TemoignageService"
+msgstr ""
+"Mrs. Meyer, I saw a huge difference with your workshops!  You have given us "
+"a lot of confidence.  Thank you!  You answered all our questions, and what I "
+"especially liked is how you were able to understand our needs, and adjusted "
+"the class accordingly."
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:125
+msgid "ContactezNous"
+msgstr "Contact us"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:127
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:128
+msgid "Nom"
+msgstr "Last name"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:131
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:132
+msgid "Prenom"
+msgstr "First name"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:135
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:136
+msgid "Courriel"
+msgstr "Email"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:139
+#: /Library/WebServer/Documents/cmform/req-cv.php:183
+msgid "Envoyez"
+msgstr "Submit"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:147
+msgid "NosServices"
+msgstr "Our Services"
+
+#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:153
+msgid "ServicePage"
+msgstr ""
+"The image of excellence of your company is fading? You want to increase "
+"productivity and reduce operational costs ? We offer training in the form of "
+"innovative workshops based on an efficient communication , an emotionally "
+"intelligent dialogue and inspirational leadership to meet your needs "
+"competitiveness. Efficient organizational communication generates "
+"qualitative and quantitative benefits. Easy to fit into your daily "
+"activities, our tailored workshops provide a balance between strategy and "
+"tactics , principles and explanations set immediately transferable practices "
+"allowing you to meet the business challenges in your organization. business "
+"leaders , the value of your company will make a leap forward."
+
+#: /Library/WebServer/Documents/cmform/index.php:11
+#: /Library/WebServer/Documents/cmform/index.php:24
+#: /Library/WebServer/Documents/cmform/viewpost.php:49
+msgid "Blogue"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/index.php:19
+msgid "Francais"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/index.php:20
+msgid "Anglais"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/index.php:28
+msgid "posted_on"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/index.php:29
+msgid "lire_plus"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/mce.php:10
+msgid "Admin_modifier_blogue"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:21
+msgid "nom_obligatoire"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:25
+msgid "courriel_chars"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:34
+msgid "courriel_obligatoire"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:37
+msgid "courriel_invalide"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:160
+msgid "apropos"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:163
+msgid "Bienvenue chez"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:169
+msgid "Recevoir CV"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:171
+msgid "Votre nom"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:176
+msgid "Votre courriel"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmform/req-cv.php:181
+msgid "Commentaires"
+msgstr ""
