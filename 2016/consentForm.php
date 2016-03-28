@@ -10,15 +10,16 @@ $language = setLanguage();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $oui_non = filter_input(INPUT_POST, 'oui_non', FILTER_SANITIZE_STRING);
     $saysYes = $oui_non == "oui" ? 1 : 0;
-    $clientName = defaultVal($_SESSION, "clientName", "");
     $clientEmail = defaultVal($_SESSION, "clientEmail", "");
-    $clientCode = defaultVal($_SESSION, "clientCode", "");
+    $clientCode  = "xx";
   
-    updateConsent($clientEmail, $saysYes); 
+    updateConsent($clientEmail, $clientCode, $saysYes); 
     if ($oui_non == "oui") {
+      print "oui";
       header('Location: consentMerci.php');
     }
     else {
+      print "non";
       header('Location: nonConsentMerci.php');
     }
     
@@ -48,11 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <div class='container loi'>
-<?php                                                                              
-// Have sender info put clientEmail, etc. into email somehow                       
-     $_SESSION["clientName"] = "Zebulah";                                    
-     $_SESSION["clientEmail"] = "zfadade@yahoo.com";                         
-     $_SESSION["clientCode"] = "12345";                                      
+<?php                
+      $_SESSION["clientEmail"] = filter_input(INPUT_GET, 'cid', FILTER_SANITIZE_STRING);
+      // $_SESSION["clientCode"] = filter_input(INPUT_GET, 'cid', FILTER_SANITIZE_STRING);                                
 ?>
       <div class='col-md-12 col-sm-12 col-xs-12 pascadre'>       
       <div class='row'>
@@ -71,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
          <form name="OuiNonForm" method="post" 
          action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> 
-          <!--  ASK FOR ACCEPTING EMAIL -->
             <p>
             <div class="checkbox">
               <label class='active ouinon'>

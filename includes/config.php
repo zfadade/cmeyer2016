@@ -26,6 +26,8 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 # Slack URLS
 define("SLACK_ERRLOG_URL", $my_init_data['slack_errlog_url']);
 define("SLACK_CONSENT_URL", $my_init_data['slack_consentements_url']);
+define("SLACK_TESTING_URL", $my_init_data['slack_testing_url']);
+
 
 function __autoload($class) {
    my_autoload($class);
