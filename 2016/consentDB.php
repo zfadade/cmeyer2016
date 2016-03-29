@@ -2,30 +2,29 @@
 
 require_once('../includes/config.php');
 
-function insertContact($nom, $prenom, $courriel, $consent)  {
+function insertContact($nom, $prenom, $courriel, $commentaire, $consent)  {
 	try {
 		global $db;
 
-		$stmt = $db->prepare("INSERT INTO contacts_from_web (nom,prenom,courriel,consent,consentModDate) VALUES (:prenom, :nom, :courriel, :consent, now())");
+		$stmt = $db->prepare("INSERT INTO contacts_from_web (nom,prenom,courriel,commentaire,consent,modDate) VALUES (:prenom, :nom, :courriel, :commentaire, :consent, now())");
 
 		$stmt->bindParam(':nom', $nom);
 		$stmt->bindParam(':prenom', $prenom);
 		$stmt->bindParam(':courriel', $courriel);	
+		$stmt->bindParam(':commentaire', $commentaire);	
 		$stmt->bindParam(':consent', $consent);
 
 		$stmt->execute();
 
 		if ($stmt->rowCount() > 0) {
-			$msg = "Successfully added $nom $prenom $courriel $consent to contacts_from_web in DB";
+			$msg = "Successfully added $nom $prenom $courriel \"$commentaire\" $consent to contacts_from_web in DB";
 			// TODO:  Get sys_log working
 			// sys_log(LOG_INFO, msg);
-			print($msg);
 			sendToSlack(SLACK_TESTING_URL, $msg);
 			//sendToSlack(SLACK_CONSENT_URL, "Updated consent for $clientEmail ($clientCode) to $consent");
 		}
 		else {
-			$errMsg = "ERROR! Unable to add $prenom $courriel $consent to contacts_from_web in DB";
-			print("errMsg");
+			$errMsg = "ERROR! Unable to add $prenom $courriel $commentaire $consent to contacts_from_web in DB";
 			error_log($errMsg, 1, "zfadade@yahoo.com");
 			sendToSlack(SLACK_TESTING_URL, $errMsg);
       		//sendToSlack(SLACK_CONSENT_URL, $errMsg);
@@ -33,8 +32,7 @@ function insertContact($nom, $prenom, $courriel, $consent)  {
 	}
 	catch(PDOException $e) {
 		// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
-		$errMsg = "ERROR! DB exception when adding $nom $prenom $$courriel $consent to contacts_from_web in DB " . $e->getMessage();
-		print($errMsg);
+		$errMsg = "ERROR! DB exception when adding $nom $prenom $$courriel $commentaire $consent to contacts_from_web in DB " . $e->getMessage();
 		error_log($errMsg, 1, "zfadade@yahoo.com");
 	    sendToSlack(SLACK_TESTING_URL, $errMsg);
 	}
@@ -45,7 +43,7 @@ function updateConsent($clientEmail, $clientCode, $consent)  {
 		global $db;
 
 		// update consent info in database
-		$stmt = $db->prepare('UPDATE user_info SET consent = :consent, consentModDate = NOW() WHERE courriel = :clientEmail') ;
+		$stmt = $db->prepare('UPDATE user_info SET consent = :consent, modDate = NOW() WHERE courriel = :clientEmail') ;
 		$retVal = $stmt->execute(array(
 			':clientEmail' => $clientEmail,
 			':consent' => $consent

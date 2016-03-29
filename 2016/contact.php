@@ -7,7 +7,7 @@ require_once("consentDB.php");
 $language = setLanguage();
 
 // Define values for user info entered in contact form
-$nomErr = $prenomErr = $courrielErr = "";
+$nomErr = $prenomErr = $courrielErr = $commentaireErr = "";
 $nom = defaultVal($_SESSION, "nom", "");
 $prenom = defaultVal($_SESSION, "prenom", "");
 $courriel = defaultVal($_SESSION, "courriel", "");
@@ -38,28 +38,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $courriel = filter_input(INPUT_POST, 'courriel', FILTER_SANITIZE_STRING);
     }
 
-    // Sanitize commentaire
+    // Verify commentaire
     $commentaire = filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_STRING);
+     if (empty($commentaire)) {
+        $commentaireErr = "Commentaire obligatoire";
+    } 
     
     // Get oui/non response
     $oui_non = filter_input(INPUT_POST, 'oui_non', FILTER_SANITIZE_STRING);
     $saysYes = $oui_non == "oui" ? 1 : 0;
 
-    if (empty($nomErr) and empty($prenomErr) and empty($courrielErr)) {
+    if (empty($nomErr) and empty($prenomErr) and empty($courrielErr) and empty($commentaireErr)) {
 
       // No errors :-)
-
-      // Try to insert contact into DB
-      insertContact($nom, $prenom, $courriel, $saysYes);
+      // Insert contact into DB
+      insertContact($nom, $prenom, $courriel, $commentaire, $saysYes);
 
       // Send email
-      // sendMail($courriel, $clientName, $commentaire);
-      //echo ' MERCI! ';
-      // We're done:  clear data from session
+      $nomComplet = $prenom . " " . $nom;
+      $sujet = "$nomComplet sent a commentaire de conseil-caroleMayer.ca!";
+      // $message = " This is a message from me. Can we get togther next week and watch some tennis?  I would really like that.  Let us get a few beers as well, and maybe some ice cream !";
+      $headers = 'From: ' . $courriel . PHP_EOL ;
+      // $headers = "From: " . $courriel . PHP_EOL .
+      //     "Reply-To: " . $courriel . PHP_EOL .
+      //     "X-Mailer: PHP/" . phpversion();
+   
+
+      // send the mail
+      mail (CONTACT_EMAIL_RECIPIENT, $sujet, $commentaire, $headers);
+    
+      // We're done.  Clear data from session
       $nom = $prenom = $courriel = $commentaire = "";
-      $_SESSION["nom"] = $_SESSION["prenom"] = $_SESSION["courriel"] = $_SESSION["commenataire"] = "";
+      $_SESSION["nom"] = $_SESSION["prenom"] = $_SESSION["courriel"] = $_SESSION["commentaire"] = "";
     } else {
-      // Data was bad.  Save variables in session so they'll be there when form is redisplayed
+      // Data was bad.  Save variables in session so they'll still be displayed when form is redisplayed
       $_SESSION["nom"] = $nom; 
       $_SESSION["prenom"] = $prenom; 
       $_SESSION["courriel"] = $prenom; 

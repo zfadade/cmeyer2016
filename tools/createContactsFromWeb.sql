@@ -7,8 +7,9 @@ CREATE TABLE `contacts_from_web` (
   `nom` varchar(100) DEFAULT NULL,
   `prenom` varchar(100) DEFAULT NULL,
   `courriel` varchar(100) NOT NULL, 
+  `commentaire` varchar(500) NOT NULL, 
   `consent` tinyint(1) DEFAULT NULL,
-  `consentModDate` datetime DEFAULT NULL,
+  `modDate` datetime DEFAULT NULL,
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

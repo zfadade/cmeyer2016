@@ -30,6 +30,8 @@ define("SLACK_ERRLOG_URL", SLACK_TESTING_URL);
 // define("SLACK_CONSENT_URL", $my_init_data['slack_consentements_url']);
 define("SLACK_CONSENT_URL", SLACK_TESTING_URL);
 
+define ("CONTACT_EMAIL_RECIPIENT", $my_init_data['contact_email_to']);
+
 function __autoload($class) {
    my_autoload($class);
 }
