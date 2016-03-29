@@ -99,3 +99,50 @@ msgstr ""
 "explications des principes et mises en pratiques imm&eacute;diatement transf&eacute;rables vous permettant "
 "de relever les d&eacute;fis d’affaires de votre organisation. "
 "Chefs d’entreprise, la valeur de votre compagnie fera un bond en avant."
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:17
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:8
+msgid "AccepteRecevoir"
+msgstr "J'accepte de recevoir les infolettres et autres informations de <b>Carole Meyer Communication organisationnelle</b>"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:25
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:26
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:30
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:32
+msgid "NomRequired"
+msgstr "Nom obligatoire"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:18
+msgid "willTHisWork"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:9
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:11
+msgid "Oui"
+msgstr "Oui"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:10
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:12
+msgid "Non"
+msgstr "Non"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:36
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:38
+msgid "PrenomRequired"
+msgstr "Prenom obligatoire"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:42
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:44
+msgid "CourrielRequired"
+msgstr "Courriel obligatoire"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:45
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:47
+msgid "CourrielBad"
+msgstr "Courriel mal forme"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:52
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:54
+msgid "CommentaireRequired"
+msgstr "Merci de laisser un commentaire"
+

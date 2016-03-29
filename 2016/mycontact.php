@@ -178,16 +178,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </nav> 
 <!-- <div class='container'> -->
                   
-      <div class='row touteslespages one-edge-shadow'>
-        <?php require_once 'slogan.php'; ?>
+      <div class='row touteslespages'>
+        <div class='col-md-12 col-sm-12 col-xs-12'>
+      <p><h3 class='h33'>LEADERS, PRENEZ UNE LONGUEUR D'AVANCE SUR VOS CONCURRENTS !</h3></p>
+      <p class='slogan'>Communication performante. Dialogue &eacute;motionnellement intelligent. Leadership inspirant.</p>
+     
       </div>
+      
+       </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
         <h3 class='h333'>T&eacute;moignages</h3>
         <div class='clientfeedback'>
          <p >&quot;J’ai été surprise par ta facilité à nous faire progresser, à utiliser l’humour pour dédramatiser, à mentionner en toute
           subtilité nos points à améliorer, à nous encourager! C’était bien efficace pour tout le groupe! &quot;
-          </p>
+              </p>:
                 <p class='client'>H&eacute;l&egrave;ne</p>
         </div>
         <br>
@@ -233,7 +238,6 @@ Nous pouvons vous aider à tonifier votre communication organisationnelle, crée
 </div><!-- end of col md-8 right -->
 
       <div class='clearfix'></div>
-
     
     <footer>
              <?php require_once 'footer.php'; ?>

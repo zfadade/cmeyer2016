@@ -62,11 +62,15 @@ function getBlogId($postId) {
 }
 
 // Is this needed?  Or is filter_input() sufficient ?
-function cleanInput($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+// INPUT_POST, 'nom', FILTER_SANITIZE_STRING
+function cleanInput($input_array, $var, $filter_type) {
+	$data = filter_input(INPUT_POST, $var, $filter_type);
+
+  // Handle accents
+
+	$data2 = htmlspecialchars($data);
+  // $data2 = html_entity_decode(utf8_decode($data));
+  return $data2;
 }
 
 

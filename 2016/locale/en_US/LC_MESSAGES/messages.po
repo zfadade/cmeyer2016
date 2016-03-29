@@ -1,55 +1,69 @@
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:51
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:50
 msgid "Bienvenue"
 msgstr "Welcome"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:57
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:56
 msgid "Ateliers"
 msgstr "Workshops"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:59
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:58
 msgid "Consultations"
 msgstr "Consultations"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:68
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:67
 msgid "ListeDesOrganisations"
 msgstr "List of Organizations"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:70
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:118
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:69
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:117
 msgid "Temoignages"
 msgstr "Testimonials"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:75
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:74
 msgid "Media"
 msgstr "Media"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:77
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:76
 msgid "Videos"
 msgstr "Videos"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:79
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:78
 msgid "Infolettres"
 msgstr "Infoletters"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:81
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:80
 msgid "LiensUtiles"
 msgstr "Useful Links"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:84
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:83
 msgid "AproposDeNous"
 msgstr "About Us"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:110
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:109
 msgid "Slogan"
 msgstr "LEADERS, GET A HEADSTART ON YOUR COMPETITION!"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:111
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:110
 msgid "SubSlogan"
 msgstr ""
 "Effective communication. Emotionally smart conversation. Inspiring "
 "leadership."
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:120
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:119
 msgid "TemoignageService"
 msgstr ""
 "Mrs. Meyer, I saw a huge difference with your workshops!  You have given us "
@@ -58,34 +72,45 @@ msgstr ""
 "the class accordingly."
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:125
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:124
 msgid "ContactezNous"
 msgstr "Contact us"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:127
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:128
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:126
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:127
 msgid "Nom"
 msgstr "Last name"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:131
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:132
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:130
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:131
 msgid "Prenom"
 msgstr "First name"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:135
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:136
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:134
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:135
 msgid "Courriel"
 msgstr "Email"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:139
-#: /Library/WebServer/Documents/cmform/req-cv.php:183
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:138
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:11
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:13
 msgid "Envoyez"
 msgstr "Submit"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:147
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:146
 msgid "NosServices"
 msgstr "Our Services"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:153
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:152
 msgid "ServicePage"
 msgstr ""
 "The image of excellence of your company is fading? You want to increase "
@@ -99,68 +124,53 @@ msgstr ""
 "allowing you to meet the business challenges in your organization. business "
 "leaders , the value of your company will make a leap forward."
 
-#: /Library/WebServer/Documents/cmform/index.php:11
-#: /Library/WebServer/Documents/cmform/index.php:24
-#: /Library/WebServer/Documents/cmform/viewpost.php:49
-msgid "Blogue"
-msgstr ""
-
-#: /Library/WebServer/Documents/cmform/index.php:19
-msgid "Francais"
-msgstr ""
-
-#: /Library/WebServer/Documents/cmform/index.php:20
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:90
 msgid "Anglais"
+msgstr "English"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:17
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:8
+msgid "AccepteRecevoir"
+msgstr "I agree to receive newsletters and other communications from CMCO"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:25
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:26
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:30
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:32
+msgid "NomRequired"
+msgstr "Last name required"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:18
+msgid "willTHisWork"
 msgstr ""
 
-#: /Library/WebServer/Documents/cmform/index.php:28
-msgid "posted_on"
-msgstr ""
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:9
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:11
+msgid "Oui"
+msgstr "Yes"
 
-#: /Library/WebServer/Documents/cmform/index.php:29
-msgid "lire_plus"
-msgstr ""
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:10
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:12
+msgid "Non"
+msgstr "No"
 
-#: /Library/WebServer/Documents/cmform/mce.php:10
-msgid "Admin_modifier_blogue"
-msgstr ""
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:36
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:38
+msgid "PrenomRequired"
+msgstr "First name required"
 
-#: /Library/WebServer/Documents/cmform/req-cv.php:21
-msgid "nom_obligatoire"
-msgstr ""
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:42
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:44
+msgid "CourrielRequired"
+msgstr "Email required"
 
-#: /Library/WebServer/Documents/cmform/req-cv.php:25
-msgid "courriel_chars"
-msgstr ""
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:45
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:47
+msgid "CourrielBad"
+msgstr "Bad email format"
 
-#: /Library/WebServer/Documents/cmform/req-cv.php:34
-msgid "courriel_obligatoire"
-msgstr ""
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:52
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:54
+msgid "CommentaireRequired"
+msgstr "Please leave a comment"
 
-#: /Library/WebServer/Documents/cmform/req-cv.php:37
-msgid "courriel_invalide"
-msgstr ""
-
-#: /Library/WebServer/Documents/cmform/req-cv.php:160
-msgid "apropos"
-msgstr ""
-
-#: /Library/WebServer/Documents/cmform/req-cv.php:163
-msgid "Bienvenue chez"
-msgstr ""
-
-#: /Library/WebServer/Documents/cmform/req-cv.php:169
-msgid "Recevoir CV"
-msgstr ""
-
-#: /Library/WebServer/Documents/cmform/req-cv.php:171
-msgid "Votre nom"
-msgstr ""
-
-#: /Library/WebServer/Documents/cmform/req-cv.php:176
-msgid "Votre courriel"
-msgstr ""
-
-#: /Library/WebServer/Documents/cmform/req-cv.php:181
-msgid "Commentaires"
-msgstr ""
