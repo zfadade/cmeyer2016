@@ -1,85 +1,10 @@
 <?php
 require_once("../includes/php_utils.php");
-require_once("../includes/config.php");
-require_once("consentDB.php");
+// require_once("../includes/config.php");
+// require_once("consentDB.php");
 
 // i18n:
 $language = setLanguage();
-
-// Define values for user info entered in contact form
-$nomErr = $prenomErr = $courrielErr = $commentaireErr = "";
-$nom = defaultVal($_SESSION, "nom", "");
-$prenom = defaultVal($_SESSION, "prenom", "");
-$courriel = defaultVal($_SESSION, "courriel", "");
-$commentaire = defaultVal($_SESSION, "commentaire", "");
-
-// The form has been submitted.  Do error correction, and act on data if it's good
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Verify nom
-    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_STRING);
-    if (empty($nom)) {
-      $nomErr = 'Nom obligatoire';
-    }
-
-    // Verify prenom
-    $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_STRING);
-    if (empty($prenom)) {
-      $prenomErr = 'Prenom obligatoire';
-    }
-
-    // Verify courriel
-    $courriel = filter_input(INPUT_POST, 'courriel', FILTER_SANITIZE_STRING);
-    if (empty($courriel)) {
-        $courrielErr = "Courriel obligatoire";
-    } 
-    else if (!filter_var($courriel, FILTER_VALIDATE_EMAIL)) {
-        $courrielErr = "Mauvais courriel"; 
-        $courriel = filter_input(INPUT_POST, 'courriel', FILTER_SANITIZE_STRING);
-    }
-
-    // Verify commentaire
-    $commentaire = filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_STRING);
-     if (empty($commentaire)) {
-        $commentaireErr = "Commentaire obligatoire";
-    } 
-    
-    // Get oui/non response
-    $oui_non = filter_input(INPUT_POST, 'oui_non', FILTER_SANITIZE_STRING);
-    $saysYes = $oui_non == "oui" ? 1 : 0;
-
-    if (empty($nomErr) and empty($prenomErr) and empty($courrielErr) and empty($commentaireErr)) {
-
-      // No errors :-)
-      // Insert contact into DB
-      insertContact($nom, $prenom, $courriel, $commentaire, $saysYes);
-
-      // Send email
-      $nomComplet = $prenom . " " . $nom;
-      $sujet = "$nomComplet sent a commentaire de conseil-caroleMayer.ca!";
-      // $message = " This is a message from me. Can we get togther next week and watch some tennis?  I would really like that.  Let us get a few beers as well, and maybe some ice cream !";
-      $headers = 'From: ' . $courriel . PHP_EOL ;
-      // $headers = "From: " . $courriel . PHP_EOL .
-      //     "Reply-To: " . $courriel . PHP_EOL .
-      //     "X-Mailer: PHP/" . phpversion();
-   
-
-      // send the mail
-      mail (CONTACT_EMAIL_RECIPIENT, $sujet, $commentaire, $headers);
-    
-      // We're done.  Clear data from session
-      $nom = $prenom = $courriel = $commentaire = "";
-      $_SESSION["nom"] = $_SESSION["prenom"] = $_SESSION["courriel"] = $_SESSION["commentaire"] = "";
-    } else {
-      // Data was bad.  Save variables in session so they'll still be displayed when form is redisplayed
-      $_SESSION["nom"] = $nom; 
-      $_SESSION["prenom"] = $prenom; 
-      $_SESSION["courriel"] = $prenom; 
-      $_SESSION["commentaire"] = $commentaire;  
-
-      $nom = $prenom = $courriel = $commentaire = "";
-  }
-}
 ?>
 
 <!DOCTYPE html>
@@ -227,7 +152,12 @@ Nous pouvons vous aider à tonifier votre communication organisationnelle, crée
 <div class='col-md-5 col-sm-5 col-xs-12 contactPage pull-right'>
   <div class='row'>  
 
-    <?php include('contactForm.php');?>
+    <!-- Display contact form -->
+    <?php
+      $showCommentaire = true;
+      $showInfolettreOuiNon = true;
+      include('contactForm.php');
+     ?>
 
    </div><!-- end of row 2right part -->
 </div><!-- end of col md-8 right -->

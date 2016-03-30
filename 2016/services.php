@@ -120,25 +120,14 @@ $language = setLanguage();
               </p>
                 <p class='client'>Suzanne</p>
         </div>
-        <form>
-          <h3><?php echo _("ContactezNous"); ?></h3>
-  <div class="form-group">
-    <label for="contact-name"><?php echo _("Nom"); ?></label>
-    <input type="name" class="form-control" id="contact-name" placeholder="<?php echo _('Nom'); ?>">
-  </div>
-    <div class="form-group">
-    <label for="contact-name"><?php echo _("Prenom");?></label>
-    <input type="name" class="form-control" id="contact-name" placeholder="<?php echo _('Prenom');?>">
-    </div>
-    <div class="form-group">
-    <label for="exampleInputEmail1"><?php echo _("Courriel");?></label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="<?php echo _('Courriel');?>">
-    </div>
-  
-    <button type="submit" class="btn btn-default"><?php echo _("Envoyez"); ?></button>
-  </form>
+        
+      <!-- Display contact form -->
+      <?php
+        $showCommentaire = false;
+        $showInfolettreOuiNon = false;
+        include('contactForm.php');
+       ?>
 
-     
       </div><!-- end of col left -->
 
 

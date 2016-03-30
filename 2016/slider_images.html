@@ -1,0 +1,94 @@
+<script type="text/javascript" src="js/jssor.slider.mini.js"></script>
+    <!-- use jssor.slider.debug.js instead for debug -->
+    <script>
+        jQuery(document).ready(function ($) {
+            
+            var jssor_1_SlideoTransitions = [
+              {$Duration:1500,x:0.5,$Cols:2,$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InOutCubic},$Opacity:2,$Brother:{$Duration:1500,$Opacity:2}}
+            ];
+            
+             var jssor_1_options = {
+              $AutoPlay: true,
+                $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions:jssor_1_SlideoTransitions,
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+             
+            };
+            
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizing
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 1200);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            
+            ScaleSlider();
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+        });
+    </script>
+
+     <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width:1000px; height: 400px; overflow: hidden; visibility: hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width:1000px; height: 400px; overflow: hidden;">
+
+            
+            
+                <div data-p="225.00" style="display: none;">
+                <img data-u="image"  src="photos/women1_test.jpg" />
+                 <span id="message1">Ateliers de leadership &agrave; forte valeur ajout&eacute;e</span>
+            </div>
+            <div data-p="225.00" style="display: none;">
+                <img data-u="image" style="opacity: 0.8;" src="photos/welcome/rowing_crew.jpg" />
+                 <span id="message2">Visez l’excellence, valorisez le capital humain</span>
+            </div>
+
+            <div data-p="225.00" style="display: none;">
+                <img data-u="image" src="photos/welcome/leader1.jpg" />
+                 <span id="message3">Un leadership inspirant, des r&eacute;sultats tangibles</span>
+            </div>
+
+            <div data-p="225.00" style="display: none;">
+                <img data-u="image" src="photos/welcome/sail.png" />
+                 <span id="message4">Cultivez l’intelligence collective,<br> récoltez les bénéfices</span>
+            </div>
+
+            <div data-p="225.00" style="display: none;">
+                <img data-u="image" src="photos/welcome/brainstormingA.jpg" />
+                 <span id="message5">Une communication performante favorise un dialogue emotionnellement intelligent.</span>
+            </div>
+
+            <div>
+                <img data-u="image" src="photos/welcome/exoticfruit1.jpg" />
+                 <span id="message6">Besoin de dialogue? Nous offrons une aide créative et fortifiante!</span>
+            </div>
+
+            
+        </div>
+        
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora22l" style="top:0;left:0;width:40px;height:58px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora22r" style="top:0;right:0;width:40px;height:58px;" data-autocenter="2"></span>
+        
+    </div>
+
+
+       

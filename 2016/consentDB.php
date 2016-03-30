@@ -2,17 +2,19 @@
 
 require_once('../includes/config.php');
 
-function insertContact($nom, $prenom, $courriel, $commentaire, $consent)  {
+function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPage, $lang)  {
 	try {
 		global $db;
 
-		$stmt = $db->prepare("INSERT INTO contacts_from_web (nom,prenom,courriel,commentaire,consent,modDate) VALUES (:prenom, :nom, :courriel, :commentaire, :consent, now())");
+		$stmt = $db->prepare("INSERT INTO contacts_from_web (nom,prenom,courriel,commentaire,consent,webPage,lang,insertDate) VALUES (:prenom, :nom, :courriel, :commentaire, :consent, :webPage, :lang, now())");
 
 		$stmt->bindParam(':nom', $nom);
 		$stmt->bindParam(':prenom', $prenom);
 		$stmt->bindParam(':courriel', $courriel);	
 		$stmt->bindParam(':commentaire', $commentaire);	
 		$stmt->bindParam(':consent', $consent);
+		$stmt->bindParam(':webPage', $webPage);
+		$stmt->bindParam(':lang', $lang);
 
 		$stmt->execute();
 
