@@ -1,4 +1,3 @@
-
 <?php
 require_once("../includes/php_utils.php");
 
@@ -10,19 +9,13 @@ $language = setLanguage();
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - CONSULTATIONS</title>
+<title>CAROLE MEYER - &Agrave; PROPOS DE NOUS</title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Latest compiled and minified CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Dancing Script">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/stylecmco.css">
 <script type='text/javascript' src='js/jquery-1.9.1.min.js'></script>
-<!-- <script type='text/javascript' src='js/script.js'></script>
-<script type='text/javascript' src='js/load_header.js'></script> -->
-<script type='text/javascript' src='js/jssor.slider.min.js'></script>
-  
 </head>
 
 <body>
@@ -49,7 +42,7 @@ $language = setLanguage();
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="index.php">Bienvenue</a></li>
-        <li class="dropdown active" >
+        <li class="dropdown">
           <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Services <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="services.php">Services</a></li>
@@ -67,7 +60,7 @@ $language = setLanguage();
             <li role="separator" class="divider"></li>
             <li><a href="listclients.php">Liste des organisations</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="temoignages.php">T&eacute;moignages</a></li>
+            <li><a href="#">T&eacute;moignages</a></li>
             
           </ul>
         </li>
@@ -83,15 +76,15 @@ $language = setLanguage();
             <li><a href="lien.php">Liens utiles</a></li>
           </ul>
         </li>
-          <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
+          <li class ='active'><a href="apropos.php">&Agrave; propose de nous<span class="sr-only">(current)</span></a></li>
           <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
-          <li><a href="langue.php">English<span class="sr-only">(current)</span></a></li>
+          <li><a href="english.php">English<span class="sr-only">(current)</span></a></li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
+        <!-- <div class="form-group">
           <input type="text" class="form-control" id="loupe">
-        </div>
+        </div> -->
         <!-- <button type="submit" class="btn btn-default">Submit</button> -->
         </form>
       </ul>
@@ -100,20 +93,17 @@ $language = setLanguage();
 
   </div><!-- /.container-fluid -->
   </nav> 
-<!-- <div class='container'> -->
-                  
-      <div class='row touteslespages one-edge-shadow'>
+<div class='row touteslespages one-edge-shadow'>
         <?php require_once 'slogan.php'; ?>
-      </div>
+  </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
         <h3 class='h333'>T&eacute;moignages</h3>
         <div class='clientfeedback'>
-         <p >&quot;Carole saisit rapidement les forces sur lesquels nous devons construire. Elle
-dispense des conseils justes, fondés sur ses connaissances et ses
-expériences, tout en étant adaptés à notre personnalité.&quot;
+         <p >&quot;J’ai remarqué que l’absence de jugement et le soutien que tu offres pendant la réalisation des exercices ont vraiment contribué à me donner le courage
+          de prendre ma place et de donner mon point de vue devant une centaine de personnes exigeantes  !&quot;
               </p>
-                <p class='client'>Martin</p>
+                <p class='client'>Sandrine</p>
         </div>
 
       <!-- Display contact form -->
@@ -121,28 +111,58 @@ expériences, tout en étant adaptés à notre personnalité.&quot;
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');
-       ?>
+      ?>
      
       </div><!-- end of col left -->
 
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'>Consultations</h3>
+        <h3 class='h333'>&Agrave; propos de nous</h3>
       <div class='row'> 
       <div class='col-md-5 col-sm-5 col-xs-12 services'> 
-            <p><center><img  src='photos/pages/handshake.jpg'  class='img-responsive'></center></p>
+            <p><center><img  src='photos/carole-meyer1.jpg'  class='img-responsive'></center></p>
+            <p><h1 id='caption'>Carole Meyer</h1></p>
       </div>
        <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p>Dans l’exercice de vos fonctions de chef d’entreprise, il vous arrive de vous
-heurter à des obstacles spécifiques. Nous pouvons vous dépanner avec un
-service conseil ponctuel relié à la communication orale, interpersonnelle et
-exécutive.</p>
-<p>L’être humain étant un être social, le dialogue est très souvent la clé de
-voûte des solutions que vous recherchez dans vos relations d’affaires.
-Service de conseil ponctuel, la consultation offre des recommandations
-formulées durant des rencontres réservées au leader et à son équipe de
-confiance. </p>
-               
+         <p>Partenaire d’affaires des petites et moyennes entreprises canadiennes depuis 2001, Carole Meyer Communication organisationnelle est une compagnie agréée par Emploi-Québec qui offre aux leaders et cadres supérieurs des services conseils en leadership à forte valeur ajoutée.   La haute satisfaction
+          des clients de Carole Meyer Communication organisationnelle est principalement due à trois aspects :
+            <ul>
+                    <li> qualité remarquable des services, </li>
+                    <li> appropriation efficiente des nouvelles habitudes de leadership, </li> 
+                    <li>transférabilité immédiate des savoirs faire.</li>
+               </ul>
+               <p>L’équipe de Carole Meyer Communication organisationnelle contribue avec enthousiasme 
+               à aider les organisations à faire du capital humain un avantage concurrentiel.
+
+               <p><h3 class='h222'>PARCOURS</h3>
+              <p>Depuis quinze ans, Carole Meyer et son équipe travaillent avec les gens d’affaires principalement francophones et anglophones du Canada et obtiennent
+               une amélioration considérable de la communication organisationnelle des compagnies.</p><p> Avant cela, Carole Meyer a eu la chance de participer à la mise en place de la monnaie unique européenne, en partenariat avec des organismes privés et publics.</p>
+               <p> Détentrice de certificats et maîtrises en administration, communication organisationnelle,
+                formation de formateurs, lettres et langues, elle a su mettre à profit ses connaissances pour innover et donner un visage humain à la réussite des organisations.</p>
+                <p> Constamment appréciée pour son influence bénéfique, elle crée des liens de confiance solides avec les hommes et les femmes à la tête d’entreprises. Remarquée pour son engagement
+             généreux et son leadership contagieux, elle apporte une contribution unique à ses clients.  
+                </p>
+                 <!-- <p><h3><span class="label label-info">VISION, MISSION, VALEURS NOTRE </span></h3> -->
+                 <p><h3 class='h222'>NOTRE VISION</h3> 
+                  Créatrice d’un modèle innovant de leadership fondé sur le potentiel à cultiver un dialogue émotionnellement intelligent afin d’épauler les leaders, susciter l’engagement, créer l’intelligence collective et augmenter les opportunités d’affaires.
+                 </p>
+                 
+                 <p><h3 class='h222'>NOTRE MISSION</h3>
+                 <p> Aider les dirigeants et cadres supérieurs à se distinguer, découvrir et développer leur potentiel à cultiver un dialogue émotionnellement intelligent pour réussir leurs objectifs d’affaires en transformant les résistances aux changements en prises d’engagement.</p> 
+Mener des ateliers innovants, concrets et sur mesure qui présentent un juste équilibre entre explications des principes et mises en pratiques immédiatement transférables pour relever les défis d’affaires; se démarquer avec des ateliers offrant une plus-value concurrentielle;
+ se passionner pour la recherche de nouveautés en matière de communication d’affaires. 
+                 </p>
+                 <p><h3 class='h222'>NOS VALEURS</h3>
+                 <ul>
+                    <li>Générosité</li>
+                    <li>Finesse</li> 
+                    <li>Performance</li>
+                    <li>Leadership</li> 
+                    <li>Engagement</li>
+                    <li>Innovation</li> 
+                  </ul>      
+                 </p>
+                 <div class='haut'><a href="#Top"><img  src='images/haut.png'></a></div>
        </div>
       
       </div><!-- end of first row right part -->

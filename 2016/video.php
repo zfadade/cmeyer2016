@@ -9,7 +9,7 @@ $language = setLanguage();
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - SERVICES</title>
+<title>CAROLE MEYER - VIDEO</title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -47,15 +47,15 @@ $language = setLanguage();
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="index.php"><?php echo _("Bienvenue"); ?></a></li>
-        <li class="dropdown active">
+        <li><a href="index.php">Bienvenue</a></li>
+        <li class="dropdown">
           <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Services <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="services.php">Services</a></li>
             <li role="separator" class="divider"></li> 
-            <li><a href="ateliers.php"><?php echo _("Ateliers"); ?></a></li> 
+            <li><a href="ateliers.php">Ateliers</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="consultations.php"><?php echo _("Consultations"); ?></a></li>
+            <li><a href="consultations.php">Consultations</a></li>
           </ul>
         </li>
 
@@ -64,30 +64,27 @@ $language = setLanguage();
           <ul class="dropdown-menu">
             <li><a href="clients.php">Clients</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="listclients.php"><?php echo _("ListeDesOrganisations"); ?></a></li>
+            <li><a href="listclients.php">Liste des organisations</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("Temoignages"); ?></a></li>
+            <li><a href="#">T&eacute;moignages</a></li>
             
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo _("Media"); ?><span class="caret"></span></a>
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">M&eacute;dia <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="video.php"><?php echo _("Videos"); ?></a></li> 
+            <li><a href="media.php">M&eacute;dia</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("Infolettres"); ?></a></li>
+            <li><a href="video.php">Vid&eacute;os</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("LiensUtiles"); ?></a></li>
+            <li><a href="infolettre.php">Infolettres</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="liens.php">Liens utiles</a></li>
           </ul>
         </li>
-          <li><a href="#"><?php echo _("AproposDeNous"); ?><span class="sr-only">(current)</span></a></li>
+          <li><a href="#">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
           <li><a href="#">Contact<span class="sr-only">(current)</span></a></li>
-
-      <li>
-      <?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?>
-    </li>
-<!-- 
-          <li><a href="services.php?lang=en"><?php echo _("Anglais"); ?><span class="sr-only">(current)</span></a></li> -->
+          <li><a href="#">English<span class="sr-only">(current)</span></a></li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -104,23 +101,22 @@ $language = setLanguage();
   </nav> 
 <!-- <div class='container'> -->
                   
-      <div class='row touteslespages'>
-        <div class='col-md-12 col-sm-12 col-xs-12'>
-      <p><h3 class='h33'><?php echo _("Slogan"); ?></h3></p>
-      <p class='slogan'><?php echo _("SubSlogan"); ?></p>
-     
+      <div class='row touteslespages one-edge-shadow'>
+        <?php require_once 'slogan.php'; ?>
       </div>
       
-       </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
-        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
+        <h3 class='h333'>T&eacute;moignages</h3>
         <div class='clientfeedback'>
-         <p><?php echo _("TemoignageService"); ?>
+         <p >&quot;Carole, je voulais simplement te dire encore une fois merci pour tout ! Je réalise l’impact 
+          de l’énergie positive en tout temps dans mon quotidien. J’ai particulièrement apprécié ta bonne humeur,
+           ton empathie, ta façon invitante à nous inciter à nous dépasser.
+          J’ai surtout aimé la structure évolutive de la formation. Ce fut un vent d’air frais! Merci!  &quot;
               </p>
-                <p class='client'>Suzanne</p>
+                <p class='client'>Marilyn</p>
         </div>
-        
+
       <!-- Display contact form -->
       <?php
         $showCommentaire = false;
@@ -132,17 +128,12 @@ $language = setLanguage();
 
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'><?php echo _("NosServices"); ?></h3>
-      <div class='row'> 
-      <div class='col-md-5 col-sm-5 col-xs-12 services'> 
-            <p><center><img  src='photos/pages/dolphin3.jpg'  class='img-responsive'></center></p>
-      </div>
-       <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p><?php echo _("ServicePage"); ?>
-</p>
-       </div>
-      
-      </div><!-- end of first row right part -->
+        <h3 class='h333'>Vid&eacute;o</h3>
+        <br>
+        <div class='row movie embed-responsive embed-responsive-16by9'> 
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hJ3Ar8t_ofc?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div><!-- end of video 1 -->
+
 
       </div><!-- end of col md-8 right -->
 

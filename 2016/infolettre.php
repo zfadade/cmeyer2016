@@ -9,7 +9,7 @@ $language = setLanguage();
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - SERVICES</title>
+<title>INFOLETTRES</title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -47,15 +47,15 @@ $language = setLanguage();
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="index.php"><?php echo _("Bienvenue"); ?></a></li>
-        <li class="dropdown active">
+        <li><a href="index.php">Bienvenue</a></li>
+        <li class="dropdown">
           <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Services <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="services.php">Services</a></li>
             <li role="separator" class="divider"></li> 
-            <li><a href="ateliers.php"><?php echo _("Ateliers"); ?></a></li> 
+            <li><a href="ateliers.php">Ateliers</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="consultations.php"><?php echo _("Consultations"); ?></a></li>
+            <li><a href="consultations.php">Consultations</a></li>
           </ul>
         </li>
 
@@ -64,30 +64,27 @@ $language = setLanguage();
           <ul class="dropdown-menu">
             <li><a href="clients.php">Clients</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="listclients.php"><?php echo _("ListeDesOrganisations"); ?></a></li>
+            <li><a href="listclients.php">Liste des organisations</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("Temoignages"); ?></a></li>
+            <li><a href="temoignages.php">T&eacute;moignages</a></li>
             
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo _("Media"); ?><span class="caret"></span></a>
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">M&eacute;dia <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="video.php"><?php echo _("Videos"); ?></a></li> 
+            <li><a href="media.php">M&eacute;dia</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("Infolettres"); ?></a></li>
+            <li><a href="video.php">Vid&eacute;os</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("LiensUtiles"); ?></a></li>
+            <li><a href="infolettre.php">Infolettres</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="lien.php">Liens utiles</a></li>
           </ul>
         </li>
-          <li><a href="#"><?php echo _("AproposDeNous"); ?><span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Contact<span class="sr-only">(current)</span></a></li>
-
-      <li>
-      <?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?>
-    </li>
-<!-- 
-          <li><a href="services.php?lang=en"><?php echo _("Anglais"); ?><span class="sr-only">(current)</span></a></li> -->
+          <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
+          <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
+          <li><a href="langue.php">English<span class="sr-only">(current)</span></a></li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -104,42 +101,43 @@ $language = setLanguage();
   </nav> 
 <!-- <div class='container'> -->
                   
-      <div class='row touteslespages'>
-        <div class='col-md-12 col-sm-12 col-xs-12'>
-      <p><h3 class='h33'><?php echo _("Slogan"); ?></h3></p>
-      <p class='slogan'><?php echo _("SubSlogan"); ?></p>
-     
-      </div>
-      
-       </div>
+      <div class='row touteslespages one-edge-shadow'>
+        <?php require_once 'slogan.php'; ?>
+     </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
-        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
+        <h3 class='h333'>T&eacute;moignages</h3>
         <div class='clientfeedback'>
-         <p><?php echo _("TemoignageService"); ?>
+         <p >&quot; Ma spécialité étant la communication, je suis allée à ces ateliers sans attente. Mais j’ai découvert que le plus important n’est pas seulement d’être performante. C’est aussi et surtout de prendre plaisir à donner le meilleur de soi.
+          Et c’est grâce à cela que les gens retiennent ton message  ! &quot;
               </p>
-                <p class='client'>Suzanne</p>
+                <p class='client'>Rachel</p>
         </div>
         
-      <!-- Display contact form -->
-      <?php
-        $showCommentaire = false;
-        $showInfolettreOuiNon = false;
-        include('contactForm.php');
-      ?>
-
+        <!-- Display contact form -->
+        <?php
+          $showCommentaire = false;
+          $showInfolettreOuiNon = false;
+          include('contactForm.php');
+        ?>
+       
       </div><!-- end of col left -->
 
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'><?php echo _("NosServices"); ?></h3>
+        <h3 class='h333'>Nos Infolettres</h3>
       <div class='row'> 
       <div class='col-md-5 col-sm-5 col-xs-12 services'> 
-            <p><center><img  src='photos/pages/dolphin3.jpg'  class='img-responsive'></center></p>
+            <p><center><img  src='photos/pages/plume.jpg'  class='img-responsive'></center></p>
       </div>
        <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p><?php echo _("ServicePage"); ?>
-</p>
+        <p>
+        <a  href='#' class='list-group-item' target='blank'>April mailchimp</a>
+        <a href='pdf/CMCO INFOLET1.pdf' class='list-group-item' target='_blank'>Pourquoi ne comprennent-ils pas ?</a>
+        <a href='pdf/CMCO INFOLET2.pdf'class='list-group-item' target='_blank'>La r&eacute;union, un mal n&eacute;cessaire ?</a>
+        <a href='pdf/CMCO INFOLET3.pdf'class='list-group-item' target='_blank'>Une gestion r&eacute;ussie, est-ce possible ?</a>
+        </p>
+          
        </div>
       
       </div><!-- end of first row right part -->

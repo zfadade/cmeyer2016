@@ -1,3 +1,11 @@
+<?php
+require_once("../includes/php_utils.php");
+
+// i18n:
+$language = setLanguage();
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -65,11 +73,13 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">M&eacute;dia <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Vid&eacute;os</a></li> 
+            <li><a href="media.php">M&eacute;dia</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Infolettres</a></li>
+            <li><a href="video.php">Vid&eacute;os</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Liens utiles</a></li>
+            <li><a href="infolettre.php">Infolettres</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="lien.php">Liens utiles</a></li>
           </ul>
         </li>
           <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
@@ -91,16 +101,14 @@
   </nav> 
 <!-- <div class='container'> -->
                   
-      <div class='row touteslespages'>
-        <div class='col-md-12 col-sm-12 col-xs-12'>
-      <p><h3 class='h33'>LEADERS, PRENEZ UNE LONGUEUR D'AVANCE SUR VOS CONCURRENTS !</h3></p>
-      <p class='slogan'>Communication performante. Dialogue &eacute;motionnellement intelligent. Leadership inspirant.</p>
-      </div>
-       </div>
+      <div class='row touteslespages one-edge-shadow'>
+        <?php require_once 'slogan.php'; ?>
+     </div>
+     
        <div class='col-md-12 col-sm-12 col-xs-12'>
       <div class='col-md-4 col-sm-4 col-xs-12'>
         <h3 class='h333'>T&eacute;moignages</h3>
-        <div class='clientfeedback'>
+        <div class='clientfeedbackT'>
          <p >&quot;Mon équipe, traditionnellement allergique à tout changement, réagit différemment aux
 nouvelles contraintes imposées par nos fournisseurs, depuis que vous l’avez entraînée. Non
 seulement, ils ne discutent plus pour se soustraire aux nouvelles procédures, mais en plus,
@@ -109,23 +117,13 @@ Vos résultats sont surprenants ! Un exemple à suivre !&quot;
               </p>
                 <p class='client'>Ren&eacute;</p>
         </div>
-        <form>
-          <h3>Contactez-nous</h3>
-  <div class="form-group">
-    <label for="contact-name">Votre nom</label>
-    <input type="name" class="form-control" id="contact-name" placeholder="Nom">
-  </div>
-    <div class="form-group">
-    <label for="contact-name">Votre pr&eacute;non</label>
-    <input type="name" class="form-control" id="contact-name" placeholder="Pr&eacute;mon">
-    </div>
-    <div class="form-group">
-    <label for="exampleInputEmail1">Votre courriel</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Courriel">
-    </div>
-  
-    <button type="submit" class="btn btn-default">Envoyez</button>
-  </form>
+
+      <!-- Display contact form -->
+      <?php
+        $showCommentaire = false;
+        $showInfolettreOuiNon = false;
+        include('contactForm.php');
+      ?>
 
     <!-- <div class='testimony'>&nbsp;</div> -->
      

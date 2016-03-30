@@ -93,7 +93,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $nom = $prenom = $courriel = $commentaire = "";
       $_SESSION["nom"] = $_SESSION["prenom"] = $_SESSION["courriel"] = $_SESSION["commentaire"] = "";
     } else {
-      print "Oops, problem in form.  nom: $nom, prenom:  $prenom, courriel: $courriel, commentaire: $commentaire";
+      // print "Oops, problem in form.  nom: $nom, prenom:  $prenom, courriel: $courriel, commentaire: $commentaire";
+      
       // Data was bad.  Save variables in session so they'll be displayed when form is redisplayed
       $_SESSION["nom"] = $nom; 
       $_SESSION["prenom"] = $prenom; 

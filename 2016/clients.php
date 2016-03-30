@@ -9,7 +9,7 @@ $language = setLanguage();
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - SERVICES</title>
+<title>CAROLE MEYER - CLIENTS</title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -47,47 +47,44 @@ $language = setLanguage();
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="index.php"><?php echo _("Bienvenue"); ?></a></li>
-        <li class="dropdown active">
+        <li><a href="index.php">Bienvenue</a></li>
+        <li class="dropdown">
           <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Services <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="services.php">Services</a></li>
             <li role="separator" class="divider"></li> 
-            <li><a href="ateliers.php"><?php echo _("Ateliers"); ?></a></li> 
+            <li><a href="ateliers.php">Ateliers</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="consultations.php"><?php echo _("Consultations"); ?></a></li>
+            <li><a href="consultations.php">Consultations</a></li>
           </ul>
         </li>
 
-        <li class="dropdown">
+        <li class="dropdown active">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clients <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="clients.php">Clients</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="listclients.php"><?php echo _("ListeDesOrganisations"); ?></a></li>
+            <li><a href="listclients.php">Liste des organisations</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("Temoignages"); ?></a></li>
+            <li><a href="temoignages.php">T&eacute;moignages</a></li>
             
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo _("Media"); ?><span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">M&eacute;dia <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="video.php"><?php echo _("Videos"); ?></a></li> 
+            <li><a href="media.php">M&eacute;dia</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("Infolettres"); ?></a></li>
+            <li><a href="video.php">Vid&eacute;os</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("LiensUtiles"); ?></a></li>
+            <li><a href="infolettre.php">Infolettres</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="lien.php">Liens utiles</a></li>
           </ul>
         </li>
-          <li><a href="#"><?php echo _("AproposDeNous"); ?><span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Contact<span class="sr-only">(current)</span></a></li>
-
-      <li>
-      <?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?>
-    </li>
-<!-- 
-          <li><a href="services.php?lang=en"><?php echo _("Anglais"); ?><span class="sr-only">(current)</span></a></li> -->
+          <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
+          <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
+          <li><a href="langue.php">English<span class="sr-only">(current)</span></a></li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -104,23 +101,21 @@ $language = setLanguage();
   </nav> 
 <!-- <div class='container'> -->
                   
-      <div class='row touteslespages'>
-        <div class='col-md-12 col-sm-12 col-xs-12'>
-      <p><h3 class='h33'><?php echo _("Slogan"); ?></h3></p>
-      <p class='slogan'><?php echo _("SubSlogan"); ?></p>
-     
+      <div class='row touteslespages one-edge-shadow'>
+        <?php require_once 'slogan.php'; ?>
       </div>
-      
-       </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
-        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
+        <h3 class='h333'>T&eacute;moignages</h3>
         <div class='clientfeedback'>
-         <p><?php echo _("TemoignageService"); ?>
+         <p >&quot;Notre organisation a fait face à des changements stratégiques aux impacts difficiles pour
+nos clients comme pour notre personnel. L’apport de Carole Meyer dans nos
+communications nous a permis de surmonter cette étape. En plus, nous avons gagné
+l’engagement de nos employés et les affaires ont bien repris.&quot;
               </p>
-                <p class='client'>Suzanne</p>
+                <p class='client'>Alain</p>
         </div>
-        
+
       <!-- Display contact form -->
       <?php
         $showCommentaire = false;
@@ -130,16 +125,24 @@ $language = setLanguage();
 
       </div><!-- end of col left -->
 
-
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'><?php echo _("NosServices"); ?></h3>
+        <h3 class='h333'>Clients</h3>
       <div class='row'> 
       <div class='col-md-5 col-sm-5 col-xs-12 services'> 
-            <p><center><img  src='photos/pages/dolphin3.jpg'  class='img-responsive'></center></p>
+            <p><center><img  src='photos/pages/geese1.jpg'  class='img-responsive'></center></p>
       </div>
        <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p><?php echo _("ServicePage"); ?>
-</p>
+         <p>Leaders, gestionnaires, chargés de projets savent récolter des bénéfices précieux pour leur
+          compagnie grâce à leur audace de cultiver l’intelligence collective. 
+Ils génèrent des réductions de coûts, une augmentation des indicateurs de rendement et la rétention des 
+savoirs faire. 
+Parmi les facteurs de succès de nos clients avec nos formations, nommons l’impulsion de la haute direction,
+ l’appui des gestionnaires et chargés de projets et l’engagement de tous.
+Les leaders les plus brillants doivent leur excellence à leur influence exemplaire. Les gestionnaires de
+ haut niveau savent identifier les talents et valoriser le capital humain. Les chargés de projets les plus
+  sollicités sont des champions du dialogue émotionnellement intelligent.
+
+               </p>
        </div>
       
       </div><!-- end of first row right part -->

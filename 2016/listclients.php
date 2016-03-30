@@ -1,4 +1,3 @@
-
 <?php
 require_once("../includes/php_utils.php");
 
@@ -10,7 +9,7 @@ $language = setLanguage();
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - CONSULTATIONS</title>
+<title>CAROLE MEYER - LISTES CLIENTS</title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -49,7 +48,7 @@ $language = setLanguage();
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="index.php">Bienvenue</a></li>
-        <li class="dropdown active" >
+        <li class="dropdown" >
           <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Services <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="services.php">Services</a></li>
@@ -60,7 +59,7 @@ $language = setLanguage();
           </ul>
         </li>
 
-        <li class="dropdown">
+        <li class="dropdown active">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clients <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="clients.php">Clients</a></li>
@@ -83,9 +82,9 @@ $language = setLanguage();
             <li><a href="lien.php">Liens utiles</a></li>
           </ul>
         </li>
-          <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
-          <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
-          <li><a href="langue.php">English<span class="sr-only">(current)</span></a></li>
+          <li><a href="#">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Contact<span class="sr-only">(current)</span></a></li>
+          <li><a href="#">English<span class="sr-only">(current)</span></a></li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -108,12 +107,14 @@ $language = setLanguage();
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
         <h3 class='h333'>T&eacute;moignages</h3>
-        <div class='clientfeedback'>
-         <p >&quot;Carole saisit rapidement les forces sur lesquels nous devons construire. Elle
-dispense des conseils justes, fondés sur ses connaissances et ses
-expériences, tout en étant adaptés à notre personnalité.&quot;
+        <div class='clientfeedbackList'>
+         <p >&quot;Merci encore pour la formation de notre équipe. Étant une personne enjouée
+de nature, je suis maintenant capable de voir à quel point nous pouvons
+avoir le contrôle de la situation avec l’hémisphère droit du cerveau. J’ai
+récemment eu une rencontre stratégique avec un partenaire d’affaires.
+J’avais beaucoup d’appréhension, mais finalement tout s’est très bien déroulé !&quot;
               </p>
-                <p class='client'>Martin</p>
+                <p class='client'>Sylvie</p>
         </div>
 
       <!-- Display contact form -->
@@ -121,31 +122,79 @@ expériences, tout en étant adaptés à notre personnalité.&quot;
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');
-       ?>
+      ?>
      
       </div><!-- end of col left -->
 
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'>Consultations</h3>
+        <h3 class='h333'>Organisations priv&eacute;es et publiques</h3>
       <div class='row'> 
       <div class='col-md-5 col-sm-5 col-xs-12 services'> 
-            <p><center><img  src='photos/pages/handshake.jpg'  class='img-responsive'></center></p>
+            <p><center><img  src='photos/pages/mtldt.jpg'  class='img-responsive'></center></p>
+            <p><center><img  src='photos/pages/hydroqc1.jpg'  class='img-responsive'></center></p>
+            <p><center><img  src='photos/pages/jardinscomplexe.jpg'  class='img-responsive'></center></p>
       </div>
        <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p>Dans l’exercice de vos fonctions de chef d’entreprise, il vous arrive de vous
-heurter à des obstacles spécifiques. Nous pouvons vous dépanner avec un
-service conseil ponctuel relié à la communication orale, interpersonnelle et
-exécutive.</p>
-<p>L’être humain étant un être social, le dialogue est très souvent la clé de
-voûte des solutions que vous recherchez dans vos relations d’affaires.
-Service de conseil ponctuel, la consultation offre des recommandations
-formulées durant des rencontres réservées au leader et à son équipe de
-confiance. </p>
-               
-       </div>
+         <p><ul>
+                    <li>Agence canadienne d’inspection des aliments</li>
+                    <li>Adecco</li> 
+                    <li>A&eacute;roports de Montr&eacute;al</li>
+                    <li>Ambassades &eacute;trang&egrave;res</li> 
+                    <li>Banque Nationale du Canada</li>
+                    <li>Caisses populaires Desjardins</li>
+                    <li>Centre Jeunesse Mont&eacute;r&eacute;gie</li> 
+                    <li>Coll&egrave;ge international Marie de France</li> 
+                    <li>Coll&egrave;ge des M&eacute;decines douces du Qu&eacute;bec</li> 
+                    <li>Conf&eacute;rence R&eacute;gionale des &Eacute;lus CR&Eacute; Mont&eacute;r&eacute;gie Est</li>
+                    <li>Commission des normes, de l'&eacute;quit&eacute;, de la sant&eacute; et de la s&eacute;curit&eacute; au travail</li>
+                    <li>Conseil national de recherches Canada</li> 
+                    <li>Hôpital v&eacute;t&eacute;rinaire de l’Est</li>
+                    <li>Hydro-Qu&eacute;bec</li> 
+                    <li>Jean Coutu</li>
+                    <li>Marconnair</li>
+                    <li>McCarthy-T&eacute;trault</li>
+                    <li>Minist&egrave;re de la Culture et des Communications</li> 
+                    <li>Olymel</li> 
+                    <li>Pastene</li> 
+                    <li>R&eacute;gence Voyages</li>
+                    <li>Sûret&eacute; du Qu&eacute;bec</li>
+                    <li>Union des Producteurs Agricoles UPA</li> 
+                    <li>Ville de Montr&eacute;al</li>
+                </ul>
+               </p>
+
+            </div>
       
-      </div><!-- end of first row right part -->
+            </div><!-- end of first row right part -->
+            <h3 class='h333'>Organisations non gouvernementales et organisations &agrave; but non lucratif</h3>
+      <div class='row'> 
+      <div class='col-md-5 col-sm-5 col-xs-12 services'> 
+            <p><center><img  src='photos/pages/mtlfall.jpg'  class='img-responsive'></center></p>
+            <!-- <p><center><img  src='photos/pages/ong.jpg'  class='img-responsive'></center></p> -->
+            
+      </div>
+       <div class='col-md-7 col-sm-7 col-xs-12 services'>
+               <p>
+                 <ul>
+                        <li>Association canadienne des femmes en communication </li>
+                        <li>Association des contrôleurs d’hôtels </li>
+                        <li>Centre des femmes du Haut Richelieu</li>
+                        <li>Chambre de commenrce francaise au Canada</li>
+                        <li>Fondation J-A Bombardier</li>
+                        <li>Institut des R&eacute;sentants du Qu&eacute;bec</li> 
+                        <li>Neuvaction</li> 
+                        <li>Ordre des technologues en radiologie du Qu&eacute;bec</li> 
+                        <li>R&eacute;seau des &eacute;lues municipales de la Mont&eacute;r&eacute;gie Est</li>
+                        <li>R&eacute;seau des Femmes d'Affaires du Qu&eacute;bec</li> 
+                        <li>R&eacute;seau des Femmes d'Affaires des Laurentides</li>
+                        <li>Saje</li>
+                        <li>Table de Concertation des groupes de femmes du Bas-Saint-laurent</li>
+                    </ul>
+               </p>
+      </div>
+      
+            </div><!-- end of second row right part -->
 
       </div><!-- end of col md-8 right -->
 
