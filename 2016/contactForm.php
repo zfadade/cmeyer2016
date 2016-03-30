@@ -73,12 +73,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   
     if (empty($nomErr) and empty($prenomErr) and empty($courrielErr) and empty($commentaireErr)) {
-      print "No errors in form :-)";
-      // No errors :-)
-      // Insert contact into DB
+      // No errors, so Insert contact into DB
       insertContact($nom, $prenom, $courriel, $commentaire, $saysYes, $webPage, $language);
 
-      // Send email
+      // .. . and send an email
       $nomComplet = $prenom . " " . $nom;
       $sujet = "$nomComplet . sent a commentaire de conseil-caroleMayer.ca!";
       $headers = 'From: ' . $courriel . PHP_EOL ;
@@ -86,7 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       //     "Reply-To: " . $courriel . PHP_EOL .
       //     "X-Mailer: PHP/" . phpversion();
 
-      // send the mail
       mail (CONTACT_EMAIL_RECIPIENT, $sujet, $commentaire, $headers);
     
       // We're done.  Clear data from session
@@ -94,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION["nom"] = $_SESSION["prenom"] = $_SESSION["courriel"] = $_SESSION["commentaire"] = "";
     } else {
       // print "Oops, problem in form.  nom: $nom, prenom:  $prenom, courriel: $courriel, commentaire: $commentaire";
-      
+
       // Data was bad.  Save variables in session so they'll be displayed when form is redisplayed
       $_SESSION["nom"] = $nom; 
       $_SESSION["prenom"] = $prenom; 
