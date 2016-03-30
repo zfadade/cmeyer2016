@@ -1,7 +1,6 @@
 <?php
 require_once("../includes/php_utils.php");
 require_once("../includes/config.php");
-require_once("consentDB.php");
 
 /*
 Uses these variables, which should be defined in the including file:
@@ -15,7 +14,6 @@ $accepteRecevoir = _("AccepteRecevoir");
 $oui = _("Oui");
 $non = _("Non");
 $envoyez = _("Envoyez");
-
 
 $thisUrl = htmlspecialchars($_SERVER["PHP_SELF"]);
 $webPage = basename($thisUrl);
@@ -79,12 +77,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // .. . and send an email
       $nomComplet = $prenom . " " . $nom;
       $sujet = "$nomComplet . sent a commentaire de conseil-caroleMayer.ca!";
-      $headers = 'From: ' . $courriel . PHP_EOL ;
-      // $headers = "From: " . $courriel . PHP_EOL .
-      //     "Reply-To: " . $courriel . PHP_EOL .
-      //     "X-Mailer: PHP/" . phpversion();
+      // $headers = 'From: ' . $courriel . PHP_EOL ;
+      $headers = "From: " . $courriel . PHP_EOL .
+          "Reply-To: " . $courriel . PHP_EOL .
+          "Content-Type: text/plain; charset=utf-8". PHP_EOL;
+          // "X-Mailer: PHP/" . phpversion();
 
-      mail (CONTACT_EMAIL_RECIPIENT, $sujet, $commentaire, $headers);
+      mail(CONTACT_EMAIL_RECIPIENT, $sujet, $commentaire, $headers);
     
       // We're done.  Clear data from session
       $nom = $prenom = $courriel = $commentaire = "";

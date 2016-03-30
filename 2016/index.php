@@ -50,7 +50,7 @@
             <li role="separator" class="divider"></li> 
             <li><a href="ateliers.php">Ateliers</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Consultations</a></li>
+            <li><a href="consultations.php">Consultations</a></li>
           </ul>
         </li>
 
@@ -68,7 +68,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">M&eacute;dia <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#video.php">Vid&eacute;os</a></li> 
+            <li><a href="media.php">M&eacute;dia</a></li> 
+            <li role="separator" class="divider"></li>
+            <li><a href="video.php">Vid&eacute;os</a></li> 
             <li role="separator" class="divider"></li>
             <li><a href="infolettre.php">Infolettres</a></li>
             <li role="separator" class="divider"></li>
@@ -76,8 +78,8 @@
           </ul>
         </li>
           <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Contact<span class="sr-only">(current)</span></a></li>
-          <li><a href="#">English<span class="sr-only">(current)</span></a></li>
+          <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
+          <li><a href="langue.php">English<span class="sr-only">(current)</span></a></li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -94,19 +96,13 @@
     </nav> 
 <!-- 	END OF NAV
 ======================================================================================== -->
-<!-- <div class='container'> -->
-	<div class='row touteslespages'>
-		<div class='col-md-12 col-sm-12 col-xs-12'>
-			<p><h3 class='h33'>LEADERS, PRENEZ UNE LONGUEUR D'AVANCE SUR VOS CONCURRENTS !</h3></p>
-			<p class='slogan'>Communication performante. Dialogue &eacute;motionnellement intelligent. Leadership inspirant.</p>
-		</div>
-	</div>
-<!-- </div> -->
-<!-- ?<div class='container'> -->
+	<div class='row touteslespages one-edge-shadow'>
+        <?php require_once 'slogan.php'; ?>
+  </div>
 
-             <div class='slider'>
-             <?php require_once 'slider_images.html'; ?>
-       </div> <!--end of Slider -->
+  <div class='slider'>
+       <?php require_once 'slider_images.html'; ?>
+  </div> <!--end of Slider -->
        
 
 <!-- </div> -->
@@ -116,7 +112,7 @@
 	<div class='row'>
 		<h3 class='h33'>T&eacute;moignages</h3>
 
-			<div class='col-md-6 col-sm-6 col-xs-12 clientfeedback'>
+			<div class='col-md-6 col-sm-6 col-xs-12 clientfeedback1'>
   			 <p >&quot;Dans notre service, les experts juniors doivent obtenir l’approbation de
 l’expert senior pour tous les dossiers clients. Malheureusement, l’expert
 senior était très apprécié par la compagnie pour la qualité de son travail,
@@ -130,7 +126,8 @@ formation si riche ni à un bénéfice si concret ! Merci Carole !&quot;
                 <p class='client'>Catherine</p>
 			</div>
 				
-			<div class='col-md-6 col-sm-6 col-xs-12 clientfeedback'>
+			<div class='col-md-6 col-sm-6 col-xs-12 clientfeedback1'>
+       
 				<p>&quot;L’hiver dernier, j’ai intégré une fonction de direction dans une nouvelle
 organisation. J’ai eu la désagréable surprise de constater que le leadership
 avait été inexistant et que le personnel, très éduqué, faisait à peu près ce
@@ -138,9 +135,10 @@ que bon lui semblait. Il n’y avait pas de pilote dans l’avion. J’ai grande
 apprécié l’aide de Carole Meyer pour faire accepter aux employés la présence
 d’un leader, non pas pour contrôler, mais bien pour guider et fixer les
 objectifs à atteindre. Il nous a fallu seulement quelques mois pour régler la
-situation et augmenter le chiffre d’affaires!&quot; </p>
-                <p class='client'>Emma</p>   
-            </div>   
+situation et augmenter le chiffre d’affaires!&quot;</p>
+                <p class='client'>Emma</p>
+        
+      </div>   
     </div>      
 
 
