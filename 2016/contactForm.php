@@ -28,8 +28,6 @@ $commentaire = defaultVal($_SESSION, "commentaire", "");
 // print "Top of page:  nom: $nom, prenom:  $prenom, courriel: $courriel, commentaire: $commentaire";
 // var_dump($_SESSION);
 
-$saysYes = null;
-
 
 // The form has been submitted.  Do error correction, and act on data if it's good
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -52,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($courriel)) {
         $courrielErr = _('CourrielRequired');
     } 
+    // FILTER_VALIDATE_EMAIL rejects emails with French accents in them !
     else if (!filter_var($courriel, FILTER_VALIDATE_EMAIL)) {
         $courrielErr = _('CourrielBad'); 
         $courriel = filter_input(INPUT_POST, 'courriel', FILTER_SANITIZE_STRING);
@@ -64,17 +63,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        //    $commentaireErr = _('CommentaireRequired');
       // } 
     }
-    
+   
+    // Infolettre:  Oui ou Non ?
+    $saysYes = null;
     if ($showInfolettreOuiNon) {  // Get oui/non response
       $oui_non = filter_input(INPUT_POST, 'oui_non', FILTER_SANITIZE_STRING);
       $saysYes = $oui_non == "oui" ? 1 : 0;
     }
   
+    // Process data if there are no form errors 
     if (empty($nomErr) and empty($prenomErr) and empty($courrielErr) and empty($commentaireErr)) {
-      // No errors, so Insert contact into DB
+      // Insert contact into DB
       insertContact($nom, $prenom, $courriel, $commentaire, $saysYes, $webPage, $language);
 
-      // .. . and send an email
+      // ... and send an email
       $nomComplet = $prenom . " " . $nom;
       $sujet = "$nomComplet . sent a commentaire de conseil-caroleMayer.ca!";
       // $headers = 'From: ' . $courriel . PHP_EOL ;
@@ -96,15 +98,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION["prenom"] = $prenom; 
       $_SESSION["courriel"] = $prenom; 
       $_SESSION["commentaire"] = $commentaire;  
-      //var_dump($_SESSION);
-
+      // var_dump($_SESSION);
 
       //$nom = $prenom = $courriel = $commentaire = "";
   } 
 }
 
 echo  <<< NAME_PRENOM_END
-    <form method='post' action="$thisUrl" >
+    <form method='post' action="$thisUrl" accept-charset="UTF-8">
     <h3>Contactez-nous</h3>
 
       <div class="form-group">
@@ -140,7 +141,7 @@ COMMENTAIRE_END;
 
 if (isset($showInfolettreOuiNon) && ($showInfolettreOuiNon === true)) {
 echo <<< OUI_NON_END
-      <!--  ASK FOR ACCEPTING EMAIL -->
+      <!--  OK to receive infolettres ? -->
         <p>
             <div class="checkbox">
               <p> $accepteRecevoir</b>.</p>

@@ -8,11 +8,6 @@ include_once('config.php');
 include_once('../2016/vendor/autoload.php');
 
 
-# Define program-wide constanats
-define("FRENCH", "fr");
-define("ENGLISH", "en");
-define("BLOGUE", "BLOGUE_");
-
 // For now, set the locale every time.  May get smarter later
 function setLanguage() {
 	$defaultLang = "fr_FR";
@@ -56,21 +51,13 @@ function defaultVal($array, $key, $default) {
     return isset($array[$key]) ? $array[$key] : $default;
 }
 
-
-function getBlogId($postId) {
-    return BLOGUE . $postId;
-}
-
 // Is this needed?  Or is filter_input() sufficient ?
 // INPUT_POST, 'nom', FILTER_SANITIZE_STRING
 function cleanInput($input_array, $var, $filter_type) {
 	$data = filter_input(INPUT_POST, $var, $filter_type);
 
   // Handle accents
-
-	$data2 = htmlspecialchars($data);
-  // $data2 = html_entity_decode(utf8_decode($data));
-  return $data2;
+	return htmlspecialchars($data, ENT_NOQUOTES, 'UTF-8');
 }
 
 
@@ -104,19 +91,18 @@ function full_path()
     return $url;
 }
 
-
+// TODO:  Wrap in exception so clients don't see if it fails
 function sendToSlack($url, $msg) {
     // Instantiate with defaults, so all messages created
     // will be sent from 'Cyril' and to the #accounting channel
     // by default. Any names like @regan or #channel will also be linked.
-    $settings = [
-            'username' => 'Cyril',
-             'channel' => '#accounting',
-              'link_names' => true
-      ];
+    // $settings = [
+    //         'username' => 'Cyril',
+    //          'channel' => '#accounting',
+    //           'link_names' => true
+    //   ];
     
     // Instantiate without defaults
-    // $url="https://hooks.slack.com/services/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";
     $client = new Maknz\Slack\Client($url);
     $client->send($msg);
 }
@@ -125,7 +111,9 @@ function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPag
 	try {
 		global $db;
 
-		$stmt = $db->prepare("INSERT INTO contacts_from_web (nom,prenom,courriel,commentaire,consent,webPage,lang,insertDate) VALUES (:prenom, :nom, :courriel, :commentaire, :consent, :webPage, :lang, now())");
+		$consentInfo = "\"$nom, $prenom\" $courriel \"$commentaire\" $consent ($webPage, $_SERVER[HTTP_HOST])";
+
+		$stmt = $db->prepare("INSERT INTO contacts_from_web (nom,prenom,courriel,commentaire,consent,webPage,lang,insertDate) VALUES (:nom, :prenom, :courriel, :commentaire, :consent, :webPage, :lang, now())");
 
 		$stmt->bindParam(':nom', $nom);
 		$stmt->bindParam(':prenom', $prenom);
@@ -138,55 +126,57 @@ function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPag
 		$stmt->execute();
 
 		if ($stmt->rowCount() > 0) {
-			$msg = "Added to DB: $nom $prenom $courriel \"$commentaire\" $consent to contacts_from_web from host $_SERVER[HTTP_HOST]";
+			$msg = "Nouveau contact: $consentInfo";
 			// TODO:  Get sys_log working
 			// sys_log(LOG_INFO, msg);
 			sendToSlack(SLACK_TESTING_URL, $msg);
-			//sendToSlack(SLACK_CONSENT_URL, "Updated consent for $clientEmail ($clientCode) to $consent");
+			//sendToSlack(SLACK_CONSENT_URL, "$msg");
 		}
 		else {
-			$errMsg = "ERROR! Unable to add $prenom $courriel $commentaire $consent to contacts_from_web in DB";
+			$errMsg = "ERROR! Unable to add to DB: $consentInfo";
 			error_log($errMsg, 1, "zfadade@yahoo.com");
 			sendToSlack(SLACK_TESTING_URL, $errMsg);
       		//sendToSlack(SLACK_CONSENT_URL, $errMsg);
 		}
 	}
-	catch(PDOException $e) {
+	catch (PDOException $e) {
 		// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
-		$errMsg = "ERROR! DB exception when adding $nom $prenom $$courriel $commentaire $consent to contacts_from_web in DB " . $e->getMessage();
+		$errMsg = "ERROR! DB exception when adding to DB: $userInfo. Exception: " .  $e->getMessage();
 		error_log($errMsg, 1, "zfadade@yahoo.com");
 	    sendToSlack(SLACK_TESTING_URL, $errMsg);
 	}
 }
 
-function updateConsent($clientEmail, $clientCode, $consent)  {
+function updateConsent($courriel, $clientCode, $consent)  {
 	try {
 		global $db;
 
+		$consentInfo = "$courriel to $consent ($_SERVER[HTTP_HOST])";
+
 		// update consent info in database
-		$stmt = $db->prepare('UPDATE user_info SET consent = :consent, modDate = NOW() WHERE courriel = :clientEmail') ;
+		$stmt = $db->prepare('UPDATE user_info SET consent = :consent, modDate = NOW() WHERE courriel = :courriel') ;
 		$retVal = $stmt->execute(array(
-			':clientEmail' => $clientEmail,
+			':courriel' => $courriel,
 			':consent' => $consent
 		));
 
 		if ($stmt->rowCount() > 0) {
-			$msg = "Successfully updated consent for user $clientCode to $consent";
+			$msg = "Successfully updated $consentInfo";
 			// TODO:  Get sys_log working
 			// sys_log(LOG_INFO, msg);
 			print($msg);
-			// sendToSlack(SLACK_TESTING_URL, "Updated consent for $clientEmail ($clientCode) to $consent");
-			sendToSlack(SLACK_CONSENT_URL, "Updated consent for $clientEmail ($clientCode) to $consent");
+			// sendToSlack(SLACK_TESTING_URL, "Updated consent for $courriel ($clientCode) to $consent");
+			sendToSlack(SLACK_CONSENT_URL, $msg);
 		}
 		else {
-			$errMsg = "ERROR! Unable to update consent for $clientEmail ($clientCode) to $consent";
+			$errMsg = "ERROR! Unable to update $consentInfo";
 			print("errMsg");
 			error_log($errMsg, 1, "zfadade@yahoo.com");
 			// sendToSlack(SLACK_TESTING_URL, $errMsg);
       		sendToSlack(SLACK_CONSENT_URL, $errMsg);
 		}
 	} catch(PDOException $e) {
-		$errMsg = "ERROR! DB exception when updating $clientEmail ($clientCode) to $consent: " . $e->getMessage();
+		$errMsg = "ERROR! DB exception when updating $consentInfo: " . $e->getMessage();
 		print($errMsg);
 		error_log($errMsg, 1, "zfadade@yahoo.com");
 	    sendToSlack(SLACK_ERRLOG_URL, $errMsg);
