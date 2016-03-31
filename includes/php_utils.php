@@ -107,11 +107,9 @@ function sendToSlack($url, $msg) {
     $client->send($msg);
 }
 
-function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPage, $lang)  {
+function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPage, $lang, $contactInfo)  {
 	try {
 		global $db;
-
-		$consentInfo = "\"$nom, $prenom\" $courriel \"$commentaire\" $consent ($webPage, $_SERVER[HTTP_HOST])";
 
 		$stmt = $db->prepare("INSERT INTO contacts_from_web (nom,prenom,courriel,commentaire,consent,webPage,lang,insertDate) VALUES (:nom, :prenom, :courriel, :commentaire, :consent, :webPage, :lang, now())");
 
@@ -123,17 +121,19 @@ function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPag
 		$stmt->bindParam(':webPage', $webPage);
 		$stmt->bindParam(':lang', $lang);
 
+		$contactInfoWithCommentaire = "$contactInfo \"$commentaire\"";
+
 		$stmt->execute();
 
 		if ($stmt->rowCount() > 0) {
-			$msg = "Nouveau contact: $consentInfo";
+			$slackMsg = "Nouveau contact: $contactInfoWithCommentaire";
 			// TODO:  Get sys_log working
 			// sys_log(LOG_INFO, msg);
-			sendToSlack(SLACK_TESTING_URL, $msg);
-			//sendToSlack(SLACK_CONSENT_URL, "$msg");
+			sendToSlack(SLACK_TESTING_URL, htmlspecialchars_decode($slackMsg));
+			//sendToSlack(SLACK_CONSENT_URL, "$slackMsg");
 		}
 		else {
-			$errMsg = "ERROR! Unable to add to DB: $consentInfo";
+			$errMsg = "ERROR! Unable to add to DB: $contactInfoWithCommentaire";
 			error_log($errMsg, 1, "zfadade@yahoo.com");
 			sendToSlack(SLACK_TESTING_URL, $errMsg);
       		//sendToSlack(SLACK_CONSENT_URL, $errMsg);
@@ -141,7 +141,7 @@ function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPag
 	}
 	catch (PDOException $e) {
 		// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
-		$errMsg = "ERROR! DB exception when adding to DB: $userInfo. Exception: " .  $e->getMessage();
+		$errMsg = "ERROR! DB exception when adding: $contactInfoWithCommentaire. Exception: " .  $e->getMessage();
 		error_log($errMsg, 1, "zfadade@yahoo.com");
 	    sendToSlack(SLACK_TESTING_URL, $errMsg);
 	}

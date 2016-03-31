@@ -29,7 +29,7 @@ $commentaire = defaultVal($_SESSION, "commentaire", "");
 // var_dump($_SESSION);
 
 
-// The form has been submitted.  Do error correction, and act on data if it's good
+// The form has been submitted.  Verify data, and act on it OK
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verify nom
@@ -73,19 +73,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
     // Process data if there are no form errors 
     if (empty($nomErr) and empty($prenomErr) and empty($courrielErr) and empty($commentaireErr)) {
+
+      $contactInfo = "\"$nom, $prenom\" $courriel $saysYes ($webPage, $_SERVER[HTTP_HOST])";
+
       // Insert contact into DB
-      insertContact($nom, $prenom, $courriel, $commentaire, $saysYes, $webPage, $language);
+      insertContact($nom, $prenom, $courriel, $commentaire, $saysYes, $webPage, $language, $contactInfo);
 
       // ... and send an email
-      $nomComplet = $prenom . " " . $nom;
-      $sujet = "$nomComplet . sent a commentaire de conseil-caroleMayer.ca!";
-      // $headers = 'From: ' . $courriel . PHP_EOL ;
+      $sujet = htmlspecialchars_decode("Nouveau contact de $contactInfo");
+      $msgBody = htmlspecialchars_decode("$contactInfo dit: \n\n \"$commentaireInfo\"");
+
       $headers = "From: " . $courriel . PHP_EOL .
           "Reply-To: " . $courriel . PHP_EOL .
           "Content-Type: text/plain; charset=utf-8". PHP_EOL;
           // "X-Mailer: PHP/" . phpversion();
 
-      mail(CONTACT_EMAIL_RECIPIENT, $sujet, $commentaire, $headers);
+echo "Sending mail to " . CONTACT_EMAIL_RECIPIENT . " Subjet: $sujet  body:  $msgBody  headers: $headers";
+
+      mail(CONTACT_EMAIL_RECIPIENT, $sujet, $msgBody, $headers);
     
       // We're done.  Clear data from session
       $nom = $prenom = $courriel = $commentaire = "";
@@ -98,7 +103,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION["prenom"] = $prenom; 
       $_SESSION["courriel"] = $prenom; 
       $_SESSION["commentaire"] = $commentaire;  
-      // var_dump($_SESSION);
 
       //$nom = $prenom = $courriel = $commentaire = "";
   } 
@@ -132,7 +136,6 @@ echo <<< COMMENTAIRE_END
   <div class="form-group">
     <label for="textarea">Commentaire</label>
     <input type="textarea" class="form-control" id="comment" name="commentaire"  value="$commentaire" placeholder="Commentaire">
-    <span class="error">$courrielErr</span>
   </div>
   <br>
 COMMENTAIRE_END;
