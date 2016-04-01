@@ -1,3 +1,10 @@
+<?php
+require_once("../includes/php_utils.php");
+
+// i18n:
+$language = setLanguage();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

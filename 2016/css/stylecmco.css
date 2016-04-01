@@ -3,7 +3,11 @@ body{background-color:#aaa;}
 .container{margin-top:5px;border-radius:10px;}
 
 /*hr{border-top: 1px solid #aaa;}*/
-.page-header{border-bottom:1px solid #005596;}
+.page-header{border-bottom:2px solid #08BE19;
+  -webkit-box-shadow: 0 8px 8px -3px #aaa;
+  -moz-box-shadow: 0 8px 6px -6px #aaa;
+  box-shadow: 0 8px 6px -6px #aaa;
+}
 /*#namecarole{font-size:24px;color:#5990B1;}*/
 /*.col-md-3{margin-left:0px;padding-left:1px;}
 .col-md-4 {text-align:left;}*/
@@ -11,24 +15,52 @@ body{background-color:#aaa;}
 
 .navbar-default{border-color:transparent;}
 #callus{font-size:24px;color:#333;margin-left:60px;}
-#social{margin-left:30px;}
-#social a:hover{background-color:#aaa;}
+#callus a:hover{border-bottom:3px solid #F5003C;}
+#social{padding-left:30px;}
+#social a:hover{background-color:#F5003C;}
 #loupe{background:url(../images/search20.png) no-repeat left ;}
 
-.h33{text-align:center; color:#005596; font-weight: bold;}
+.h33{font-size: 2em; text-align:center; color:#005596; font-weight: bold;}
 .h333{color:#005596; font-weight: bold;}
+.h222{font-size:18px;color:#005596;font-weight: bold;}
+#nouveauAtelier{color:#F5003C;}
+
 .slogan{text-align:center;font-size:16px;font-weight: bold;}
-.sloganallpages{margin-top:70px;}
-.clientfeedback{font-size:18px;margin:0;background-color:#F3FBFD;padding:20px;border-radius:4px;max-height:380px;}
-.services{font-size:16px;}
+.sloganallpages{margin-top:50px;}
+
+/** FEEDBACK CLIENT **/
+.clientfeedback{font-style: italic;font-size:18px;margin:0;background-color:#e7e7e7;
+  padding:20px;border-radius:4px;height:380px;}
+.clientfeedback1{font-style: italic;font-size:18px;margin:0;background-color:#E9F6F9;
+  padding:20px;border-radius:4px;height:380px;}
+.clientfeedbackT{font-style: italic;font-size:18px;margin:0;background-color:#eee;
+  padding:20px;border-radius:4px;height:480px;}
+.clientfeedbackList{font-style: italic;font-size:18px;margin:0;background-color:#eee;
+  padding:20px;border-radius:4px;}
+ /** FEEDBACK CLIENT **/ 
+
+.services{font-size:16px; border:1px solid #fff;}
 .services img{margin-bottom:20px; text-align:center;}
-.btn-default:hover {background-color: #F3FBFD;}
- 
+.btn-default:hover {background-color: #D7F1F7;}
+.clientfeedbackcontact{font-style: italic;font-size:18px;margin:0;background-color:#e7e7e7;padding:20px;border-radius:4px;height:180px;}
 .testimony{border:1px solid red;min-height: 700px;}
+
 
 .haut{position:relative; text-align:right; padding:5px;}
 .movie{margin-top:15px;}
-
+.contactPage{margin:30px 30px 0 0; border:1px solid #fff;}
+.tete{border:1px solid red;}
+#caption{font-size:14px;text-align: center;visibility: hidden;}
+/*
+  ==========================================
+              CONSENTEMENT 
+  ==========================================
+*/
+.loi{height:500px;background-color:#F3FBFD;}
+.loipourriel{background-color:#F3FBFD;text-align:center;margin-top:10px;padding:5px 0; border:1px solid red;}
+.ouinon{padding-right:50px;}
+.pascadre{border:none;}
+#logoC{padding:5px;}
 /*
 	==========================================
               SLIDER IMAGES STYLE  
@@ -41,8 +73,9 @@ body{background-color:#aaa;}
             width: 40px;
             height: 58px;
             cursor: pointer;
-            background: url('../img/a22.png') center center no-repeat;
+            background: url('../images/a22.png') center center no-repeat;
             overflow: hidden;
+            
         }
         .jssora22l {background-position: -10px -31px; }
         .jssora22r { background-position: -70px -31px; }
@@ -62,13 +95,15 @@ body{background-color:#aaa;}
   width:99%;
 }*/
 
-#message1, #message2, #message3, #message4, #message5, #message6{font-family: arial;font-weight: bold;z-index:100;}
-#message1{position:absolute; bottom:6%;left:12%;font-size:2em;color:#F5003C;}
-#message2{position:absolute; bottom:1%; left:1%; font-size:2em;color:#F5003C;}
-#message3{position:absolute; top:10%; left:25%; font-size:1.2em;color:#F5003C;}
-#message4{position:absolute; top:4%; left:2%; font-size:2em;color:#F5003C;}
-#message5{position:absolute; bottom:2%; left:5%; font-size:2em;color:#F5003C;}
-#message6{position:absolute; top:8%; left:5%; font-size:3em;color:#F5003C;}
+#message1, #message2, #message3, #message4, #message5, #message6{
+  font-size:2em;font-family: arial;font-weight: bold;z-index:100;}
+
+#message1{position:absolute; top:0;left:20%;color:#F5003C;}
+#message2{position:absolute; top:0; right:1%; color:#F5003C;}
+#message3{position:absolute; top:1%; right:3%; color:#F5003C;}
+#message4{position:absolute; top:4%; left:2%; color:#F5003C;}
+#message5{position:absolute; top:2%; left:5%; color:#F5003C;}
+#message6{position:absolute; top:8%; left:5%; color:#F5003C;}
 
 
 
@@ -77,17 +112,31 @@ body{background-color:#aaa;}
   color:#F5003C;/*red*/
   font-weight:bold;
   font-family: Dancing Script;
-  margin-bottom:3em;
+  margin-bottom:1em;
   /*margin-right:2em;*/
   /*text-align:right;*/
 }
 
 .pied{margin-top:20px;padding:20px 0;border-top:1px solid #005596;background-color:#fff;}
 
+    
 .touteslespages{ padding-bottom: 9px;
   margin: 25px 0 20px;
-  border-top: 1px solid #005596;
-  border-bottom: 2px groove #F5003C;}
+  border-top: 2px solid #FF9001;
+
+  border-bottom: 2px solid #F5003C;
+  
+    /*  JUST SHADOW BELOW RED LIGNE*/
+  -webkit-box-shadow: 0 8px 8px -3px #aaa;
+  -moz-box-shadow: 0 8px 6px -6px #aaa;
+  box-shadow: 0 8px 6px -6px #aaa;
+}
+
+/*  JUST TWO LIGNES*/
+  /*-webkit-box-shadow: 0 1px 0 #FF9001;
+  -moz-box-shadow:  0 2px 0 #FF9001;
+  box-shadow:  0 2px 0 #FF9001;*/
+
 
 .list-group-item{
   border-left: 0px solid #ddd;
@@ -109,6 +158,27 @@ button.list-group-item:focus {
 .label-info {
   background-color: #005596;
 }
+
+/*
+  ==========================================
+              LADDER 
+  ==========================================
+*/
+.ladderrow{
+ 
+  border-top: 2px solid #FF9001;
+  border-left:3px solid #FF9001;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right:3px solid #FF9001;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 0px solid #FF9001;
+}
+.ladderrow:last-child {
+    border-bottom: 2px solid #FF9001;
+    }
+/*.laddercol{min-height:233px;border-bottom:2px dotted #FF9001;}*/
 /*
   ===============================
   WAVES STYLESLIDER IMAGES STYLE  
@@ -142,3 +212,41 @@ button.list-group-item:focus {
   left: 0;
   top: 27px;
 }
+
+/*
+  ===============================
+  MEDIA SATR HERE 
+  ===============================
+*/
+@media (max-width: 1024px) {
+  .clientfeedbackT {height:550px;}
+  .clientfeedbackList{height:440px;}
+}
+
+@media (max-width: 775px) {
+     
+  
+ .clientfeedback{height:400px;}
+  .clientfeedbackList,.clientfeedback1 {height:580px;}
+  .clientfeedbackList{height:600px;}
+  .clientfeedbackT {height:700px;}
+  .pied{padding-top:15px;}
+  .text-center {
+    text-align: left;
+  }
+  .text-right {
+    text-align: left;
+  }
+
+#social{padding-left:0px;}
+}
+
+@media (max-width: 365px) {
+
+  .clientfeedbackT {height:560px;}
+  }
+
+  @media (max-width: 320px) {
+
+  .clientfeedbackT {height:700px;}
+  }

@@ -66,22 +66,24 @@ $language = setLanguage();
             <li role="separator" class="divider"></li>
             <li><a href="listclients.php"><?php echo _("ListeDesOrganisations"); ?></a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("Temoignages"); ?></a></li>
+            <li><a href="temoignages.php"><?php echo _("Temoignages"); ?></a></li>
             
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo _("Media"); ?><span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="media.php"><?php echo _("M&eacute;dia"); ?></a></li> 
+            <li role="separator" class="divider"></li>
             <li><a href="video.php"><?php echo _("Videos"); ?></a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("Infolettres"); ?></a></li>
+            <li><a href="infolettre.php"><?php echo _("Infolettres"); ?></a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"><?php echo _("LiensUtiles"); ?></a></li>
+            <li><a href="lien.php"><?php echo _("LiensUtiles"); ?></a></li>
           </ul>
         </li>
-          <li><a href="#"><?php echo _("AproposDeNous"); ?><span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Contact<span class="sr-only">(current)</span></a></li>
+          <li><a href="apropos.php"><?php echo _("AproposDeNous"); ?><span class="sr-only">(current)</span></a></li>
+          <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
 
       <li>
       <?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?>
@@ -103,15 +105,10 @@ $language = setLanguage();
   </div><!-- /.container-fluid -->
   </nav> 
 <!-- <div class='container'> -->
-                  
-      <div class='row touteslespages'>
-        <div class='col-md-12 col-sm-12 col-xs-12'>
-      <p><h3 class='h33'><?php echo _("Slogan"); ?></h3></p>
-      <p class='slogan'><?php echo _("SubSlogan"); ?></p>
-     
-      </div>
       
-       </div>
+      <div class='row touteslespages one-edge-shadow'>
+        <?php require_once 'slogan.php'; ?>
+      </div>         
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
         <h3 class='h333'><?php echo _("Temoignages"); ?></h3>

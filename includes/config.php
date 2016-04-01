@@ -16,11 +16,6 @@ $displayErrors = $my_init_data['ini_display_errors'] === 'true' ? true : false;
 ini_set('display_errors', $displayErrors);
 ini_set('log_errors', true);
 
-function exception_error_handler($errno, $errstr, $errfile, $errline ) {
-    throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
-}
-set_error_handler("exception_error_handler");
-
 // TODO is this still needed ?
 ob_start();
 
