@@ -46,7 +46,6 @@ function defaultVal($array, $key, $default) {
 }
 
 // Is this needed?  Or is filter_input() sufficient ?
-// INPUT_POST, 'nom', FILTER_SANITIZE_STRING
 function cleanInput($input_array, $var, $filter_type) {
 	$data = filter_input(INPUT_POST, $var, $filter_type);
 
@@ -95,96 +94,58 @@ function sendToSlack($url, $msg) {
     //           'link_names' => true
     //   ];
 
-	if ( ! USE_SLACK) {
-		// TODO:  log that Slack is turned off !
-		return;
-	}
-
-    try {
-		    // Instantiate without defaults
-		    $client = new Maknz\Slack\Client($url);
-		    $client->send($msg);
-	}
-    catch (Exception $e) {
-		// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
-		$errMsg = "ERROR! Unable to send to Slack.  Msg: $msg  Exception: " .  $e->getMessage();
-		error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
+	if (USE_SLACK) {
+	    try {
+			    // Instantiate without defaults
+			    $client = new Maknz\Slack\Client($url);
+			    $client->send($msg);
+		}
+	    catch (Exception $e) {
+			// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
+			$errMsg = "ERROR! Unable to send to Slack.  Msg: $msg  Exception: " .  $e->getMessage();
+			error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
+		}
 	}
 }
 
 function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPage, $lang, $contactInfo)  {
-	try {
-		global $db;
 
-		$stmt = $db->prepare("INSERT INTO contacts_from_web (nom,prenom,courriel,commentaire,consent,webPage,lang,insertDate) VALUES (:nom, :prenom, :courriel, :commentaire, :consent, :webPage, :lang, now())");
+	$contactInfoWithCommentaire = "$contactInfo \"$commentaire\"";
+	$slackMsg = "Nouveau contact: $contactInfoWithCommentaire";
+	sendToSlack(SLACK_TESTING_URL, htmlspecialchars_decode($slackMsg));
 
-		$stmt->bindParam(':nom', $nom);
-		$stmt->bindParam(':prenom', $prenom);
-		$stmt->bindParam(':courriel', $courriel);	
-		$stmt->bindParam(':commentaire', $commentaire);	
-		$stmt->bindParam(':consent', $consent);
-		$stmt->bindParam(':webPage', $webPage);
-		$stmt->bindParam(':lang', $lang);
+	if (USE_DATABASE) {
+		try {
+			global $db;
 
-		$contactInfoWithCommentaire = "$contactInfo \"$commentaire\"";
+			$stmt = $db->prepare("INSERT INTO contacts_from_web (nom,prenom,courriel,commentaire,consent,webPage,lang,insertDate) VALUES (:nom, :prenom, :courriel, :commentaire, :consent, :webPage, :lang, now())");
 
-		$stmt->execute();
+			$stmt->bindParam(':nom', $nom);
+			$stmt->bindParam(':prenom', $prenom);
+			$stmt->bindParam(':courriel', $courriel);	
+			$stmt->bindParam(':commentaire', $commentaire);	
+			$stmt->bindParam(':consent', $consent);
+			$stmt->bindParam(':webPage', $webPage);
+			$stmt->bindParam(':lang', $lang);
 
-		if ($stmt->rowCount() > 0) {
-			$slackMsg = "Nouveau contact: $contactInfoWithCommentaire";
-			// TODO:  Get sys_log working
-			// sys_log(LOG_INFO, msg);
-			sendToSlack(SLACK_TESTING_URL, htmlspecialchars_decode($slackMsg));
-			//sendToSlack(SLACK_CONSENT_URL, "$slackMsg");
+
+			$stmt->execute();
+
+			if ($stmt->rowCount() <= 0) {
+				$errMsg = "ERROR! Unable to add to DB: $contactInfoWithCommentaire";
+				error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
+
+				sendToSlack(SLACK_TESTING_URL, $errMsg);
+	      		//sendToSlack(SLACK_CONSENT_URL, $errMsg);
+			}
 		}
-		else {
-			$errMsg = "ERROR! Unable to add to DB: $contactInfoWithCommentaire";
+		catch (PDOException $e) {
+			// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
+			$errMsg = "ERROR! DB exception when adding: $contactInfoWithCommentaire. Exception: " .  $e->getMessage();
 			error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
-			sendToSlack(SLACK_TESTING_URL, $errMsg);
-      		//sendToSlack(SLACK_CONSENT_URL, $errMsg);
+		    sendToSlack(SLACK_TESTING_URL, $errMsg);
 		}
-	}
-	catch (PDOException $e) {
-		// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
-		$errMsg = "ERROR! DB exception when adding: $contactInfoWithCommentaire. Exception: " .  $e->getMessage();
-		error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
-	    sendToSlack(SLACK_TESTING_URL, $errMsg);
 	}
 }
 
-function updateConsent($courriel, $clientCode, $consent)  {
-	try {
-		global $db;
-
-		$consentInfo = "$courriel to $consent ($_SERVER[HTTP_HOST])";
-
-		// update consent info in database
-		$stmt = $db->prepare('UPDATE user_info SET consent = :consent, modDate = NOW() WHERE courriel = :courriel') ;
-		$retVal = $stmt->execute(array(
-			':courriel' => $courriel,
-			':consent' => $consent
-		));
-
-		if ($stmt->rowCount() > 0) {
-			$msg = "Successfully updated $consentInfo";
-			// TODO:  Get sys_log working
-			// sys_log(LOG_INFO, msg);
-			print($msg);
-			// sendToSlack(SLACK_TESTING_URL, "Updated consent for $courriel ($clientCode) to $consent");
-			sendToSlack(SLACK_CONSENT_URL, $msg);
-		}
-		else {
-			$errMsg = "ERROR! Unable to update $consentInfo";
-			print("errMsg");
-			error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
-			// sendToSlack(SLACK_TESTING_URL, $errMsg);
-      		sendToSlack(SLACK_CONSENT_URL, $errMsg);
-		}
-	} catch(PDOException $e) {
-		$errMsg = "ERROR! DB exception when updating $consentInfo: " . $e->getMessage();
-		print($errMsg);
-		error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
-	    sendToSlack(SLACK_ERRLOG_URL, $errMsg);
-	}
-}
 ?>

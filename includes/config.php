@@ -24,8 +24,14 @@ ob_start();
 define("FRENCH", "fr");
 define("ENGLISH", "en");
 
+# Database
+define("USE_DATABASE", $my_init_data['use_database'] === 'true' ? true : false);
+error_log("USE_DATABASE: " . USE_DATABASE);
+
 # Slack
 define("USE_SLACK", $my_init_data['use_slack'] === 'true' ? true : false);
+
+error_log("USE_SLACK: " . USE_SLACK);
 
 define("SLACK_TESTING_URL", $my_init_data['slack_testing_url']);
 // define("SLACK_ERRLOG_URL", $my_init_data['slack_errlog_url']);
@@ -53,23 +59,29 @@ spl_autoload_register(function($class) {
 // Set up connection to DB.
 // port=8889;  the default configuration for MAMP uses ports 8888 and 8889, and 7888
 // Setting connection encoding to UTF8
+
 $db = null;
-try {
-   $db = new PDO(
-      sprintf('mysql:host=%s;dbname=%s;charset=utf8', $my_init_data['cmeyer_db_host'], $my_init_data['cmeyer_db_name']),
-            $my_init_data['cmeyer_db_username'],
-            $my_init_data['cmeyer_db_password']);
-            //array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));   // <-- UTF-8 !
+if (USE_DATABASE) {
+   try {
+      $db = new PDO(
+         sprintf('mysql:host=%s;dbname=%s;charset=utf8', $my_init_data['cmeyer_db_host'], $my_init_data['cmeyer_db_name']),
+               $my_init_data['cmeyer_db_username'],
+               $my_init_data['cmeyer_db_password']);
+               //array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));   // <-- UTF-8 !
 
-   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+   }
+   catch (PDOException $e) {
+      // QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
+      $errMsg = sprintf("ERROR! Unable to connect to DB %s, %s: %s", 
+               $my_init_data['cmeyer_db_name'], $my_init_data['cmeyer_db_host'],  $e->getMessage());
+      error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
+      sendToSlack(SLACK_TESTING_URL, $errMsg);
+   }
 }
-catch (PDOException $e) {
-   // QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
-   $errMsg = sprintf("ERROR! Unable to connect to DB %s, %s: %s", 
-            $my_init_data['cmeyer_db_name'], $my_init_data['cmeyer_db_host'],  $e->getMessage());
-   error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
-   sendToSlack(SLACK_TESTING_URL, $errMsg);
+else {
+   error_log("USE_DATABASE is false; not setting up database");
 }
 
 ?>

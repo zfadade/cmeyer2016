@@ -23,6 +23,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     exit;
 }
+
+
+function updateConsent($courriel, $clientCode, $consent)  {
+  try {
+    global $db;
+
+    $consentInfo = "$courriel to $consent ($_SERVER[HTTP_HOST])";
+
+    // update consent info in database
+    $stmt = $db->prepare('UPDATE user_info SET consent = :consent, consentModDate = NOW() WHERE courriel = :courriel') ;
+    $retVal = $stmt->execute(array(
+      ':courriel' => $courriel,
+      ':consent' => $consent
+    ));
+
+    if ($stmt->rowCount() > 0) {
+      $msg = "Updated " . $consentInfo;
+      error_log($msg);
+      sendToSlack(SLACK_CONSENT_URL, $msg);
+    }
+    else {
+      $errMsg = "ERROR! Unable to update $consentInfo";
+      print("errMsg");
+      error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
+      sendToSlack(SLACK_CONSENT_URL, $errMsg);
+    }
+  } catch(PDOException $e) {
+    $errMsg = "ERROR! DB exception when updating $consentInfo: " . $e->getMessage();
+    print($errMsg);
+    error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
+    sendToSlack(SLACK_ERRLOG_URL, $errMsg);
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,8 +99,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>J’accepte de recevoir les infolettres et autres informations
          de Carole Meyer Communication organisationnelle.</p> 
 
-         <form name="OuiNonForm" method="post" 
-         action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> 
+         <form name="OuiNonForm" method="post" accept-charset="UTF-8"
+            action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> 
             <p>
             <div class="checkbox">
               <label class='active ouinon'>
