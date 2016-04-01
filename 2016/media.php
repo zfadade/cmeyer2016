@@ -115,7 +115,7 @@ $language = setLanguage();
 
       <!-- Display contact form -->
       <?php
-        $formTitle = _("ContactezNous");
+        $formTitle = _("PourEtreContacte");
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');

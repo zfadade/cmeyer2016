@@ -118,7 +118,7 @@ expériences, tout en étant adaptés à notre personnalité.&quot;
 
       <!-- Display contact form -->
       <?php
-        $formTitle = _("ContactezNous");
+        $formTitle = _("PourEtreContacte");
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');

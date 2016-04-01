@@ -118,7 +118,7 @@ l’engagement de nos employés et les affaires ont bien repris.&quot;
 
       <!-- Display contact form -->
       <?php
-        $formTitle = _("ContactezNous");
+        $formTitle = _("PourEtreContacte");
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');
