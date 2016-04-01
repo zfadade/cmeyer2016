@@ -136,12 +136,7 @@ $language = setLanguage();
             <p><center><img  src='photos/pages/skydiving.jpg'  class='img-responsive'></center></p>
       </div>
        <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p>Vous gérez votre entreprise depuis plusieurs années et vous vous demandez comment faire plus et mieux pour rester compétitif ?</p> 
-<p>Sachez qu’une communication inadaptée, une interaction nuisible et un leadership inadéquat causent une baisse de performance et une perte des savoirs faire fort coûteuses pour les entreprises. 
-Vous pouvez décider de rehausser la valeur de votre entreprise.</p>
-Nous pouvons vous aider à tonifier votre communication organisationnelle, créer des liens de confiance et renforcer votre leadership. 
-
-        </p>
+         <p> <?php echo _("VousGerezVotreEntreprise"); ?> </p>
        </div>
       
       </div><!-- end of first row right part -->

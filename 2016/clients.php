@@ -133,17 +133,7 @@ l’engagement de nos employés et les affaires ont bien repris.&quot;
             <p><center><img  src='photos/pages/geese1.jpg'  class='img-responsive'></center></p>
       </div>
        <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p>Leaders, gestionnaires, chargés de projets savent récolter des bénéfices précieux pour leur
-          compagnie grâce à leur audace de cultiver l’intelligence collective. 
-Ils génèrent des réductions de coûts, une augmentation des indicateurs de rendement et la rétention des 
-savoirs faire. 
-Parmi les facteurs de succès de nos clients avec nos formations, nommons l’impulsion de la haute direction,
- l’appui des gestionnaires et chargés de projets et l’engagement de tous.
-Les leaders les plus brillants doivent leur excellence à leur influence exemplaire. Les gestionnaires de
- haut niveau savent identifier les talents et valoriser le capital humain. Les chargés de projets les plus
-  sollicités sont des champions du dialogue émotionnellement intelligent.
-
-               </p>
+         <p> <?php echo _("LeadersGestionnairesCharges"); ?> </p>
        </div>
       
       </div><!-- end of first row right part -->
@@ -166,5 +156,6 @@ Les leaders les plus brillants doivent leur excellence à leur influence exempla
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 </body>
 </html>

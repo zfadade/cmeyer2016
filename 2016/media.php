@@ -131,13 +131,7 @@ $language = setLanguage();
             <p><center><img  src='photos/pages/movie.jpg'  class='img-responsive'></center></p>
       </div>
        <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p>Vous êtes des hommes et des femmes à la tête de votre entreprise et vous savez mieux que 
-          personne à quel point l’être humain est complexe et diversifié. Communiquer avec vos cadres et 
-          employés de cultures, expériences et générations hétérogènes vous donnent des maux de tête ? 
-          C’est tout à fait compréhensible !  Il y a cependant mille et une façons d’établir 
-          une communication tolérante, de gagner leur collaboration et de les guider vers la réussite.
-           Les vidéos, infolettres et liens utiles que vous trouverez ici sont autant de pistes qui peuvent vous correspondre et vous interpeller.  
-               </p>
+            <p><?php echo _("VousEtesDesHommesEtDesFemmes"); ?> </p>
        </div>
       
       </div><!-- end of first row right part -->

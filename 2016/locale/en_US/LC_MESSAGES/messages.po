@@ -112,6 +112,7 @@ msgstr ""
 #: /Library/WebServer/Documents/cmeyer2016/2016/save/contact.php:156
 #: /Library/WebServer/Documents/cmeyer2016/2016/save/listclients.php:123
 #: /Library/WebServer/Documents/cmeyer2016/2016/save/media.php:118
+#: /Library/WebServer/Documents/cmeyer2016/2016/save/contact.php:151
 msgid "ContactezNous"
 msgstr "Contact us"
 
@@ -232,6 +233,7 @@ msgid "LeadersGestionnairesCharges"
 msgstr ""
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/contact.php:139
+#: /Library/WebServer/Documents/cmeyer2016/2016/save/contact.php:139
 msgid "VousGerezVotreEntreprise"
 msgstr ""
 
@@ -242,12 +244,12 @@ msgstr "Comments"
 #: /Library/WebServer/Documents/cmeyer2016/2016/listclients.php:133
 #: /Library/WebServer/Documents/cmeyer2016/2016/save/listclients.php:133
 msgid "OrgPriveEtPublique"
-msgstr ""
+msgstr "Private and public organizations"
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/listclients.php:172
 #: /Library/WebServer/Documents/cmeyer2016/2016/save/listclients.php:172
 msgid "OrgNonGovEtNonLuc"
-msgstr ""
+msgstr "Non-govermental and non-profit organizations"
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/media.php:134
 #: /Library/WebServer/Documents/cmeyer2016/2016/save/media.php:134
@@ -257,3 +259,17 @@ msgstr ""
 #: /Library/WebServer/Documents/cmeyer2016/2016/video.php:132
 msgid "Video"
 msgstr "Video"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:118
+#: /Library/WebServer/Documents/cmeyer2016/2016/apropos.php:111
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:120
+#: /Library/WebServer/Documents/cmeyer2016/2016/clients.php:121
+#: /Library/WebServer/Documents/cmeyer2016/2016/consultations.php:121
+#: /Library/WebServer/Documents/cmeyer2016/2016/infolettre.php:119
+#: /Library/WebServer/Documents/cmeyer2016/2016/lien.php:119
+#: /Library/WebServer/Documents/cmeyer2016/2016/listclients.php:123
+#: /Library/WebServer/Documents/cmeyer2016/2016/media.php:118
+#: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:123
+#: /Library/WebServer/Documents/cmeyer2016/2016/video.php:122
+msgid "PourEtreContacte"
+msgstr "To be contacted by a member of our team"

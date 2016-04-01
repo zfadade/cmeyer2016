@@ -130,7 +130,7 @@ J’avais beaucoup d’appréhension, mais finalement tout s’est très bien d�
 
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'>Organisations priv&eacute;es et publiques</h3>
+      <h3 class='h333'><?php echo _("OrgPriveEtPublique"); ?></h3>
       <div class='row'> 
       <div class='col-md-5 col-sm-5 col-xs-12 services'> 
             <p><center><img  src='photos/pages/mtldt.jpg'  class='img-responsive'></center></p>
@@ -169,7 +169,7 @@ J’avais beaucoup d’appréhension, mais finalement tout s’est très bien d�
             </div>
       
             </div><!-- end of first row right part -->
-            <h3 class='h333'>Organisations non gouvernementales et organisations &agrave; but non lucratif</h3>
+            <h3 class='h333'><?php echo _("OrgNonGovEtNonLuc"); ?></h3>
       <div class='row'> 
       <div class='col-md-5 col-sm-5 col-xs-12 services'> 
             <p><center><img  src='photos/pages/mtlfall.jpg'  class='img-responsive'></center></p>

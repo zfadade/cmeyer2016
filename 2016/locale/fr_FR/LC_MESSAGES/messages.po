@@ -148,11 +148,24 @@ msgstr "Merci de laisser un commentaire"
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/clients.php:136
 msgid "LeadersGestionnairesCharges"
-msgstr ""
+msgstr "Leaders, gestionnaires, chargés de projets savent récolter des bénéfices précieux pour leur "
+"compagnie grâce à leur audace de cultiver l’intelligence collective. "
+"Ils génèrent des réductions de coûts, une augmentation des indicateurs de rendement et la rétention des savoirs faire. "
+"Parmi les facteurs de succès de nos clients avec nos formations, nommons l’impulsion de la haute direction, "
+"l’appui des gestionnaires et chargés de projets et l’engagement de tous. "
+"<p>Les leaders les plus brillants doivent leur excellence à leur influence exemplaire. Les gestionnaires de "
+"haut niveau savent identifier les talents et valoriser le capital humain. "  
+"Les chargés de projets les plus sollicités sont des champions du dialogue émotionnellement intelligent. "
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/contact.php:139
 msgid "VousGerezVotreEntreprise"
-msgstr ""
+msgstr "Vous gérez votre entreprise depuis plusieurs années et vous vous demandez comment faire plus "
+"et mieux pour rester compétitif ?</p> "
+"<p>Sachez qu’une communication inadaptée, une interaction nuisible et un leadership inadéquat "
+"causent une baisse de performance et une perte des savoirs faire fort coûteuses pour les entreprises. "
+"Vous pouvez décider de rehausser la valeur de votre entreprise.</p> "
+"Nous pouvons vous aider à tonifier votre communication organisationnelle, "
+"créer des liens de confiance et renforcer votre leadership.  </p>"
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:19
 msgid "Commentaire"
@@ -168,8 +181,18 @@ msgstr "Organisations non gouvernementales et organisations &agrave; but non luc
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/media.php:134
 msgid "VousEtesDesHommesEtDesFemmes"
-msgstr ""
+msgstr "Vous êtes des hommes et des femmes à la tête de votre entreprise et vous savez mieux que "
+"personne à quel point l’être humain est complexe et diversifié. Communiquer avec vos cadres et "
+"de cultures, expériences et générations hétérogènes vous donnent des maux de tête ? "
+"C’est tout à fait compréhensible !  Il y a cependant mille et une façons d’établir "
+"une communication tolérante, de gagner leur collaboration et de les guider vers la réussite."
+"Les vidéos, infolettres et liens utiles que vous trouverez ici sont autant de pistes qui peuvent "
+"vous correspondre et vous interpeller.  "
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/video.php:132
 msgid "Video"
 msgstr "Vid&eacute;o"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:118
+msgid "PourEtreContacte"
+msgstr "Pour &ecirc;tre contact&eacute; par un membre de notre &eacute;quipe"
