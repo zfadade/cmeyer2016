@@ -45,7 +45,7 @@ msgstr "Anglais"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:110
 msgid "Slogan"
-msgstr "LEADERS, PRENEZ UNE LONGUEUR D'AVANCE SUR VOS CONCURRENTS !"
+msgstr "LEADERS, PRENEZ UNE LONGUEUR D'AVANCE !"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:111
 msgid "SubSlogan"

@@ -1,7 +1,6 @@
 <?php
 require_once("../includes/php_utils.php");
 
-
 /*
 Uses these variables, which should be defined in the including file:
 $showCommentaire = true/false;
