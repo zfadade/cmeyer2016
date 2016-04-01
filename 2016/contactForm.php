@@ -2,7 +2,8 @@
 require_once("../includes/php_utils.php");
 
 /*
-Uses these variables, which should be defined in the including file:
+The including .php file MUST define these variables before including this file: 
+$formTitle (already translated into the correct language)
 $showCommentaire = true/false;
 $showInfolettreOuiNon = true/false
 */  
@@ -12,6 +13,10 @@ $language = setLanguage();
 $accepteRecevoir = _("AccepteRecevoir");
 $oui = _("Oui");
 $non = _("Non");
+$nomLabel = _("Nom");
+$prenomLabel = _("Prenom");
+$courrielLabel = _("Courriel");
+$commentaireLabel = _("Commentaire");
 $envoyez = _("Envoyez");
 
 $thisUrl = htmlspecialchars($_SERVER["PHP_SELF"]);
@@ -109,21 +114,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 echo  <<< NAME_PRENOM_END
     <form method='post' action="$thisUrl" accept-charset="UTF-8">
-    <h3>Contactez-nous</h3>
+    <h3>$formTitle</h3>
 
       <div class="form-group">
-        <label for="contact-name">* Nom</label>
+        <label for="contact-name">* $nomLabel</label>
         <input type="name" class="form-control" id="contact-name" name="nom" value="$nom">
         <span class="error">$nomErr</span>
       </div>
 
       <div class="form-group">
-        <label for="contact-name">* Pr&eacute;nom</label>
+        <label for="contact-name">* $prenomLabel</label>
         <input type="name" class="form-control" id="contact-name" name="prenom" value="$prenom">
          <span class="error">$prenomErr</span>
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">* Courriel</label>
+        <label for="exampleInputEmail1">* $courrielLabel</label>
         <input type="email" class="form-control" id="email" name="courriel"  value="$courriel">
         <span class="error">$courrielErr</span>
       </div>
@@ -133,8 +138,8 @@ NAME_PRENOM_END;
 if (isset($showCommentaire) && ($showCommentaire === true)) {
 echo <<< COMMENTAIRE_END
   <div class="form-group">
-    <label for="textarea">Commentaire</label>
-    <input type="textarea" class="form-control" id="comment" name="commentaire"  value="$commentaire" placeholder="Commentaire">
+    <label for="textarea">$commentaireLabel</label>
+    <input type="textarea" class="form-control" id="comment" name="commentaire"  value="$commentaire">
   </div>
   <br>
 COMMENTAIRE_END;

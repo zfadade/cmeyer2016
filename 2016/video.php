@@ -84,7 +84,7 @@ $language = setLanguage();
         </li>
           <li><a href="#">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
           <li><a href="#">Contact<span class="sr-only">(current)</span></a></li>
-          <li><a href="#">English<span class="sr-only">(current)</span></a></li>
+          <li><?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?> </li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -119,6 +119,7 @@ $language = setLanguage();
 
       <!-- Display contact form -->
       <?php
+        $formTitle = _("ContactezNous");
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');
@@ -128,7 +129,7 @@ $language = setLanguage();
 
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'>Vid&eacute;o</h3>
+        <h3 class='h333'><?php echo _("Video"); ?>s</h3>
         <br>
         <div class='row movie embed-responsive embed-responsive-16by9'> 
         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hJ3Ar8t_ofc?rel=0" frameborder="0" allowfullscreen></iframe>

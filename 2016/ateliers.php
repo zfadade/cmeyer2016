@@ -85,7 +85,7 @@ $language = setLanguage();
         </li>
           <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
           <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
-          <li><a href="langue.php">English<span class="sr-only">(current)</span></a></li>
+          <li><?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?> </li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -117,6 +117,7 @@ $language = setLanguage();
 
       <!-- Display contact form -->
       <?php
+        $formTitle = _("ContactezNous");
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');

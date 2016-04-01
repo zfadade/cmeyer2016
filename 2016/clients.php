@@ -84,7 +84,7 @@ $language = setLanguage();
         </li>
           <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
           <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
-          <li><a href="langue.php">English<span class="sr-only">(current)</span></a></li>
+          <li><?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?> </li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -106,7 +106,7 @@ $language = setLanguage();
       </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
-        <h3 class='h333'>T&eacute;moignages</h3>
+        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
         <div class='clientfeedback'>
          <p >&quot;Notre organisation a fait face à des changements stratégiques aux impacts difficiles pour
 nos clients comme pour notre personnel. L’apport de Carole Meyer dans nos
@@ -118,6 +118,7 @@ l’engagement de nos employés et les affaires ont bien repris.&quot;
 
       <!-- Display contact form -->
       <?php
+        $formTitle = _("ContactezNous");
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');

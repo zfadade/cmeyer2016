@@ -79,12 +79,12 @@ $language = setLanguage();
             <li role="separator" class="divider"></li>
             <li><a href="infolettre.php">Infolettres</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="lien.php">Liens utiles</a></li>
+            <li><a href="lien.php"><?php echo _("LiensUtiles"); ?></a></li>
           </ul>
         </li>
           <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
           <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
-          <li><a href="langues.php">English<span class="sr-only">(current)</span></a></li>
+          <li><?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?> </li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -116,6 +116,7 @@ $language = setLanguage();
         
       <!-- Display contact form -->
       <?php
+        $formTitle = _("ContactezNous");
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');
@@ -125,7 +126,7 @@ $language = setLanguage();
 
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'>Liens utiles</h3>
+        <h3 class='h333'><?php echo _("LiensUtiles"); ?></h3>
       <div class='row'> 
       <div class='col-md-5 col-sm-5 col-xs-12 services'> 
             <p><center><img  src='photos/pages/books.jpg'  class='img-responsive'></center></p>

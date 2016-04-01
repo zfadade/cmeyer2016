@@ -1,4 +1,4 @@
-<?php
+F<?php
 require_once("../includes/php_utils.php");
 
 // i18n:
@@ -73,7 +73,7 @@ $language = setLanguage();
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo _("Media"); ?><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="media.php"><?php echo _("M&eacute;dia"); ?></a></li> 
+            <li><a href="media.php"><?php echo _("Media"); ?></a></li> 
             <li role="separator" class="divider"></li>
             <li><a href="video.php"><?php echo _("Videos"); ?></a></li> 
             <li role="separator" class="divider"></li>
@@ -84,12 +84,7 @@ $language = setLanguage();
         </li>
           <li><a href="apropos.php"><?php echo _("AproposDeNous"); ?><span class="sr-only">(current)</span></a></li>
           <li><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
-
-      <li>
-      <?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?>
-    </li>
-<!-- 
-          <li><a href="services.php?lang=en"><?php echo _("Anglais"); ?><span class="sr-only">(current)</span></a></li> -->
+          <li><?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?> </li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -120,6 +115,7 @@ $language = setLanguage();
         
       <!-- Display contact form -->
       <?php
+        $formTitle = _("ContactezNous");
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');

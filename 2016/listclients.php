@@ -66,7 +66,7 @@ $language = setLanguage();
             <li role="separator" class="divider"></li>
             <li><a href="listclients.php">Liste des organisations</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="temoignages.php">T&eacute;moignages</a></li>
+            <li><a href="temoignages.php"><?php echo _("Temoignages"); ?></a></li>
             
           </ul>
         </li>
@@ -84,7 +84,8 @@ $language = setLanguage();
         </li>
           <li><a href="#">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
           <li><a href="#">Contact<span class="sr-only">(current)</span></a></li>
-          <li><a href="#">English<span class="sr-only">(current)</span></a></li>
+          <li><?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?> </li>
+
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
@@ -106,7 +107,7 @@ $language = setLanguage();
       </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
-        <h3 class='h333'>T&eacute;moignages</h3>
+        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
         <div class='clientfeedbackList'>
          <p >&quot;Merci encore pour la formation de notre équipe. Étant une personne enjouée
 de nature, je suis maintenant capable de voir à quel point nous pouvons
@@ -119,6 +120,7 @@ J’avais beaucoup d’appréhension, mais finalement tout s’est très bien d�
 
       <!-- Display contact form -->
       <?php
+        $formTitle = _("ContactezNous");
         $showCommentaire = false;
         $showInfolettreOuiNon = false;
         include('contactForm.php');

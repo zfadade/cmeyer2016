@@ -85,7 +85,7 @@ $language = setLanguage();
         </li>
           <li><a href="apropos.php">&Agrave; propos de nous<span class="sr-only">(current)</span></a></li>
           <li class='active'><a href="contact.php">Contact<span class="sr-only">(current)</span></a></li>
-          <li><a href="langue.php">English<span class="sr-only">(current)</span></a></li>
+          <li><?php print getUrlForOtherLang($language, "<span class='sr-only'>(current)</span>"); ?> </li>
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">Contac
@@ -106,8 +106,8 @@ $language = setLanguage();
         <?php require_once 'slogan.php'; ?>
       </div>
         
-      <div class='col-md-4 col-sm-4 col-xs-12 '>
-        <h3 class='h333'>T&eacute;moignages</h3>
+      <div class='col-md-4 col-sm-4 col-xs-12 '>   
+        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
         <div class='clientfeedback'>
          <p >&quot;J’ai été surprise par ta facilité à nous faire progresser, à utiliser l’humour pour dédramatiser, à mentionner en toute
           subtilité nos points à améliorer, à nous encourager! C’était bien efficace pour tout le groupe! &quot;
@@ -153,6 +153,7 @@ Nous pouvons vous aider à tonifier votre communication organisationnelle, crée
 
     <!-- Display contact form -->
     <?php
+      $formTitle = _("ContactezNous");
       $showCommentaire = true;
       $showInfolettreOuiNon = true;
       include('contactForm.php');

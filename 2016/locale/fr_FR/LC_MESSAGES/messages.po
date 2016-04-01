@@ -1,5 +1,5 @@
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:51
-msgid "Bienvenue"
+msgid "bienvenue"
 msgstr "Bienvenue"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:57
@@ -146,3 +146,30 @@ msgstr "Courriel mal forme"
 msgid "CommentaireRequired"
 msgstr "Merci de laisser un commentaire"
 
+#: /Library/WebServer/Documents/cmeyer2016/2016/clients.php:136
+msgid "LeadersGestionnairesCharges"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contact.php:139
+msgid "VousGerezVotreEntreprise"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:19
+msgid "Commentaire"
+msgstr "Commentaire"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/listclients.php:133
+msgid "OrgPriveEtPublique"
+msgstr "Organisations priv&eacute;es et publiques"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/listclients.php:172
+msgid "OrgNonGovEtNonLuc"
+msgstr "Organisations non gouvernementales et organisations &agrave; but non lucratif"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/media.php:134
+msgid "VousEtesDesHommesEtDesFemmes"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/video.php:132
+msgid "Video"
+msgstr "Vid&eacute;o"
