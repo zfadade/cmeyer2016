@@ -16,6 +16,11 @@ $displayErrors = $my_init_data['ini_display_errors'] === 'true' ? true : false;
 ini_set('display_errors', $displayErrors);
 ini_set('log_errors', true);
 
+function exception_error_handler($errno, $errstr, $errfile, $errline ) {
+    throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
+}
+set_error_handler("exception_error_handler");
+
 // TODO is this still needed ?
 ob_start();
 
@@ -24,7 +29,9 @@ ob_start();
 define("FRENCH", "fr");
 define("ENGLISH", "en");
 
-# Slack URLS
+# Slack
+define("USE_SLACK", $my_init_data['use_slack'] === 'true' ? true : false);
+
 define("SLACK_TESTING_URL", $my_init_data['slack_testing_url']);
 // define("SLACK_ERRLOG_URL", $my_init_data['slack_errlog_url']);
 define("SLACK_ERRLOG_URL", SLACK_TESTING_URL);
@@ -62,7 +69,7 @@ try {
    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 }
-catch(PDOException $e) {
+catch (PDOException $e) {
    // QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
    $errMsg = sprintf("ERROR! Unable to connect to DB %s, %s: %s", 
             $my_init_data['cmeyer_db_name'], $my_init_data['cmeyer_db_host'],  $e->getMessage());

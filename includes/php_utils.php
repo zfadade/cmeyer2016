@@ -95,6 +95,11 @@ function sendToSlack($url, $msg) {
     //           'link_names' => true
     //   ];
 
+	if ( ! USE_SLACK) {
+		// TODO:  log that Slack is turned off !
+		return;
+	}
+
     try {
 		    // Instantiate without defaults
 		    $client = new Maknz\Slack\Client($url);
