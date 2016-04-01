@@ -1,6 +1,5 @@
 <?php
 require_once("../includes/php_utils.php");
-require_once("../includes/config.php");
 
 // i18n:
 $language = setLanguage();

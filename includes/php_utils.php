@@ -1,12 +1,6 @@
 <?php
-
-if (!isset($_SESSION)) 
-{ 
-     session_start(); 
-} 
 include_once('config.php');
 include_once('../2016/vendor/autoload.php');
-
 
 // For now, set the locale every time.  May get smarter later
 function setLanguage() {
@@ -91,7 +85,6 @@ function full_path()
     return $url;
 }
 
-// TODO:  Wrap in exception so clients don't see if it fails
 function sendToSlack($url, $msg) {
     // Instantiate with defaults, so all messages created
     // will be sent from 'Cyril' and to the #accounting channel
@@ -101,10 +94,17 @@ function sendToSlack($url, $msg) {
     //          'channel' => '#accounting',
     //           'link_names' => true
     //   ];
-    
-    // Instantiate without defaults
-    $client = new Maknz\Slack\Client($url);
-    $client->send($msg);
+
+    try {
+		    // Instantiate without defaults
+		    $client = new Maknz\Slack\Client($url);
+		    $client->send($msg);
+	}
+    catch (Exception $e) {
+		// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
+		$errMsg = "ERROR! Unable to send to Slack.  Msg: $msg  Exception: " .  $e->getMessage();
+		error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
+	}
 }
 
 function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPage, $lang, $contactInfo)  {
@@ -134,7 +134,7 @@ function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPag
 		}
 		else {
 			$errMsg = "ERROR! Unable to add to DB: $contactInfoWithCommentaire";
-			error_log($errMsg, 1, "zfadade@yahoo.com");
+			error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
 			sendToSlack(SLACK_TESTING_URL, $errMsg);
       		//sendToSlack(SLACK_CONSENT_URL, $errMsg);
 		}
@@ -142,7 +142,7 @@ function insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPag
 	catch (PDOException $e) {
 		// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'
 		$errMsg = "ERROR! DB exception when adding: $contactInfoWithCommentaire. Exception: " .  $e->getMessage();
-		error_log($errMsg, 1, "zfadade@yahoo.com");
+		error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
 	    sendToSlack(SLACK_TESTING_URL, $errMsg);
 	}
 }
@@ -171,14 +171,14 @@ function updateConsent($courriel, $clientCode, $consent)  {
 		else {
 			$errMsg = "ERROR! Unable to update $consentInfo";
 			print("errMsg");
-			error_log($errMsg, 1, "zfadade@yahoo.com");
+			error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
 			// sendToSlack(SLACK_TESTING_URL, $errMsg);
       		sendToSlack(SLACK_CONSENT_URL, $errMsg);
 		}
 	} catch(PDOException $e) {
 		$errMsg = "ERROR! DB exception when updating $consentInfo: " . $e->getMessage();
 		print($errMsg);
-		error_log($errMsg, 1, "zfadade@yahoo.com");
+		error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);
 	    sendToSlack(SLACK_ERRLOG_URL, $errMsg);
 	}
 }

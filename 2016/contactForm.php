@@ -1,11 +1,11 @@
 <?php
 require_once("../includes/php_utils.php");
-require_once("../includes/config.php");
+
 
 /*
 Uses these variables, which should be defined in the including file:
-$showCommentaire = false;
-$showInfolettreOuiNon = false
+$showCommentaire = true/false;
+$showInfolettreOuiNon = true/false
 */  
 
 // i18n:
@@ -79,16 +79,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Insert contact into DB
       insertContact($nom, $prenom, $courriel, $commentaire, $saysYes, $webPage, $language, $contactInfo);
 
-      // ... and send an email
+      // Send an email
       $sujet = htmlspecialchars_decode("Nouveau contact de $contactInfo");
-      $msgBody = htmlspecialchars_decode("$contactInfo dit: \n\n \"$commentaireInfo\"");
+      $msgBody = htmlspecialchars_decode("$contactInfo dit: \n\n \"$commentaire\"");
 
       $headers = "From: " . $courriel . PHP_EOL .
           "Reply-To: " . $courriel . PHP_EOL .
           "Content-Type: text/plain; charset=utf-8". PHP_EOL;
           // "X-Mailer: PHP/" . phpversion();
 
-echo "Sending mail to " . CONTACT_EMAIL_RECIPIENT . " Subjet: $sujet  body:  $msgBody  headers: $headers";
+      // echo "Sending mail to " . CONTACT_EMAIL_RECIPIENT . " Subjet: $sujet  body:  $msgBody  headers: $headers";
 
       mail(CONTACT_EMAIL_RECIPIENT, $sujet, $msgBody, $headers);
     
