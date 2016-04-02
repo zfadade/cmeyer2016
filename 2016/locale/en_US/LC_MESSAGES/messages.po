@@ -31,6 +31,9 @@ msgstr "List of Organizations"
 #: /Library/WebServer/Documents/cmeyer2016/2016/save/contact.php:110
 #: /Library/WebServer/Documents/cmeyer2016/2016/save/listclients.php:69
 #: /Library/WebServer/Documents/cmeyer2016/2016/save/listclients.php:110
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:110
+#: /Library/WebServer/Documents/cmeyer2016/2016/consultations.php:110
+#: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:12
 msgid "Temoignages"
 msgstr "Testimonials"
 
@@ -273,3 +276,83 @@ msgstr "Video"
 #: /Library/WebServer/Documents/cmeyer2016/2016/video.php:122
 msgid "PourEtreContacte"
 msgstr "To be contacted by a member of our team"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:141
+msgid "HommesEtFemmesALaTete"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:145
+msgid "CetAtelierEstConcu"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:163
+msgid "ObtenirDesResultatsFinanciers"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:167
+msgid "CetAtelierSappuie"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:185
+msgid "DirigeantsVousVeillezA"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:189
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:207
+msgid "CetAtelierFondeSurLesPrincipes"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:212
+msgid "CetAtelierEstLePremierDuneSerie"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:207
+msgid "ImageDaffairesQueVousLeaders"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:13
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:138
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:160
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:182
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:204
+msgid "ATELIER"
+msgstr "WORKSHOP"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:130
+msgid "Nos Ateliers"
+msgstr "Our Workshops"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:137
+msgid "MAINTENIR LE CAP"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:138
+msgid "NOUVEAU"
+msgstr "NEW"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:147
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:169
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:191
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:214
+msgid "Lire la suite"
+msgstr "Read more"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:159
+msgid "OBTENIR DES RESULTATS"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:181
+msgid "CONTRIBUTION ENTHOUSIASTE"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:203
+msgid "IMAGE POSITIVE"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consultations.php:137
+msgid "DanslExerciceDeVosFonctionsDeChef"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:135
+msgid "Ce qu'ils pensent de nous"
+msgstr "What people think about us"

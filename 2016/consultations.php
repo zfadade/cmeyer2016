@@ -107,7 +107,7 @@ $language = setLanguage();
       </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
-        <h3 class='h333'>T&eacute;moignages</h3>
+        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
         <div class='clientfeedback'>
          <p >&quot;Carole saisit rapidement les forces sur lesquels nous devons construire. Elle
 dispense des conseils justes, fondés sur ses connaissances et ses
@@ -134,15 +134,7 @@ expériences, tout en étant adaptés à notre personnalité.&quot;
             <p><center><img  src='photos/pages/handshake.jpg'  class='img-responsive'></center></p>
       </div>
        <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p>Dans l’exercice de vos fonctions de chef d’entreprise, il vous arrive de vous
-heurter à des obstacles spécifiques. Nous pouvons vous dépanner avec un
-service conseil ponctuel relié à la communication orale, interpersonnelle et
-exécutive.</p>
-<p>L’être humain étant un être social, le dialogue est très souvent la clé de
-voûte des solutions que vous recherchez dans vos relations d’affaires.
-Service de conseil ponctuel, la consultation offre des recommandations
-formulées durant des rencontres réservées au leader et à son équipe de
-confiance. </p>
+         <p><?php echo _("DanslExerciceDeVosFonctionsDeChef"); ?></p>
                
        </div>
       

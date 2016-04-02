@@ -10,7 +10,7 @@ $language = setLanguage();
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - ATELIERS</title>
+<title>CAROLE MEYER - <?php echo _("ATELIER"); ?>S</title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -107,7 +107,7 @@ $language = setLanguage();
   </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
-        <h3 class='h333'>T&eacute;moignages</h3>
+        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
         <div class='clientfeedback'>
          <p >&quot;Carole, tes formations se distinguent en ce qu’elles aident les dirigeants et les équipes à utiliser leurs qualités et leurs forces pour atteindre leurs objectifs dans leurs contextes.
           C’est beaucoup plus que de montrer comment être beau, fin et politiquement correct!&quot;
@@ -127,26 +127,24 @@ $language = setLanguage();
 
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'>Nos Ateliers</h3>
+        <h3 class='h333'><?php echo _("Nos Ateliers"); ?></h3>
         <br>
       <div class='row ladderrow'> 
       <div class='col-md-5 col-sm-5 col-xs-12 '> 
             <p><center><img  src='photos/ladder/compass211.jpg'  class='img-responsive'></center></p>
       </div>
     <div class='col-md-7 col-sm-7 col-xs-12 services'>
-        <p><h3 class='h222'>MAINTENIR LE CAP</p>
-         ATELIER 4 – <span id='nouveauAtelier'> NOUVEAU !</span></h3>
+        <p><h3 class='h222'><?php echo _("MAINTENIR LE CAP"); ?></p>
+         <?php echo _("ATELIER"); ?> 4 – <span id='nouveauAtelier'> <?php echo _("NOUVEAU"); ?> !</span></h3>
         
         <div class='plus_de_texte'> 
-         <p>Obtenir des résultats financiers positifs pour votre compagnie est votre but ultime de chef d’entreprise. 
-Pour garder votre compagnie à un haut niveau concurrentiel, inspirer par un leadership généreux et fort vous permet d’être reconnu dans votre rôle de décideur et de renforcer votre rayonnement de leader. 
- 
+        <p><?php echo _("HommesEtFemmesALaTete"); ?></p>
         <span class="moreelipses" style="display: inline;">...</span>
         <span class="morecontent">
-        <span style="display: none;">Cet atelier est conçu pour vous aider à identifier les principes de communication, dialogue et leadership des trois ateliers précédents et à appliquer les pratiques pertinentes à des activités professionnelles plus complexes. Nous pouvons vous soutenir pour gagner vos partenariats d’affaires, faire évoluer les comportements organisationnels, veiller à l’appropriation du code d’éthique, obtenir l’adhésion aux objectifs, stratégies et tactiques d’affaires, ou encore dépasser toute situation délicate.
-Pratiquer régulièrement et sans relâche est le seul moyen d’être prêt à relever les nouveaux défis et de rester au sommet!
-</span>
-        <a class="more" href="">Lire la suite</a></span> 
+        <span style="display: none;">
+          <p><?php echo _("CetAtelierEstConcu"); ?></p>
+        </span>
+        <a class="more" href=""><?php echo _("Lire la suite"); ?></a></span> 
         </p>            
        </div>
     </div>
@@ -158,20 +156,17 @@ Pratiquer régulièrement et sans relâche est le seul moyen d’être prêt à 
             <p><center><img  src='photos/ladder/leadership.jpg'  class='img-responsive'></center></p>
       </div>
     <div class='col-md-7 col-sm-7 col-xs-12 services'>
-        <p><h3 class='h222'>OBTENIR DES RÉSULTATS </p>
-         ATELIER 3</h3>
+        <p><h3 class='h222'><?php echo _("OBTENIR DES RESULTATS"); ?> </p>
+         <?php echo _("ATELIER"); ?> 3</h3>
         
         <div class='plus_de_texte'> 
-         <p>Hommes et femmes à la tête d’entreprises, maintenir le cap et surfer sur les nouvelles vagues
-          économiques, politiques, technologiques et sociales constitue un enjeu crucial.
-Pour assurer la pérennité de votre compagnie, savoir inculquer à vos équipes une culture de transparence, 
-perméabilité et persévérance est un atout   essentiel. 
+         <p><?php echo _("ObtenirDesResultatsFinanciers"); ?></p>
         <span class="moreelipses" style="display: inline;">...</span>
         <span class="morecontent">
-        <span style="display: none;">Cet atelier s’appuie sur les éléments intégrés dans les ateliers 1 er 2 pour rester diplomate et exercer une influence positive en toutes circonstances. Nous vous entrainons à mener les prises de décisions, les résolutions de problèmes et les réunions avec brio. Votre mission est de faciliter le travail, de faire progresser vos équipes, de faire émerger les initiatives et de transformer les résistances aux changements en prises d’engagement.
-Or, faire soi-même ce que l’on exige des autres est le plus court chemin pour concrétiser ses rêves d’excellence !
-</span>
-        <a class="more" href="">Lire la suite</a></span> 
+        <span style="display: none;">
+          <p><?php echo _("CetAtelierSappuie"); ?></p>
+          </span>
+        <a class="more" href=""><?php echo _("Lire la suite"); ?></a></span> 
         </p>            
        </div>
     </div>
@@ -183,18 +178,17 @@ Or, faire soi-même ce que l’on exige des autres est le plus court chemin pour
             <p><center><img  src='photos/ladder/angryman.jpg'  class='img-responsive'></center></p>
       </div>
     <div class='col-md-7 col-sm-7 col-xs-12 services'>
-        <p><h3 class='h222'>CONTRIBUTION ENTHOUSIASTE</p>
-         ATELIER 2</h3>
+        <p><h3 class='h222'><?php echo _("CONTRIBUTION ENTHOUSIASTE"); ?></p>
+         <?php echo _("ATELIER"); ?> 2</h3>
         
         <div class='plus_de_texte'> 
-         <p>Dirigeants, vous veillez à la prospérité de votre compagnie alors que vos équipes livrent vos produits et services. 
-Pour assurer une haute performance dans un environnement global exigeant, bâtir une intelligence collective est une stratégie éprouvée. 
+         <p><?php echo _("DirigeantsVousVeillezA"); ?></p> 
         <span class="moreelipses" style="display: inline;">...</span>
         <span class="morecontent">
-        <span style="display: none;">Cet atelier, fondé sur les principes d’une communication positive assimilée dans l’atelier 1, offre les clés pour créer une atmosphère de travail attrayante et déclencher une contribution enthousiaste de tous les niveaux hiérarchiques. Nous vous proposons des pratiques gagnantes telles que la reconnaissance des expertises et des talents, l’écoute active et la persuasion avec finesse. C’est le moment de  maîtriser des outils pour une gestion habile des personnalités difficiles, des conflits et des objections. Enfin, vous découvrez la rétroaction énergisante, la valorisation des qualités et la canalisation des forces.
-Le dialogue émotionnellement intelligent, fortifiant naturel des relations humaines, renforce la motivation, l’innovation et la loyauté!
+        <span style="display: none;">
+          <p><?php echo _("CetAtelierFondeSurLesPrincipes"); ?></p>
 </span>
-        <a class="more" href="">Lire la suite</a></span> 
+        <a class="more" href=""><?php echo _("Lire la suite"); ?></a></span> 
         </p>            
        </div>
     </div>
@@ -206,19 +200,18 @@ Le dialogue émotionnellement intelligent, fortifiant naturel des relations huma
             <p><center><img  src='photos/ladder/presentation.jpg'  class='img-responsive'></center></p>
       </div>
     <div class='col-md-7 col-sm-7 col-xs-12 services'>
-        <p><h3 class='h222'>IMAGE POSITIVE </p>
-         ATELIER 1</h3>
+        <p><h3 class='h222'><?php echo _("IMAGE POSITIVE"); ?></p>
+         <?php echo _("ATELIER"); ?> 1</h3>
         
         <div class='plus_de_texte'> 
-         <p>L’image d’affaires que vous, leaders, diffusez lors de vos relations publiques est fortement liée à votre style de communication. 
-Pour vous démarquer de vos compétiteurs, une vision adroitement communiquée à l’interne comme à l’externe crée des liens de confiance solides et durables. 
+         <p><?php echo _("ImageDaffairesQueVousLeaders"); ?></p> 
 
         <span class="moreelipses" style="display: inline;">...</span>
         <span class="morecontent">
-        <span style="display: none;">Cet atelier est le premier d’une série de quatre et propose un entraînement de base indispensable. Il s’agit de développer une attitude et un comportement sincères, dévoués et positifs. Ainsi, vous améliorez votre capacité à transmettre une image digne de votre compagnie, professionnelle et crédible dans vos communications internes et externes. Vos présentations de grande qualité élèvent le niveau de professionnalisme de vos relations avec vos équipes, vos partenaires d’affaires et vos clients.
-Inspirer confiance en donnant le meilleur de soi à tous les niveaux hiérarchiques est un choix judicieux qui mène à des résultats gagnant-gagnant !
+        <span style="display: none;">
+          <p><?php echo _("CetAtelierEstLePremierDuneSerie"); ?></p>
 </span>
-        <a class="more" href="">Lire la suite</a></span> 
+        <a class="more" href=""><?php echo _("Lire la suite"); ?></a></span> 
         </p>            
        </div>
     </div>

@@ -131,8 +131,7 @@ $language = setLanguage();
             <p><center><img  src='photos/pages/dolphin3.jpg'  class='img-responsive'></center></p>
       </div>
        <div class='col-md-7 col-sm-7 col-xs-12 services'>
-         <p><?php echo _("ServicePage"); ?>
-</p>
+         <p><?php echo _("ServicePage"); ?></p>
        </div>
       
       </div><!-- end of first row right part -->

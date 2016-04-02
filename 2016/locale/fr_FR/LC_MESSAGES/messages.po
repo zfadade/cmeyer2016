@@ -196,3 +196,101 @@ msgstr "Vid&eacute;o"
 #: /Library/WebServer/Documents/cmeyer2016/2016/services.php:118
 msgid "PourEtreContacte"
 msgstr "Pour &ecirc;tre contact&eacute; par un membre de notre &eacute;quipe"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:141
+msgid "HommesEtFemmesALaTete"
+msgstr "Hommes et femmes à la tête d’entreprises, maintenir le cap et surfer sur les nouvelles vagues économiques, "
+"politiques, technologiques et sociales constitue un enjeu crucial.</p> "
+"<p>Pour assurer la pérennité de votre compagnie, savoir inculquer à vos équipes une culture de transparence, "
+"perméabilité et persévérance est un atout essentiel. "
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:145
+msgid "CetAtelierEstConcu"
+msgstr "Cet atelier est conçu pour vous aider à identifier les principes de communication, dialogue et leadership "
+"des trois ateliers précédents et à appliquer les pratiques pertinentes à des activités professionnelles plus complexes. "
+"Nous pouvons vous soutenir pour gagner vos partenariats d’affaires, faire évoluer les comportements organisationnels, "
+"veiller à l’appropriation du code d’éthique, obtenir l’adhésion aux objectifs, stratégies et tactiques d’affaires, "
+"ou encore dépasser toute situation délicate.</p> "
+"<p>Pratiquer régulièrement et sans relâche est le seul moyen d’être prêt à relever les nouveaux défis et de rester au sommet! "
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:163
+msgid "ObtenirDesResultatsFinanciers"
+msgstr "Obtenir des résultats financiers positifs pour votre compagnie est votre but ultime de chef d’entreprise.</p> "
+"<p>Pour garder votre compagnie à un haut niveau concurrentiel, inspirer par un leadership généreux et fort vous permet "
+"d’être reconnu dans votre rôle de décideur et de renforcer votre rayonnement de leader. "
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:167
+msgid "CetAtelierSappuie"
+msgstr "Cet atelier s’appuie sur les éléments intégrés dans les ateliers 1 er 2 pour rester diplomate "
+"et exercer une influence positive en toutes circonstances. Nous vous entrainons à mener les prises de décisions, "
+"les résolutions de problèmes et les réunions avec brio. Votre mission est de faciliter le travail, "
+"de faire progresser vos équipes, de faire émerger les initiatives et de transformer les résistances aux changements en prises d’engagement.</p>"
+"<p>Or, faire soi-même ce que l’on exige des autres est le plus court chemin pour concrétiser ses rêves d’excellence !"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:185
+msgid "DirigeantsVousVeillezA"
+msgstr "Dirigeants, vous veillez à la prospérité de votre compagnie alors que vos équipes livrent vos produits et services.</p> "
+"<p>Pour assurer une haute performance dans un environnement global exigeant, bâtir une intelligence collective est une stratégie éprouvée."
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:189
+msgid "CetAtelierFondeSurLesPrincipes"
+msgstr "Cet atelier, fondé sur les principes d’une communication positive assimilée dans l’atelier 1, offre les clés pour créer une atmosphère de travail attrayante et déclencher une contribution enthousiaste de tous les niveaux hiérarchiques. Nous vous proposons des pratiques gagnantes telles que la reconnaissance des expertises et des talents, l’écoute active et la persuasion avec finesse. C’est le moment de  maîtriser des outils pour une gestion habile des personnalités difficiles, des conflits et des objections. Enfin, vous découvrez la rétroaction énergisante, la valorisation des qualités et la canalisation des forces.</p><p>Le dialogue émotionnellement intelligent, fortifiant naturel des relations humaines, renforce la motivation, l’innovation et la loyauté!"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:212
+msgid "CetAtelierEstLePremierDuneSerie"
+msgstr "Cet atelier, fondé sur les principes d’une communication positive assimilée dans l’atelier 1, offre les clés pour créer une atmosphère de travail attrayante et déclencher une contribution enthousiaste de tous les niveaux hiérarchiques. Nous vous proposons des pratiques gagnantes telles que la reconnaissance des expertises et des talents, l’écoute active et la persuasion avec finesse. C’est le moment de  maîtriser des outils pour une gestion habile des personnalités difficiles, des conflits et des objections. Enfin, vous découvrez la rétroaction énergisante, la valorisation des qualités et la canalisation des forces.</p> <p>Le dialogue émotionnellement intelligent, fortifiant naturel des relations humaines, renforce la motivation, l’innovation et la loyauté!"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:207
+msgid "ImageDaffairesQueVousLeaders"
+msgstr "L’image d’affaires que vous, leaders, diffusez lors de vos relations publiques est fortement liée à votre style de communication.<p/>  "
+"<p>Pour vous démarquer de vos compétiteurs, une vision adroitement communiquée à l’interne comme à l’externe crée des liens de confiance solides et durables."
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:13
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:138
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:160
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:182
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:204
+msgid "ATELIER"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:130
+msgid "Nos Ateliers"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:137
+msgid "MAINTENIR LE CAP"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:138
+msgid "NOUVEAU"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:147
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:169
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:191
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:214
+msgid "Lire la suite"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:159
+msgid "OBTENIR DES RESULTATS"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:181
+msgid "CONTRIBUTION ENTHOUSIASTE"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:203
+msgid "IMAGE POSITIVE"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consultations.php:137
+msgid "DanslExerciceDeVosFonctionsDeChef"
+msgstr "Dans l’exercice de vos fonctions de chef d’entreprise, il vous arrive de vous heurter à des obstacles spécifiques.  "
+"Nous pouvons vous dépanner avec un service conseil ponctuel relié à la communication orale, interpersonnelle et exécutive.</p>"
+"<p>L’être humain étant un être social, le dialogue est très souvent la clé de voûte des solutions que vous recherchez dans vos relations d’affaires. "
+"Service de conseil ponctuel, la consultation offre des recommandations formulées durant des rencontres réservées au leader et à son équipe de confiance. "
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:135
+msgid "Ce qu'ils pensent de nous"
+msgstr ""

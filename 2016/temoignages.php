@@ -9,7 +9,7 @@ $language = setLanguage();
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - T&eACUTE;MOIGNAGES</title>
+<title>CAROLE MEYER - <?php echo _("Temoignages"); ?></title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -66,7 +66,7 @@ $language = setLanguage();
             <li role="separator" class="divider"></li>
             <li><a href="listclients.php">Liste des organisations</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="temoignages.php">T&eacute;moignages</a></li>
+            <li><a href="temoignages.php"><?php echo _("Temoignages"); ?></a></li>
             
           </ul>
         </li>
@@ -107,7 +107,7 @@ $language = setLanguage();
      
        <div class='col-md-12 col-sm-12 col-xs-12'>
       <div class='col-md-4 col-sm-4 col-xs-12'>
-        <h3 class='h333'>T&eacute;moignages</h3>
+        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
         <div class='clientfeedbackT'>
          <p >&quot;Mon équipe, traditionnellement allergique à tout changement, réagit différemment aux
 nouvelles contraintes imposées par nos fournisseurs, depuis que vous l’avez entraînée. Non
@@ -132,7 +132,7 @@ Vos résultats sont surprenants ! Un exemple à suivre !&quot;
       
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'>Ce qu'ils pensent de nous</h3>
+        <h3 class='h333'><?php echo _("Ce qu'ils pensent de nous"); ?></h3>
         <br>
       <div class='row'> 
       <div class='col-md-3 col-sm-3 col-xs-12 services'> 
@@ -233,7 +233,7 @@ Je suis très heureuse de vivre cette expérience, mille fois merci!
 
 <br>
 Au plaisir de poursuivre la formation !
-        <p><b>V&eacute;ronique Loiseau</b>,Directrice G&eacute;n&eacute;rale, Chambre de commerce française du Canada
+        <p><b>V&eacute;ronique Loiseau</b>, Directrice G&eacute;n&eacute;rale, Chambre de commerce française du Canada
 </p>
         </div>
 
