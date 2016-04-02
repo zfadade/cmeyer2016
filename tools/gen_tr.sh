@@ -3,7 +3,6 @@
 #.po files:  Where I put in the translations
 #.mo files:  the compiled version
 
-base_dir='/Library/WebServer/Documents/cmform'
 LANGS="en_US fr_FR"
 COPYRIGHT_HOLDER=EnfinWeb
 PACKAGE_NAME=CMForm

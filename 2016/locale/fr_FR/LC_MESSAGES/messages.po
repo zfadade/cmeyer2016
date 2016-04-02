@@ -294,3 +294,7 @@ msgstr "Dans l’exercice de vos fonctions de chef d’entreprise, il vous arriv
 #: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:135
 msgid "Ce qu'ils pensent de nous"
 msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/video.php:12
+msgid "VIDEO"
+msgstr "VID&Eacute;O"

@@ -34,6 +34,8 @@ msgstr "List of Organizations"
 #: /Library/WebServer/Documents/cmeyer2016/2016/ateliers.php:110
 #: /Library/WebServer/Documents/cmeyer2016/2016/consultations.php:110
 #: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:12
+#: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:69
+#: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:110
 msgid "Temoignages"
 msgstr "Testimonials"
 
@@ -356,3 +358,7 @@ msgstr ""
 #: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:135
 msgid "Ce qu'ils pensent de nous"
 msgstr "What people think about us"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/video.php:12
+msgid "VIDEO"
+msgstr ""

@@ -1,12 +1,12 @@
 /* CUSTOM CSS FOR CMCO  VERSION WITH BOOTSTRAP*/
-body{background-color:#aaa;}
+body{background-color:#e7e7e7;}
 .container{margin-top:5px;border-radius:10px;}
 
 /*hr{border-top: 1px solid #aaa;}*/
-.page-header{border-bottom:2px solid #08BE19;
-  -webkit-box-shadow: 0 8px 8px -3px #aaa;
-  -moz-box-shadow: 0 8px 6px -6px #aaa;
-  box-shadow: 0 8px 6px -6px #aaa;
+.page-header{border-bottom:3px solid #08BE19;
+  -webkit-box-shadow: 0 8px 8px -4px #aaa;
+  -moz-box-shadow: 0 8px 6px -4px #aaa;
+  box-shadow: 0 8px 6px -4px #aaa;
 }
 /*#namecarole{font-size:24px;color:#5990B1;}*/
 /*.col-md-3{margin-left:0px;padding-left:1px;}
@@ -31,12 +31,16 @@ body{background-color:#aaa;}
 /** FEEDBACK CLIENT **/
 .clientfeedback{font-style: italic;font-size:18px;margin:0;background-color:#e7e7e7;
   padding:20px;border-radius:4px;height:380px;}
-.clientfeedback1{font-style: italic;font-size:18px;margin:0;background-color:#E9F6F9;
+.clientfeedback1{font-style: italic;font-size:18px;margin:0;background-color:#e7e7e7;
   padding:20px;border-radius:4px;height:380px;}
-.clientfeedbackT{font-style: italic;font-size:18px;margin:0;background-color:#eee;
+.clientfeedbackT{font-style: italic;font-size:18px;margin:0;background-color:#e7e7e7;
   padding:20px;border-radius:4px;height:480px;}
-.clientfeedbackList{font-style: italic;font-size:18px;margin:0;background-color:#eee;
+.clientfeedbackList{font-style: italic;font-size:18px;margin:0;background-color:#e7e7e7;
   padding:20px;border-radius:4px;}
+  .clientfeedbackV{font-style: italic;font-size:18px;margin:0;background-color:#e7e7e7;
+  padding:20px;border-radius:4px;height:380px;}
+  .clientfeedbackC{font-style: italic;font-size:18px;margin:0;background-color:#e7e7e7;
+  padding:20px;border-radius:4px;height:350px;}
  /** FEEDBACK CLIENT **/ 
 
 .services{font-size:16px; border:1px solid #fff;}
@@ -48,7 +52,7 @@ body{background-color:#aaa;}
 
 .haut{position:relative; text-align:right; padding:5px;}
 .movie{margin-top:15px;}
-.contactPage{margin:30px 30px 0 0; border:1px solid #fff;}
+.contactPage{margin:30px 30px 0 0;}
 .tete{border:1px solid red;}
 #caption{font-size:14px;text-align: center;visibility: hidden;}
 /*
@@ -98,11 +102,11 @@ body{background-color:#aaa;}
 #message1, #message2, #message3, #message4, #message5, #message6{
   font-size:2em;font-family: arial;font-weight: bold;z-index:100;}
 
-#message1{position:absolute; top:0;left:20%;color:#F5003C;}
-#message2{position:absolute; top:0; right:1%; color:#F5003C;}
-#message3{position:absolute; top:1%; right:3%; color:#F5003C;}
+#message1{position:absolute; top:0;left:21%;color:#F5003C;}
+#message2{position:absolute; top:0; right:3%; color:#F5003C;}
+#message3{position:absolute; top:1%; right:10%; color:#F5003C;}
 #message4{position:absolute; top:4%; left:2%; color:#F5003C;}
-#message5{position:absolute; top:2%; left:5%; color:#F5003C;}
+#message5{position:absolute; top:2%; left:10%; color:#F5003C;}
 #message6{position:absolute; top:8%; left:5%; color:#F5003C;}
 
 
@@ -122,16 +126,16 @@ body{background-color:#aaa;}
     
 .touteslespages{ padding-bottom: 9px;
   margin: 25px 0 20px;
-  border-top: 2px solid #FF9001;
-
-  border-bottom: 2px solid #F5003C;
+  border-top: 3px solid #FF9001;
+  border-bottom: 3px solid #F5003C;
   
     /*  JUST SHADOW BELOW RED LIGNE*/
-  -webkit-box-shadow: 0 8px 8px -3px #aaa;
-  -moz-box-shadow: 0 8px 6px -6px #aaa;
-  box-shadow: 0 8px 6px -6px #aaa;
+  -webkit-box-shadow: 0 8px 4px -4px #aaa, 0 -2px 4px #aaa;
+  -moz-box-shadow: 0 8px 6px -4px #aaa, 0 -2px 4px #aaa;
+  box-shadow: 0 8px 6px -4px #aaa, 0 -2px 4px #aaa;
 }
 
+/*box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;*/
 /*  JUST TWO LIGNES*/
   /*-webkit-box-shadow: 0 1px 0 #FF9001;
   -moz-box-shadow:  0 2px 0 #FF9001;
@@ -181,6 +185,13 @@ button.list-group-item:focus {
 /*.laddercol{min-height:233px;border-bottom:2px dotted #FF9001;}*/
 /*
   ===============================
+  CONTACT FORMS ERROR 
+  ===============================
+*/
+.error{color:#F5003C;/*red*/ font-weight:bold; font-style: italic;}
+  
+/*
+  ===============================
   WAVES STYLESLIDER IMAGES STYLE  
   ===============================
 */
@@ -219,14 +230,17 @@ button.list-group-item:focus {
   ===============================
 */
 @media (max-width: 1024px) {
+  .clientfeedback1{height:400px;}
   .clientfeedbackT {height:550px;}
-  .clientfeedbackList{height:440px;}
+  .clientfeedbackList{height:450px;}
+  .clientfeedbackV{height:430px;}
 }
 
 @media (max-width: 775px) {
      
-  
+  .contactPage{margin:30px 1px 0 0;}
  .clientfeedback{height:400px;}
+
   .clientfeedbackList,.clientfeedback1 {height:580px;}
   .clientfeedbackList{height:600px;}
   .clientfeedbackT {height:700px;}
@@ -244,6 +258,8 @@ button.list-group-item:focus {
 @media (max-width: 365px) {
 
   .clientfeedbackT {height:560px;}
+  clientfeedbackC{height:290px;}
+  .contactPage{margin:30px 1px 0 0;}
   }
 
   @media (max-width: 320px) {

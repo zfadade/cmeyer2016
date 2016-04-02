@@ -154,7 +154,7 @@ J’avais beaucoup d’appréhension, mais finalement tout s’est très bien d�
                     <li>Hôpital v&eacute;t&eacute;rinaire de l’Est</li>
                     <li>Hydro-Qu&eacute;bec</li> 
                     <li>Jean Coutu</li>
-                    <li>Marconnair</li>
+                    <li>Marconair</li>
                     <li>McCarthy-T&eacute;trault</li>
                     <li>Minist&egrave;re de la Culture et des Communications</li> 
                     <li>Olymel</li> 

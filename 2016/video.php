@@ -9,7 +9,7 @@ $language = setLanguage();
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - VIDEO</title>
+<title>CAROLE MEYER - <?php echo _("VIDEO"); ?></title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -129,7 +129,7 @@ $language = setLanguage();
 
 
       <div class='col-md-8 col-sm-8 col-xs-12'>
-        <h3 class='h333'><?php echo _("Video"); ?>s</h3>
+        <h3 class='h333'><?php echo _("Video"); ?></h3>
         <br>
         <div class='row movie embed-responsive embed-responsive-16by9'> 
         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hJ3Ar8t_ofc?rel=0" frameborder="0" allowfullscreen></iframe>
