@@ -1,6 +1,5 @@
 <?php
-// require_once("includes/config.php");
-require_once("includes/php_utils.php");
+require_once("../includes/php_utils.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo "Form submitted<p>";
@@ -54,7 +53,7 @@ function sendConsentRequestEmail($row) {
 
 MAIL_BODY_END;
 
-  $sujet = utf8_encode("Du nouveau à Carole Meyer Communication organisationnelle !");
+  $sujet = "Du nouveau à Carole Meyer Communication organisationnelle !";
   // $sujet = "Du nouveau &agrave; Carole Meyer Communication organisationnelle !";
 
   $headers = "From: " . $from . PHP_EOL .
@@ -62,7 +61,7 @@ MAIL_BODY_END;
             "Bcc: " . $bcc . PHP_EOL .
             "Content-Type: text/plain; charset=utf-8". PHP_EOL;
 
-  //echo "Sending mail to " . $to . "<p>Subjet: $sujet  <p>body:  " . htmlspecialchars($msgBody) . "<p>headers: $headers";
+  echo "Sending mail to " . $to . "<p>Subjet: $sujet  <p>body:  " . htmlspecialchars($msgBody) . "<p>headers: $headers";
 
   mail($to, $sujet, $msgBody, $headers);
 }

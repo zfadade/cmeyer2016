@@ -1,4 +1,4 @@
-F<?php
+<?php
 require_once("../includes/php_utils.php");
 
 // i18n:
@@ -108,7 +108,7 @@ $language = setLanguage();
       <div class='col-md-4 col-sm-4 col-xs-12 '>
         <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
         <div class='clientfeedback'>
-         <p><?php echo _("TemoignageService"); ?>
+         <p>"Madame Meyer, avec vos ateliers, j’ai vu toute une diff&eacute;rence ! Vous nous avez donn&eacute; une certaine confiance. Merci ! Vous savez bien r&eacute;pondre et  surtout vous vous ajustez aux besoins du client … et c’est tr&egrave;s tr&egrave;s rare!"
               </p>
                 <p class='client'>Suzanne</p>
         </div>

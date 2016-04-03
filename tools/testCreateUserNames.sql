@@ -11,6 +11,7 @@ CREATE TABLE `test_user_info` (
   `phone` varchar(100) DEFAULT NULL,
   `phone2` varchar(100) DEFAULT NULL,
   `consent` tinyint(1) DEFAULT NULL,
+  `consentSentDate` datetime DEFAULT NULL,
   `consentModDate` datetime DEFAULT NULL,
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -18,5 +19,8 @@ CREATE TABLE `test_user_info` (
 INSERT INTO `test_user_info` (`nom`, `prenom`, `courriel`, `company`)
 VALUES
   ('Zèbulah','Façaïde','zfadade@yahoo.com', 'ASDM Solutions, Inc'),
-  ('Demontes', 'Loôsa Andée', 'mdemontes@yahoo.com', 'EnfinWeb')
+  ('Demontes', 'Loôsa Andée', 'mdemontes@yahoo.com', 'EnfinWeb'),
+  ('Meyer', 'Carole', 'carole.mt.meyer@gmail.com', 'CMCO'),
+  ('Hernandez', 'Gustavo', 'gustavoh538@gmail.com', 'CMCO')
+
 

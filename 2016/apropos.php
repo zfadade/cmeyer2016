@@ -9,7 +9,7 @@ $language = setLanguage();
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - &Agrave; PROPOS DE NOUS</title>
+<title>CAROLE MEYER - <?php echo _("AproposDeNous"); ?> </title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Dancing Script">
@@ -98,7 +98,7 @@ $language = setLanguage();
   </div>
         
       <div class='col-md-4 col-sm-4 col-xs-12 '>
-        <h3 class='h333'>T&eacute;moignages</h3>
+        <h3 class='h333'><?php echo _("Temoignages"); ?></h3>
         <div class='clientfeedback'>
          <p >&quot;J’ai remarqué que l’absence de jugement et le soutien que tu offres pendant la réalisation des exercices ont vraiment contribué à me donner le courage
           de prendre ma place et de donner mon point de vue devant une centaine de personnes exigeantes  !&quot;

@@ -4,14 +4,17 @@ require_once("../includes/php_utils.php");
 // i18n:
 $language = setLanguage();
 
-// The form has been submitted. Dis "merci" ...
+// The form has been submitted. Update database, send confirmation email et dit 'merci'
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $oui_non = filter_input(INPUT_POST, 'oui_non', FILTER_SANITIZE_STRING);
     $saysYes = $oui_non == "oui" ? 1 : 0;
-    $clientEmail = defaultVal($_SESSION, "clientEmail", "");
+    $courriel = defaultVal($_SESSION, "clientEmail", "");
     $clientCode  = "xx";
   
-    updateConsent($clientEmail, $clientCode, $saysYes); 
+    updateConsentInDb($courriel, $clientCode, $saysYes); 
+
+    sendConfirmationEmail($courriel, $saysYes);
+
     if ($oui_non == "oui") {
       print "oui";
       header('Location: consentMerci.php');
@@ -24,8 +27,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
 }
 
+function sendConfirmationEmail($courriel, $saysYes) {
+  $to = $courriel;
+  $from = CONSENT_EMAIL_SENDER;
+  $bcc = CONSENT_EMAIL_SENDER;
+  $sujet = _("Confirmation demande de consentement");
 
-function updateConsent($courriel, $clientCode, $consent)  {
+  $merciOuRegret = $saysYes ? "vous remercie !" : "regrette de vous voir partir.";
+
+  $msgBody =  <<< MSG_END
+  Madame, Monsieur,   
+
+  Vous avez complété avec succès la "Demande de consentement - Loi anti-pourriel" de Carole Meyer Communication organisationnelle.
+
+  L’équipe de Carole Meyer Communication organisationnelle $merciOuRegret
+
+MSG_END;
+
+  $headers = "From: " . $from . PHP_EOL .
+            "Reply-To: " . $from . PHP_EOL .
+            "Bcc: " . $bcc . PHP_EOL .
+            "Content-Type: text/plain; charset=utf-8". PHP_EOL;
+
+  // echo "Sending mail to $to <p>Subjet: $sujet  <p>body: $msgBody <p>headers: $headers";
+
+  mail($to, $sujet, $msgBody, $headers);
+}
+
+
+function updateConsentInDb($courriel, $clientCode, $consent)  {
   try {
     global $db;
 
@@ -91,31 +121,29 @@ function updateConsent($courriel, $clientCode, $consent)  {
 
         <div class='col-md-12 col-sm-12 col-xs-12 pascadre'>
           <div class='row loipourriel'>
-      <p><h3 class='h33'>CMCO – CONSENTEMENT INFOLETTRES</h3></p>
-      <p class='slogan'>Loi anti-pourriel</p>
+      <p><h3 class='h33'>CMCO – <?php echo _("CONSENTEMENT INFOLETTRES"); ?></h3></p>
+      <p class='slogan'><?php echo _("Loi anti-pourriel"); ?></p>
         </div>
         
         <div class='row loipourriel'>
-        <p>J’accepte de recevoir les infolettres et autres informations
-         de Carole Meyer Communication organisationnelle.</p> 
+        <p><?php echo _("AccepteRecevoir"); ?></p> 
 
          <form name="OuiNonForm" method="post" accept-charset="UTF-8"
             action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> 
             <p>
             <div class="checkbox">
               <label class='active ouinon'>
-              <input type="radio" name="oui_non" value="oui"  checked="checked">&nbsp;Oui
-               </label>
+                <input type="radio" name="oui_non" value="oui" checked="checked">&nbsp;<?php echo _("Oui"); ?>
+              </label>
            
               <label>
-              <input type="radio" name="oui_non" value="non"> &nbsp;Non
-               
+                <input type="radio" name="oui_non" value="non"> &nbsp;<?php echo _("Non"); ?>
               </label>
           </div> </p>
            <br> 
          
 
-          <button type="submit" class="btn btn-default">Envoyez</button> 
+          <button type="submit" class="btn btn-default"><?php echo _("Envoyez"); ?>
   
   </form>
       </div>

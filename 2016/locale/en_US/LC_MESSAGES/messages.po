@@ -36,6 +36,7 @@ msgstr "List of Organizations"
 #: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:12
 #: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:69
 #: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:110
+#: /Library/WebServer/Documents/cmeyer2016/2016/apropos.php:101
 msgid "Temoignages"
 msgstr "Testimonials"
 
@@ -71,6 +72,7 @@ msgstr "Useful Links"
 #: /Library/WebServer/Documents/cmeyer2016/2016/services.php:83
 #: /Library/WebServer/Documents/cmeyer2016/2016/apropos.php:121
 #: /Library/WebServer/Documents/cmeyer2016/2016/services.php:85
+#: /Library/WebServer/Documents/cmeyer2016/2016/apropos.php:12
 msgid "AproposDeNous"
 msgstr "About Us"
 
@@ -87,16 +89,6 @@ msgid "SubSlogan"
 msgstr ""
 "Effective communication. Emotionally smart conversation. Inspiring "
 "leadership."
-
-#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:120
-#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:119
-#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:111
-msgid "TemoignageService"
-msgstr ""
-"Mrs. Meyer, I saw a huge difference with your workshops!  You have given us "
-"a lot of confidence.  Thank you!  You answered all our questions, and what I "
-"especially liked is how you were able to understand our needs, and adjusted "
-"the class accordingly."
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:125
 #: /Library/WebServer/Documents/cmeyer2016/2016/services.php:124
@@ -150,30 +142,34 @@ msgstr "Email"
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:11
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:13
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:20
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:145
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:144
 msgid "Envoyez"
 msgstr "Submit"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:147
 #: /Library/WebServer/Documents/cmeyer2016/2016/services.php:146
 #: /Library/WebServer/Documents/cmeyer2016/2016/services.php:128
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:130
 msgid "NosServices"
 msgstr "Our Services"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:153
 #: /Library/WebServer/Documents/cmeyer2016/2016/services.php:152
 #: /Library/WebServer/Documents/cmeyer2016/2016/services.php:134
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:136
 msgid "ServicePage"
 msgstr ""
 "The image of excellence of your company is fading? You want to increase "
-"productivity and reduce operational costs ? We offer training in the form of "
-"innovative workshops based on an efficient communication , an emotionally "
+"productivity and reduce operational costs? We offer training in the form of "
+"innovative workshops based on an efficient communication, an emotionally "
 "intelligent dialogue and inspirational leadership to meet your needs "
-"competitiveness. Efficient organizational communication generates "
+"competitiveness.  Efficient organizational communication generates "
 "qualitative and quantitative benefits. Easy to fit into your daily "
 "activities, our tailored workshops provide a balance between strategy and "
-"tactics , principles and explanations set immediately transferable practices "
-"allowing you to meet the business challenges in your organization. business "
-"leaders , the value of your company will make a leap forward."
+"tactics, principles and explanations set immediately transferable practices "
+"allowing you to meet the business challenges in your organization.  Business "
+"leaders, the value of your company will make a leap forward."
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/services.php:90
 msgid "Anglais"
@@ -182,6 +178,9 @@ msgstr "English"
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:17
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:8
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:13
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:99
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:128
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:127
 msgid "AccepteRecevoir"
 msgstr "I agree to receive newsletters and other communications from CMCO"
 
@@ -193,19 +192,20 @@ msgstr "I agree to receive newsletters and other communications from CMCO"
 msgid "NomRequired"
 msgstr "Last name required"
 
-#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:18
-msgid "willTHisWork"
-msgstr ""
-
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:9
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:11
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:14
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:106
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:135
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:134
 msgid "Oui"
 msgstr "Yes"
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:10
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:12
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:15
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:139
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:138
 msgid "Non"
 msgstr "No"
 
@@ -276,6 +276,7 @@ msgstr "Video"
 #: /Library/WebServer/Documents/cmeyer2016/2016/media.php:118
 #: /Library/WebServer/Documents/cmeyer2016/2016/temoignages.php:123
 #: /Library/WebServer/Documents/cmeyer2016/2016/video.php:122
+#: /Library/WebServer/Documents/cmeyer2016/2016/services.php:120
 msgid "PourEtreContacte"
 msgstr "To be contacted by a member of our team"
 
@@ -361,4 +362,48 @@ msgstr "What people think about us"
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/video.php:12
 msgid "VIDEO"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:12
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:6
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:12
+msgid "MERCI"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:37
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:31
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:37
+msgid "Confirmation de refus du consentement"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:38
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:32
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:38
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:95
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:124
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:123
+msgid "Loi anti-pourriel"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:42
+msgid "ConsentementCompleteOui"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:36
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:42
+msgid "ConsentementCompleteNon"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:37
+msgid "Confirmation de demande de consentement"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:94
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:123
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:122
+msgid "CONSENTEMENT INFOLETTRES"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:34
+msgid "Confirmation demande de consentement"
 msgstr ""

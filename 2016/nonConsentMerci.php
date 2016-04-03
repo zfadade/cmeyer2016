@@ -1,9 +1,15 @@
 
-<!DOCTYPE html>
+<<?php
+require_once("../includes/php_utils.php");
+
+// i18n:
+$language = setLanguage();
+?>
+!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>CAROLE MEYER - MERCI</title>
+<title>CAROLE MEYER - <?php echo _("MERCI"); ?></title>
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -28,15 +34,12 @@
 
         <div class='col-md-12 col-sm-12 col-xs-12 pascadre'>
           <div class='row loipourriel'>
-      <p><h3 class='h33'>CMCO – Confirmation de refus du consentement</h3></p>
-      <p class='slogan'>Loi anti-pourriel</p>
+      <p><h3 class='h33'>CMCO – <?php echo _("Confirmation de refus du consentement"); ?></h3></p>
+      <p class='slogan'><?php echo _("Loi anti-pourriel"); ?></p>
         </div>
         
         <div class='row loipourriel'>
-        <p>Vous avez complété avec succès la "Demande de consentement - Loi anti-pourriel" </p>
-        <p>de Carole Meyer Communication organisationnelle.</p>
-<p>L’équipe de Carole Meyer Communication organisationnelle vous remercie !</p>
-</p> 
+        <p><?php echo _("ConsentementCompleteNon"); ?> </p>
        </div> 
       
       </div>

@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 echo  <<< NAME_PRENOM_END
     <form method='post' action="$thisUrl" accept-charset="UTF-8">
-    <h3>$formTitle:</h3>
+    <h3 class="h222">$formTitle:</h3>
 
       <div class="form-group">
         <label for="contact-name">* $nomLabel</label>

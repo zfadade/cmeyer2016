@@ -4,11 +4,11 @@ msgstr "Bienvenue"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:57
 msgid "Ateliers"
-msgstr "Ateliers"
+msgstr ""
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:59
 msgid "Consultations"
-msgstr "Consultations"
+msgstr ""
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:68
 msgid "ListeDesOrganisations"
@@ -17,7 +17,7 @@ msgstr "Liste des organisations"
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:70
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:118
 msgid "Temoignages"
-msgstr "Temoignages"
+msgstr ""
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:75
 msgid "Media"
@@ -29,7 +29,7 @@ msgstr "Vid&eacute;os"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:79
 msgid "Infolettres"
-msgstr "Infolettres"
+msgstr ""
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:81
 msgid "LiensUtiles"
@@ -41,7 +41,7 @@ msgstr "&Agrave; propos de nous"
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:91
 msgid "Anglais"
-msgstr "Anglais"
+msgstr ""
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:110
 msgid "Slogan"
@@ -51,14 +51,6 @@ msgstr "LEADERS, PRENEZ UNE LONGUEUR D'AVANCE !"
 msgid "SubSlogan"
 msgstr "Communication performante. Dialogue émotionnellement intelligent. Leadership inspirant."
 
-
-#: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:120
-msgid "TemoignageService"
-msgstr ""
-"Madame Meyer, avec vos ateliers, j’ai vu toute une diff&eacute;rence ! "
-"Vous nous avez donn&eacute; une certaine confiance. Merci ! "
-"Vous savez bien r&eacute;pondre et  surtout vous vous ajustez aux besoins du client … et c’est tr&egrave;s tr&egrave;s rare!"
-
 #: /kunden/homepages/1/d612672731/htdocs/2016/tool /services.php:125
 msgid "ContactezNous"
 msgstr "Contactez-nous"
@@ -66,7 +58,7 @@ msgstr "Contactez-nous"
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:127
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:128
 msgid "Nom"
-msgstr "Nom"
+msgstr ""
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:131
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:132
@@ -76,11 +68,11 @@ msgstr "Pr&eacute;nom"
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:135
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:136
 msgid "Courriel"
-msgstr "Courriel"
+msgstr ""
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:139
 msgid "Envoyez"
-msgstr "Envoyez"
+msgstr ""
 
 #: /kunden/homepages/1/d612672731/htdocs/2016/tools/services.php:147
 msgid "NosServices"
@@ -111,10 +103,6 @@ msgstr "J'accepte de recevoir les infolettres et autres informations de <b>Carol
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:32
 msgid "NomRequired"
 msgstr "Nom obligatoire"
-
-#: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:18
-msgid "willTHisWork"
-msgstr ""
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:9
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:11
@@ -169,7 +157,7 @@ msgstr "Vous gérez votre entreprise depuis plusieurs années et vous vous deman
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/contactForm.php:19
 msgid "Commentaire"
-msgstr "Commentaire"
+msgstr ""
 
 #: /Library/WebServer/Documents/cmeyer2016/2016/listclients.php:133
 msgid "OrgPriveEtPublique"
@@ -298,3 +286,35 @@ msgstr ""
 #: /Library/WebServer/Documents/cmeyer2016/2016/video.php:12
 msgid "VIDEO"
 msgstr "VID&Eacute;O"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:12
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:6
+msgid "MERCI"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:37
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:31
+msgid "Confirmation de refus du consentement"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:38
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:32
+msgid "Loi anti-pourriel"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:42
+msgid "ConsentementCompleteOui"
+msgstr "Vous avez complété avec succès la \"Demande de consentement - Loi anti-pourriel\" </p><p>de Carole Meyer Communication organisationnelle.</p> <p>L’équipe de Carole Meyer Communication organisationnelle vous remercie !</p>"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php:36
+msgid "ConsentementCompleteNon"
+msgstr "Vous avez complété avec succès la \"Demande de consentement - Loi anti-pourriel\" </p><p>de Carole Meyer Communication organisationnelle.</p> <p>L’équipe de Carole Meyer Communication organisationnelle regrette de vous voir partir.</p>"
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php:37
+msgid "Confirmation de demande de consentement"
+msgstr ""
+
+#: /Library/WebServer/Documents/cmeyer2016/2016/consentForm.php:94
+msgid "CONSENTEMENT INFOLETTRES"
+msgstr ""
+
