@@ -28,6 +28,10 @@ define("ENGLISH", "en");
 define("USE_DATABASE", $my_init_data['use_database'] === 'true' ? true : false);
 error_log("USE_DATABASE: " . USE_DATABASE);
 
+# Consent form and email
+define("CONSENT_USER_TABLE", $my_init_data['consent_user_info_table']);
+define("CONSENT_EMAIL_SENDER", $my_init_data['consent_email_sender']);
+
 # Slack
 define("USE_SLACK", $my_init_data['use_slack'] === 'true' ? true : false);
 
@@ -67,7 +71,6 @@ if (USE_DATABASE) {
          sprintf('mysql:host=%s;dbname=%s;charset=utf8', $my_init_data['cmeyer_db_host'], $my_init_data['cmeyer_db_name']),
                $my_init_data['cmeyer_db_username'],
                $my_init_data['cmeyer_db_password']);
-               //array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));   // <-- UTF-8 !
 
       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

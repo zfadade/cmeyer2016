@@ -29,10 +29,10 @@ function updateConsent($courriel, $clientCode, $consent)  {
   try {
     global $db;
 
-    $consentInfo = "consent for $courriel to $consent ($_SERVER[HTTP_HOST])";
+    $consentInfo = "consent for $courriel to $consent in table " . CONSENT_USER_TABLE . " ($_SERVER[HTTP_HOST])";
 
     // update consent info in database
-    $stmt = $db->prepare('UPDATE user_info SET consent = :consent, consentModDate = NOW() WHERE courriel = :courriel') ;
+    $stmt = $db->prepare("UPDATE " . CONSENT_USER_TABLE . " SET consent = :consent, consentModDate = NOW() WHERE courriel = :courriel");
     $retVal = $stmt->execute(array(
       ':courriel' => $courriel,
       ':consent' => $consent

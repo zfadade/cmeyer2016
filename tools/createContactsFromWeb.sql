@@ -1,5 +1,8 @@
 USE db619302666;
 
+-- 31991 is the test DB
+-- USE db620403199l;
+
 DROP TABLE IF EXISTS `contacts_from_web`;
 
 CREATE TABLE `contacts_from_web` (

@@ -1,8 +1,8 @@
 USE db619302666;
 
-DROP TABLE IF EXISTS `user_info`;
+DROP TABLE IF EXISTS `test_user_info`;
 
-CREATE TABLE `user_info` (
+CREATE TABLE `test_user_info` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(100) DEFAULT NULL,
   `prenom` varchar(100) DEFAULT NULL,
@@ -15,8 +15,8 @@ CREATE TABLE `user_info` (
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user_info` (`nom`, `prenom`, `courriel`, `company`)
+INSERT INTO `test_user_info` (`nom`, `prenom`, `courriel`, `company`)
 VALUES
   ('Zèbulah','Façaïde','zfadade@yahoo.com', 'ASDM Solutions, Inc'),
-  ('Zinner', 'Abélard', 'zfadade@ygmail.com', 'EnfinWeb')
+  ('Demontes', 'Loôsa Andée', 'mdemontes@yahoo.com', 'EnfinWeb')
 

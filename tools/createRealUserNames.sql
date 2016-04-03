@@ -1,3 +1,4 @@
+; This is the REAL table.  Be careful !
 USE db619302666;
 
 DROP TABLE IF EXISTS `user_info`;
