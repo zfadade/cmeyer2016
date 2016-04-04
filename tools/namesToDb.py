@@ -23,25 +23,28 @@ import codecs
 
 # cnx.close()
 
-insertIntoStr = r'INSERT INTO `user_info` (`courriel`) '
-#insertIntoStr = r'INSERT INTO `user_info` (`nom`, `prenom`, `courriel`, `company`) '
+#inFile='CMCO_convertedCusts.csv'
+inFile='CMCO_newsletter_DB_utf.csv'
+outFile='CMCO_clients2.sql'
+#insertIntoStr = r'INSERT INTO `user_info` (`courriel`) '
+insertIntoStr = r'INSERT INTO `user_info` (`nom`, `prenom`, `courriel`, `company`) '
 #print (insertIntoStr)
 
 # Open .sql file for writing
-with open('CMCO_clients.sql', 'w') as sqlFile:
+with open(outFile, 'w') as sqlFile:
     sqlFile.write(insertIntoStr)
     sqlFile.write('\nVALUES\n')
 
     # Open .csv file for reading
-    #with io.open('CMCO_newsletter_DB.csv', 'rb', encoding='utf8') as csvFile:
-    with open('CMCO_newsletter_DB.csv', 'rb') as csvFile:
+    #with io.open(inFile, 'rb', encoding='utf8') as csvFile:
+    with open(inFile, 'rb') as csvFile:
         reader = csv.reader(csvFile)
         # Skip the .csv header
         next(reader, None)
 
         # Read each row from .csv and write into .sql
         for row in reader:
-            formattedRow = "('%s'),\n" % (row[2])
-            #formattedRow = "('%s', '%s', '%s', '%s'),\n" % (row[0], row[1], row[2], row[5])
+            #formattedRow = "('%s'),\n" % (row[2])
+            formattedRow = "('%s', '%s', '%s', '%s'),\n" % (row[0], row[1], row[2], row[5])
             print formattedRow
             sqlFile.write(formattedRow)

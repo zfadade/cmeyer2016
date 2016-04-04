@@ -19,8 +19,5 @@ CREATE TABLE `test_user_info` (
 INSERT INTO `test_user_info` (`nom`, `prenom`, `courriel`, `company`)
 VALUES
   ('Zèbulah','Façaïde','zfadade@yahoo.com', 'ASDM Solutions, Inc'),
-  ('Demontes', 'Loôsa Andée', 'mdemontes@yahoo.com', 'EnfinWeb'),
-  ('Meyer', 'Carole', 'carole.mt.meyer@gmail.com', 'CMCO'),
-  ('Hernandez', 'Gustavo', 'gustavoh538@gmail.com', 'CMCO')
-
+  ('Demontes', 'Loôsa Andée', 'mdemontes@yahoo.com', 'EnfinWeb')
 
