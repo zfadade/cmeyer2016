@@ -1,0 +1,808 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"a",
+				"a	<a>"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "2016/navInclude.php",
+			"settings":
+			{
+				"buffer_size": 4293,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\ninclude_once('config.php');\ninclude_once('../2016/vendor/autoload.php');\n\n// For now, set the locale every time.  May get smarter later\nfunction setLanguage() {\n	$defaultLang = \"fr_FR\";\n\n	$language = defaultVal($_SESSION, \"language\", $defaultLang);\n\n	if (isset($_GET[\"lang\"]))\n	{\n	    $lang = filter_input(INPUT_GET, 'lang', FILTER_SANITIZE_STRING);\n	    if (strpos($lang, \"en\") === 0) {\n	        $language = \"en_US\";\n	    }\n	    else {\n	    	$language = $defaultLang;\n	    }\n	}\n\n	putenv(\"LANG=\" . $language);\n	setlocale(LC_ALL, $language);\n	//echo \"Setting language to \" . $language;\n\n	// Set the text domain as \"messages\"\n	$domain = \"messages\";\n	bindtextdomain($domain, \"locale\");\n\n	//bind_textdomain_codeset($domain, 'UTF-8');\n	textdomain($domain);\n\n	// Just return fr or en\n	return substr($language, 0, 2) === \"en\" ? ENGLISH : FRENCH;\n}\n\n\n// This is needed to call a function from a Heredoc\n$hereFunc = function($fn) {\n	return $fn;\n};\n\n\nfunction defaultVal($array, $key, $default) {\n    return isset($array[$key]) ? $array[$key] : $default;\n}\n\n// Is this needed?  Or is filter_input() sufficient ?\nfunction cleanInput($input_array, $var, $filter_type) {\n	$data = filter_input(INPUT_POST, $var, $filter_type);\n\n  // Handle accents\n	return htmlspecialchars($data, ENT_NOQUOTES, 'UTF-8');\n}\n\n// a href=\"temoignages.php\">\nfunction getAnchorElemForPage($href, $lang, $linkText) {\n	$langForUrl = $lang == ENGLISH ? \"en\" : \"fr\";\n	//return \"<a href=$href?lang=$langForUrl . \">\" . $langName . $stuffBeforeAnchorEnds .  \"</a>\";\n	$anchorTag = <<<END\n		<a href=\"$href\"?lang=$langForUrl>$linkText</a>\nEND;\n	return $anchorTag;\n}\n\n\nfunction getUrlForOtherLang($lang, $stuffBeforeAnchorEnds ) {\n	if ($lang == ENGLISH) {\n		$langForUrl = \"fr\";\n		$langName = \"Fran&ccedil;ais\";\n	}\n	else {\n		$langForUrl = \"en\";\n		$langName = \"English\";\n	}\n\n	return \"<a href=\"  . full_path()  . \"?lang=\" . $langForUrl . \">\" . $langName . $stuffBeforeAnchorEnds .  \"</a>\";\n}\n\n// http://stackoverflow.com/questions/6768793/get-the-full-url-in-php\nfunction full_path()\n{\n    $s = &$_SERVER;\n    $ssl = (!empty($s['HTTPS']) && $s['HTTPS'] == 'on') ? true:false;\n    $sp = strtolower($s['SERVER_PROTOCOL']);\n    $protocol = substr($sp, 0, strpos($sp, '/')) . (($ssl) ? 's' : '');\n    $port = $s['SERVER_PORT'];\n    $port = ((!$ssl && $port=='80') || ($ssl && $port=='443')) ? '' : ':'.$port;\n    $host = isset($s['HTTP_X_FORWARDED_HOST']) ? $s['HTTP_X_FORWARDED_HOST'] : (isset($s['HTTP_HOST']) ? $s['HTTP_HOST'] : null);\n    $host = isset($host) ? $host : $s['SERVER_NAME'] . $port;\n    $uri = $protocol . '://' . $host . $s['REQUEST_URI'];\n    $segments = explode('?', $uri, 2);\n    $url = $segments[0];\n    return $url;\n}\n\nfunction sendToSlack($url, $msg) {\n    // Instantiate with defaults, so all messages created\n    // will be sent from 'Cyril' and to the #accounting channel\n    // by default. Any names like @regan or #channel will also be linked.\n    // $settings = [\n    //         'username' => 'Cyril',\n    //          'channel' => '#accounting',\n    //           'link_names' => true\n    //   ];\n\n	if (USE_SLACK) {\n	    try {\n			    // Instantiate without defaults\n			    $client = new Maknz\\Slack\\Client($url);\n			    $client->send($msg);\n		}\n	    catch (Exception $e) {\n			// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'\n			$errMsg = \"ERROR! Unable to send to Slack.  Msg: $msg  Exception: \" .  $e->getMessage();\n			error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);\n		}\n	}\n}\n\nfunction insertContact($nom, $prenom, $courriel, $commentaire, $consent, $webPage, $lang, $contactInfo)  {\n\n	$contactInfoWithCommentaire = \"$contactInfo \\\"$commentaire\\\"\";\n	$slackMsg = \"Nouveau contact: $contactInfoWithCommentaire\";\n	sendToSlack(SLACK_TESTING_URL, htmlspecialchars_decode($slackMsg));\n\n	if (USE_DATABASE) {\n		try {\n			global $db;\n\n			$stmt = $db->prepare(\"INSERT INTO contacts_from_web (nom,prenom,courriel,commentaire,consent,webPage,lang,insertDate) VALUES (:nom, :prenom, :courriel, :commentaire, :consent, :webPage, :lang, now())\");\n\n			$stmt->bindParam(':nom', $nom);\n			$stmt->bindParam(':prenom', $prenom);\n			$stmt->bindParam(':courriel', $courriel);	\n			$stmt->bindParam(':commentaire', $commentaire);	\n			$stmt->bindParam(':consent', $consent);\n			$stmt->bindParam(':webPage', $webPage);\n			$stmt->bindParam(':lang', $lang);\n\n\n			$stmt->execute();\n\n			if ($stmt->rowCount() <= 0) {\n				$errMsg = \"ERROR! Unable to add to DB: $contactInfoWithCommentaire\";\n				error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);\n\n				sendToSlack(SLACK_TESTING_URL, $errMsg);\n	      		//sendToSlack(SLACK_CONSENT_URL, $errMsg);\n			}\n		}\n		catch (PDOException $e) {\n			// QLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abc@xyz.com' for key 'courriel'\n			$errMsg = \"ERROR! DB exception when adding: $contactInfoWithCommentaire. Exception: \" .  $e->getMessage();\n			error_log($errMsg, 1, ERROR_EMAIL_RECIPIENT);\n		    sendToSlack(SLACK_TESTING_URL, $errMsg);\n		}\n	}\n}\n\n?>\n",
+			"file": "includes/php_utils.php",
+			"file_size": 5069,
+			"file_write_time": 131042657380000000,
+			"settings":
+			{
+				"buffer_size": 5007,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "2016/contactForm.php",
+			"settings":
+			{
+				"buffer_size": 5976,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "brow",
+		"selected_items":
+		[
+			[
+				"brow",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdown",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"disa le",
+				"Package Control: Disable Package"
+			],
+			[
+				"",
+				"ANF: Copy Current File"
+			],
+			[
+				"build",
+				"Build: Build"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove p",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"mar",
+				"Set Syntax: MultiMarkdown"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"sublime.version()",
+			"import os",
+			"version",
+			"pwd",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Library/WebServer/Documents/cmeyer2016",
+		"/Library/WebServer/Documents/cmeyer2016/2016",
+		"/Library/WebServer/Documents/cmeyer2016/2016/locale",
+		"/Library/WebServer/Documents/cmeyer2016/2016/locale/en_US",
+		"/Library/WebServer/Documents/cmeyer2016/2016/locale/en_US/LC_MESSAGES",
+		"/Library/WebServer/Documents/cmeyer2016/2016/locale/fr_FR",
+		"/Library/WebServer/Documents/cmeyer2016/2016/locale/fr_FR/LC_MESSAGES",
+		"/Library/WebServer/Documents/cmeyer2016/includes",
+		"/Library/WebServer/Documents/cmeyer2016/tools"
+	],
+	"file_history":
+	[
+		"/Library/WebServer/Documents/cmeyer2016/2016/services.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/consentForm.php",
+		"/Library/WebServer/Documents/cmeyer2016/sendConsentMail.php",
+		"/Library/WebServer/Documents/cmeyer2016/tools/testCreateUserNames.sql",
+		"/Library/WebServer/Documents/cmeyer2016/2016/contactForm.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/nonConsentMerci.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/locale/en_US/LC_MESSAGES/messages.po",
+		"/Library/WebServer/Documents/cmeyer2016/2016/locale/fr_FR/LC_MESSAGES/messages.po",
+		"/Library/WebServer/Documents/cmeyer2016/2016/consentMerci.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/apropos.php",
+		"/Library/WebServer/Documents/cmeyer2016/includes/config.php",
+		"/Library/WebServer/Documents/cmeyer2016/includes/data.ini",
+		"/Library/WebServer/Documents/cmeyer2016/tools/sendConsentMail.php",
+		"/Library/WebServer/Documents/cmeyer2016/includes/php_utils.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/video.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/temoignages.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/ateliers.php",
+		"/Library/WebServer/Documents/cmeyer2016/createContactsFromWeb.sql",
+		"/Library/WebServer/Documents/cmeyer2016/2016/js/moretext.js",
+		"/Library/WebServer/Documents/cmeyer2016/2016/consultations.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/clients.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/media.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/index.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/infolettre.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/lien.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/listclients.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/contact.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/slider_images.html",
+		"/Library/WebServer/Documents/cmeyer2016/2016/slogan.php",
+		"/Users/enfinds/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Library/WebServer/Documents/cmeyer2016/includes/1and1data.ini",
+		"/Library/WebServer/Documents/cmeyer2016/includes/zfadadeData.ini",
+		"/Library/WebServer/Documents/cmeyer2016/2016/utf8Test.php",
+		"/Library/WebServer/Documents/cmeyer2016/tools/createUtf8Table.sql",
+		"/Library/WebServer/Documents/cmeyer2016/utf8Test.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/footer.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/includes/dbUtils.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/consentDB.php",
+		"/Library/WebServer/Documents/cmeyer2016/includes/dbUtils.php",
+		"/Library/WebServer/Documents/cmeyer2016/tools/shortCreateDbTables.sql",
+		"/Library/WebServer/Documents/cmeyer2016/tools/createDbTables.sql",
+		"/Library/WebServer/Documents/cmeyer2016/tools/createContactsFromWeb.sql",
+		"/Library/WebServer/Documents/cmeyer2016/2016/tags",
+		"/Library/WebServer/Documents/cmeyer2016/2016/makeContactForm.php",
+		"/Library/WebServer/Documents/cmeyer2016/2016/somePage.php",
+		"/Library/WebServer/Documents/cmeyer2016/data.ini",
+		"/Users/enfinds/Documents/Tech/TechNotes/Slack.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Python.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Linux.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/MySql.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/PHP.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Mac.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Internalization.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Brew.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Vim.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Scheme.txt",
+		"/Users/enfinds/Library/Application Support/Sublime Text 3/Packages/CTags/CTags.sublime-settings",
+		"/Users/enfinds/Documents/Tech/TechNotes/SublimeText.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/TinyMce.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/junk.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/JavaScript.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/PackageManagers.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/HTML.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/JQuery.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Bootstrap.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/mailProb.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/MEAN.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Homebrew.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/LAMP_WAMP.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/wordpress.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/installCaroleMeyer.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/REST.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/PHPsnippets.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Git.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Regex.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Expedia/BuildProcess",
+		"/Users/enfinds/Documents/Tech/TechNotes/HTML_Bootstrap.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/class.password,php",
+		"/Users/enfinds/Documents/Tech/TechNotes/PHP_JavaScript.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/JavaScript.txy",
+		"/Users/enfinds/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/Library/WebServer/Documents/blog/junk.html",
+		"/Library/WebServer/Documents/blog/funcs.php",
+		"/Library/WebServer/Documents/blog/index.php",
+		"/Users/enfinds/Library/Application Support/Sublime Text 2/Packages/User/builds/HP-Lint.sublime-build",
+		"/Users/enfinds/Library/Application Support/Sublime Text 2/Packages/User/builds/untitled.sublime-build",
+		"/Users/enfinds/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/enfinds/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Library/WebServer/Documents/blog/classes/class.user.php",
+		"/Library/WebServer/Documents/blog/classes/class.password.php",
+		"/Users/enfinds/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/enfinds/git/simple-blog-part-1-build/README.md",
+		"/Users/enfinds/Documents/Tech/TechNotes/Github.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/ATOM.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Odds and Ends.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/Package Managers",
+		"/Users/enfinds/Documents/Tech/TechNotes/JoseAnnunziatoVideos.txt",
+		"/Users/enfinds/Documents/Tech/TechNotes/REST.tt",
+		"/Users/enfinds/junk",
+		"/Users/enfinds/Documents/Tech/TechNotes/New Technologies",
+		"/Users/enfinds/Library/Application Support/Sublime Text 2/Packages/Github.txt",
+		"/Users/enfinds/Documents/phpProjects/MyFirstPhp"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"contactTag",
+			"getUrlForPage",
+			"href",
+			"Sending mail to",
+			"Dending mail to",
+			"ConsentementCompleteNon",
+			"thiswork",
+			"user_info",
+			"<form",
+			"thisUrl",
+			"video",
+			"moins",
+			"gnag",
+			"moins",
+			"ImageDaffairesQueVousLeaders",
+			"LireLaSuite ",
+			"OBTENIR DES RESULTATS",
+			"LireLa",
+			"LireLaSuite",
+			"IMAGE_POS",
+			"OBTENIR DES",
+			"OBTENIR",
+			"RS",
+			"LireLaSuite",
+			"NosAtel",
+			"ATELIER",
+			"NOUVEAU",
+			"Nos Ateliers",
+			"Lire la suite",
+			"Lire",
+			"Hommes et",
+			"formTitle117G",
+			"formTitle",
+			"PourEtre",
+			"$commentaireLabel",
+			"english",
+			"anglas",
+			"anglais",
+			"propos de",
+			"Liens util",
+			"Leaders",
+			"moignages",
+			"moignames",
+			"1",
+			"favorize",
+			"Contactez",
+			"contactForm",
+			"<fjorm",
+			"Contactez-",
+			"Commentaire",
+			"contactInfoWithCommentaire",
+			"zfadade",
+			"htmlspecialchars_decode",
+			"$consentInfo",
+			"$contactInfo",
+			"$clientEmail",
+			"');",
+			"sendToSlack",
+			"slack",
+			"marie@cgi-pco.com",
+			"No errors ",
+			"<form",
+			"webpage",
+			"$thisPage",
+			"replace",
+			"clean_input",
+			"include",
+			"<form",
+			"Envoyez",
+			"consentModDate",
+			"form",
+			"John",
+			"thankyouName",
+			"Contactez",
+			"courrielErr",
+			"Contacte",
+			"consent",
+			"Contacte",
+			"form",
+			"Contactez",
+			" SHOW VARIABLES LIKE 'character_set%';\n+--------------------------+--------------------------------------------------------+\n| Variable_name            | Value                                                  |\n+--------------------------+--------------------------------------------------------+\n| character_set_client     | utf8                                                   |\n| character_set_connection | utf8                                                   |\n| character_set_database   | latin1                                                 |\n| character_set_filesystem | binary                                                 |\n| character_set_results    | utf8                                                   |\n| character_set_server     | latin1                                                 |\n| character_set_system     | utf8                                                   |\n| character_sets_dir       | /usr/local/mysql-5.7.10-osx10.9-x86_64/share/charsets",
+			"locate",
+			"fold",
+			"book",
+			"toggle",
+			"comment",
+			"def",
+			"comment",
+			"Omin",
+			"omin",
+			"div",
+			"window",
+			"ctag",
+			"match",
+			"paste",
+			"cat",
+			"ctag",
+			"definition",
+			"join",
+			"line",
+			"delete",
+			"file",
+			"here",
+			"last e",
+			"ssh",
+			"scp",
+			"array",
+			"implode",
+			"autoload",
+			"log",
+			"logg",
+			"pdo",
+			"config",
+			"wget",
+			"dig",
+			"find",
+			"ob",
+			"ctag",
+			"find",
+			"must",
+			"session",
+			"vintage",
+			"  ",
+			"alt+shift",
+			"ctrl",
+			"Javascript",
+			"JavaScript",
+			"Javascript"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"getAnchorElemForPage",
+			"Lire la suite",
+			"<?php echo _(\"LireLaSuite\"); ?>",
+			"<?php echo _(\"LireLaSuite); ?>",
+			"$contactInfo",
+			"$consentInfo",
+			"$courriel",
+			"webPage",
+			"$thisUrl"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "2016/navInclude.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4293,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2553,
+								2553
+							]
+						],
+						"settings":
+						{
+							"function_name_status_row": 61,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 649.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "includes/php_utils.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5007,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1337,
+								1357
+							]
+						],
+						"settings":
+						{
+							"function_name_status_row": 56,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 215.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "2016/contactForm.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5976,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								48,
+								0
+							]
+						],
+						"settings":
+						{
+							"function_name_status_row": 0,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "cmeyer16.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"contact",
+				"2016/contactForm.php"
+			],
+			[
+				"ser",
+				"2016/services.php"
+			],
+			[
+				"serv",
+				"2016/services.php"
+			],
+			[
+				"test",
+				"tools/testCreateUserNames.sql"
+			],
+			[
+				"contactf",
+				"2016/contactForm.php"
+			],
+			[
+				"consen",
+				"2016/nonConsentMerci.php"
+			],
+			[
+				"non",
+				"2016/nonConsentMerci.php"
+			],
+			[
+				"consentform",
+				"2016/consentForm.php"
+			],
+			[
+				"apr",
+				"2016/apropos.php"
+			],
+			[
+				"consentf",
+				"2016/consentForm.php"
+			],
+			[
+				"config",
+				"includes/config.php"
+			],
+			[
+				"consent",
+				"2016/consentForm.php"
+			],
+			[
+				"send",
+				"sendConsentMail.php"
+			],
+			[
+				"video",
+				"2016/video.php"
+			],
+			[
+				"create",
+				"createContactsFromWeb.sql"
+			],
+			[
+				"atelie",
+				"2016/ateliers.php"
+			],
+			[
+				"temoig",
+				"2016/temoignages.php"
+			],
+			[
+				"config.php",
+				"includes/config.php"
+			],
+			[
+				"consu",
+				"2016/consultations.php"
+			],
+			[
+				"servi",
+				"2016/services.php"
+			],
+			[
+				"ateli",
+				"2016/ateliers.php"
+			],
+			[
+				"sendc",
+				"tools/sendConsentMail.php"
+			],
+			[
+				"data.ini",
+				"includes/data.ini"
+			],
+			[
+				"php_u",
+				"includes/php_utils.php"
+			],
+			[
+				"php",
+				"includes/php_utils.php"
+			],
+			[
+				"cosent",
+				"2016/consentForm.php"
+			],
+			[
+				"clients",
+				"2016/clients.php"
+			],
+			[
+				"media",
+				"2016/media.php"
+			],
+			[
+				"services",
+				"2016/services.php"
+			],
+			[
+				"con",
+				"2016/consultations.php"
+			],
+			[
+				"consult",
+				"2016/consultations.php"
+			],
+			[
+				"atelier",
+				"2016/ateliers.php"
+			],
+			[
+				"index",
+				"2016/index.php"
+			],
+			[
+				"contact.php",
+				"2016/contact.php"
+			],
+			[
+				"services.php",
+				"2016/services.php"
+			],
+			[
+				"apro",
+				"2016/apropos.php"
+			],
+			[
+				"lien.php",
+				"2016/lien.php"
+			],
+			[
+				"clients.ph",
+				"2016/clients.php"
+			],
+			[
+				"list",
+				"2016/listclients.php"
+			],
+			[
+				"index.php",
+				"2016/index.php"
+			],
+			[
+				"conta",
+				"2016/contact.php"
+			],
+			[
+				"slogan",
+				"2016/slogan.php"
+			],
+			[
+				"servic",
+				"2016/services.php"
+			],
+			[
+				"service",
+				"2016/services.php"
+			],
+			[
+				"data.",
+				"includes/data.ini"
+			],
+			[
+				"php_utils",
+				"includes/php_utils.php"
+			],
+			[
+				"contactform",
+				"2016/contactForm.php"
+			],
+			[
+				"php_",
+				"includes/php_utils.php"
+			],
+			[
+				"cre",
+				"createContactsFromWeb.sql"
+			],
+			[
+				"dbu",
+				"2016/includes/dbUtils.php"
+			],
+			[
+				"short",
+				"tools/shortCreateDbTables.sql"
+			],
+			[
+				"mac",
+				"Mac.txt"
+			],
+			[
+				"",
+				"LAMP_WAMP.txt"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/Tech/TechNotes/techNotes.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 448.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

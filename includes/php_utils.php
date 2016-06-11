@@ -53,6 +53,17 @@ function cleanInput($input_array, $var, $filter_type) {
 	return htmlspecialchars($data, ENT_NOQUOTES, 'UTF-8');
 }
 
+// a href="temoignages.php">
+// <a href="temoignages.php"><?php echo _("Temoignages"); ?></a>
+function getUrlForPage($href, $lang, $linkText) {
+	$langForUrl = $lang == ENGLISH ? "en" : "fr";
+	return "<a href=$href?lang=$langForUrl . ">" . $langName . $stuffBeforeAnchorEnds .  "</a>";
+	$anchorTag <<<TAG_END
+		<a href="$href"?lang=$langForUrl>$linkText</a>
+TAG_END;
+	return $anchorTag;
+}
+
 
 function getUrlForOtherLang($lang, $stuffBeforeAnchorEnds ) {
 	if ($lang == ENGLISH) {
